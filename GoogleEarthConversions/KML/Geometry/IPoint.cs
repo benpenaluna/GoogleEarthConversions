@@ -1,4 +1,5 @@
 ﻿using GeoFunctions.Core.Coordinates;
+using GoogleEarthConversions.Core.Common;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
 {

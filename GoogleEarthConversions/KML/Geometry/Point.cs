@@ -20,9 +20,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             set 
             { 
                 _altitudeMode = value;
-
-                if (_altitudeMode == AltitudeMode.ClampToGround)
-                    _extrude = false;
+                AttachEventHandlers();
             }
         }
                 
@@ -32,11 +30,11 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             get { return _extrude; }
             set 
             {
-                if (value == false || (_altitudeMode != AltitudeMode.ClampToGround && _altitudeMode != AltitudeMode.ClampToSeaFloor))
+                if (value == false || (_altitudeMode.AltMode != AltMode.ClampToGround && _altitudeMode.AltMode != AltMode.ClampToSeaFloor))
                     _extrude = value;
                 else
                 {
-                    var message = string.Format("Property '{0}' cannot be set to true when '{1}' is set to {2}.", nameof(Extrude), nameof(AltitudeMode), nameof(AltitudeMode.ClampToGround));
+                    var message = string.Format("Property '{0}' cannot be set to true when '{1}' is set to {2}.", nameof(Extrude), nameof(AltitudeMode), nameof(AltMode.ClampToGround));
                     throw new InvalidOperationException(message);
                 }
                     
@@ -46,19 +44,26 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         public Point(string id)
         {
             InitialiseProperties(id, new GeographicCoordinate());
+            AttachEventHandlers();
         }
 
         public Point(string id, IGeographicCoordinate coordinate)
         {
             InitialiseProperties(id, coordinate);
+            AttachEventHandlers();
         }
 
         private void InitialiseProperties(string id, IGeographicCoordinate coordinate)
         {
             Id = id;
             Extrude = false;
-            AltitudeMode = AltitudeMode.ClampToGround;
+            AltitudeMode = new AltitudeMode();
             Coordinates = coordinate;
+        }
+
+        private void AttachEventHandlers()
+        {
+            AltitudeMode.AltMode_Changed += AltMode_OnChanged;
         }
 
         public override bool Equals(object obj)
@@ -85,7 +90,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 
             sw.Write(OpeningTag());
             sw.Write(ExtrudeKML());
-            sw.Write(AltitudeModeKML());
+            sw.Write(AltitudeMode.ConvertObjectToKML());
             sw.Write(CoorindatesKML());
             sw.Write(ClosingTag());
 
@@ -111,20 +116,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return string.Format("<{0}>1</{0}>", nameof(Extrude).ConvertFirstCharacterToLowerCase());
         }
 
-        private string AltitudeModeKML()
-        {
-            if (AltitudeMode == AltitudeMode.ClampToGround)
-                return "";
-
-            if (AltitudeMode == AltitudeMode.ClampToSeaFloor || AltitudeMode == AltitudeMode.RelativeToSeaFloor)
-                return string.Format("<gx:{0}>{1}</gx:{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
-                                                             AltitudeMode.ToString().ConvertFirstCharacterToLowerCase());
-
-
-            return string.Format("<{0}>{1}</{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
-                                                   AltitudeMode.ToString().ConvertFirstCharacterToLowerCase());
-        }
-
         private string CoorindatesKML()
         {
             return string.Format("<{0}>{1}</{0}>", nameof(Coordinates).ConvertFirstCharacterToLowerCase(),
@@ -134,6 +125,12 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         private string ClosingTag()
         {
             return string.Format("</{0}>", GetType().Name);
+        }
+
+        private void AltMode_OnChanged(object sender, EventArgs e)
+        {
+            if (AltitudeMode.AltMode == AltMode.ClampToGround || AltitudeMode.AltMode == AltMode.ClampToSeaFloor)
+                _extrude = false;
         }
     }
 }

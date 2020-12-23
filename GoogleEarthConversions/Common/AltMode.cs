@@ -1,6 +1,6 @@
-﻿namespace GoogleEarthConversions.Core.KML
+﻿namespace GoogleEarthConversions.Core.Common
 {
-    public enum AltitudeMode
+    public enum AltMode
     {
         ClampToGround,
         ClampToSeaFloor,
