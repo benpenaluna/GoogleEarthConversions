@@ -3,7 +3,9 @@
     public enum AltitudeMode
     {
         ClampToGround,
+        ClampToSeaFloor,
         RelativeToGround,
+        RelativeToSeaFloor,
         Absolute
     }
 }

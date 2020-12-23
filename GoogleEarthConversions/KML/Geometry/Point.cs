@@ -32,7 +32,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             get { return _extrude; }
             set 
             {
-                if (value == false || _altitudeMode != AltitudeMode.ClampToGround)
+                if (value == false || (_altitudeMode != AltitudeMode.ClampToGround && _altitudeMode != AltitudeMode.ClampToSeaFloor))
                     _extrude = value;
                 else
                 {
@@ -116,8 +116,13 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             if (AltitudeMode == AltitudeMode.ClampToGround)
                 return "";
 
+            if (AltitudeMode == AltitudeMode.ClampToSeaFloor || AltitudeMode == AltitudeMode.RelativeToSeaFloor)
+                return string.Format("<gx:{0}>{1}</gx:{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
+                                                             AltitudeMode.ToString().ConvertFirstCharacterToLowerCase());
+
+
             return string.Format("<{0}>{1}</{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
-                                                   AltitudeMode.ClampToGround.ToString().ConvertFirstCharacterToLowerCase());
+                                                   AltitudeMode.ToString().ConvertFirstCharacterToLowerCase());
         }
 
         private string CoorindatesKML()
