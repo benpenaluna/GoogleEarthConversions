@@ -1,4 +1,5 @@
 using GeoFunctions.Core.Coordinates;
+using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.KML;
 using GoogleEarthConversions.Core.KML.Geometry;
 using System;
@@ -71,6 +72,25 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
             sut.AltitudeMode = AltitudeMode.ClampToGround;
 
             var result = sut.Extrude;
+            Assert.Equal(expected, result);
+        }
+
+        [Theory]
+        [InlineData("Test", "<Point id=\"Test\"><extrude>1</extrude><altitudeMode>clampToGround</altitudeMode><coordinates>000.000000000000,00.0000000000000,119</coordinates></Point>")]
+        public void Point_CorrectlyConvertsToKML(string id, string expected)
+        {
+            var sut = new Point(id)
+            {
+                AltitudeMode = AltitudeMode.RelativeToGround,
+                Extrude = true,
+                Coordinates = new GeographicCoordinate()
+                {
+                    Elevation = new Distance(118.663, DistanceMeasurement.Meters)
+                }
+            };
+
+            var result = sut.ConvertObjectToKML();
+
             Assert.Equal(expected, result);
         }
     }

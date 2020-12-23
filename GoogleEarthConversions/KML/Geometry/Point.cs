@@ -1,14 +1,19 @@
 ﻿using GeoFunctions.Core.Coordinates;
+using GoogleEarthConversions.Core.Common;
 using System;
+using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
 {
     public class Point : Geometry, IPoint
     {
+        // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#point
+
         public IGeographicCoordinate Coordinates { get; set; }
 
         private AltitudeMode _altitudeMode;
-
         public AltitudeMode AltitudeMode
         {
             get { return _altitudeMode; }
@@ -22,7 +27,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         }
                 
         private bool _extrude;
-
         public bool Extrude
         {
             get { return _extrude; }
@@ -51,7 +55,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 
         private void InitialiseProperties(string id, IGeographicCoordinate coordinate)
         {
-            ID = id;
+            Id = id;
             Extrude = false;
             AltitudeMode = AltitudeMode.ClampToGround;
             Coordinates = coordinate;
@@ -64,7 +68,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 
         protected bool Equals(Point other)
         {
-            return Equals(ID, other.ID) && 
+            return Equals(Id, other.Id) && 
                    Equals(Coordinates, other.Coordinates) &&
                    Equals(Extrude, other.Extrude) && 
                    Equals(AltitudeMode, other.AltitudeMode);
@@ -73,6 +77,58 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ConvertObjectToKML()
+        {
+            StringWriter sw = new StringWriter();
+
+            sw.Write(OpeningTag());
+            sw.Write(ExtrudeKML());
+            sw.Write(AltitudeModeKML());
+            sw.Write(CoorindatesKML());
+            sw.Write(ClosingTag());
+
+            if (Debugger.IsAttached)
+            {
+                Debug.Write(sw.ToString());
+                Debugger.Break();
+            }
+
+            return sw.ToString();
+        }
+
+        private string OpeningTag()
+        {
+            return string.Format("<{0} {1}=\"{2}\">", GetType().Name, nameof(Id).ConvertFirstCharacterToLowerCase(), Id);
+        }
+
+        private string ExtrudeKML()
+        {
+            if (Extrude == false)
+                return "";
+
+            return string.Format("<{0}>1</{0}>", nameof(Extrude).ConvertFirstCharacterToLowerCase());
+        }
+
+        private string AltitudeModeKML()
+        {
+            if (AltitudeMode == AltitudeMode.ClampToGround)
+                return "";
+
+            return string.Format("<{0}>{1}</{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
+                                                   AltitudeMode.ClampToGround.ToString().ConvertFirstCharacterToLowerCase());
+        }
+
+        private string CoorindatesKML()
+        {
+            return string.Format("<{0}>{1}</{0}>", nameof(Coordinates).ConvertFirstCharacterToLowerCase(),
+                                                   Coordinates.ToString("[lon:DDD.dddddddddddd],[lat:DD.ddddddddddddd],[ele:t]", CultureInfo.InvariantCulture));
+        }
+
+        private string ClosingTag()
+        {
+            return string.Format("</{0}>", GetType().Name);
         }
     }
 }
