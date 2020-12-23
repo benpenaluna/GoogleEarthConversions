@@ -13,8 +13,8 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 
         public IGeographicCoordinate Coordinates { get; set; }
 
-        private AltitudeMode _altitudeMode;
-        public AltitudeMode AltitudeMode
+        private IAltitudeMode _altitudeMode;
+        public IAltitudeMode AltitudeMode
         {
             get { return _altitudeMode; }
             set 
@@ -34,23 +34,24 @@ namespace GoogleEarthConversions.Core.KML.Geometry
                     _extrude = value;
                 else
                 {
-                    var message = string.Format("Property '{0}' cannot be set to true when '{1}' is set to {2}.", nameof(Extrude), nameof(AltitudeMode), nameof(AltMode.ClampToGround));
+                    var message = string.Format("Property '{0}' cannot be set to true when '{1}' is set to '{2}' or '{3}'.",
+                                                nameof(Extrude),
+                                                nameof(AltitudeMode.AltMode),
+                                                nameof(AltMode.ClampToGround),
+                                                nameof(AltMode.ClampToSeaFloor));
                     throw new InvalidOperationException(message);
                 }
-                    
             }
         }
 
         public Point(string id)
         {
             InitialiseProperties(id, new GeographicCoordinate());
-            AttachEventHandlers();
         }
 
         public Point(string id, IGeographicCoordinate coordinate)
         {
             InitialiseProperties(id, coordinate);
-            AttachEventHandlers();
         }
 
         private void InitialiseProperties(string id, IGeographicCoordinate coordinate)

@@ -7,7 +7,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
     {
         bool Extrude { get; set; }
 
-        AltitudeMode AltitudeMode { get; set; }
+        IAltitudeMode AltitudeMode { get; set; }
 
         IGeographicCoordinate Coordinates { get; set; }
     }
