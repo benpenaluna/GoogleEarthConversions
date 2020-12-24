@@ -30,7 +30,7 @@ namespace GoogleEarthConventions.Tests.Common
         [Theory]
         [InlineData(0, "")]
         [InlineData(200.417, "<gx:altitudeOffset>200.417</gx:altitudeOffset>")]
-        public void Tessellate_CorrectlyConvertsToKML(double value, string expected)
+        public void AltitudeOffset_CorrectlyConvertsToKML(double value, string expected)
         {
             var sut = new AltitudeOffset(value);
 
@@ -41,7 +41,7 @@ namespace GoogleEarthConventions.Tests.Common
 
         [Theory]
         [InlineData(328.084, "<gx:altitudeOffset>100.00000320000001</gx:altitudeOffset>")]
-        public void Tessellate_CorrectlyDisplaysMetersInKMLConversion(double value, string expected)
+        public void AltitudeOffset_CorrectlyDisplaysMetersInKMLConversion(double value, string expected)
         {
             IDistance distance = new Distance(value, DistanceMeasurement.Feet);
             var sut = new AltitudeOffset(distance);
