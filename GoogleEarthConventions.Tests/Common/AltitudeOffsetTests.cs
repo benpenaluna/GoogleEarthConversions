@@ -28,6 +28,7 @@ namespace GoogleEarthConventions.Tests.Common
         }
 
         [Theory]
+        [InlineData(0, "")]
         [InlineData(200.417, "<gx:altitudeOffset>200.417</gx:altitudeOffset>")]
         public void Tessellate_CorrectlyConvertsToKML(double value, string expected)
         {

@@ -20,6 +20,9 @@ namespace GoogleEarthConversions.Core.Common
 
         public string ConvertObjectToKML()
         {
+            if (AltOffset.ToMeters() == 0)
+                return "";
+            
             return string.Format("<gx:{0}>{1}</gx:{0}>", 
                                  nameof(AltitudeOffset).ConvertFirstCharacterToLowerCase(),
                                  AltOffset.ToMeters());
