@@ -1,8 +1,6 @@
-﻿using GeoFunctions.Core.Coordinates;
-using GoogleEarthConversions.Core.Common;
+﻿using GoogleEarthConversions.Core.Common;
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
@@ -11,7 +9,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
     {
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#point
 
-        public IGeographicCoordinate Coordinates { get; set; }
+        public ICoordinates Coordinates { get; set; }
 
         private IAltitudeMode _altitudeMode;
         public IAltitudeMode AltitudeMode
@@ -42,15 +40,15 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 
         public Point(string id)
         {
-            InitialiseProperties(id, new GeographicCoordinate());
+            InitialiseProperties(id, new Coordinates());
         }
 
-        public Point(string id, IGeographicCoordinate coordinate)
+        public Point(string id, ICoordinates coordinate)
         {
             InitialiseProperties(id, coordinate);
         }
 
-        private void InitialiseProperties(string id, IGeographicCoordinate coordinate)
+        private void InitialiseProperties(string id, ICoordinates coordinate)
         {
             Id = id;
             Extrude = new Extrude();
@@ -111,7 +109,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             sw.Write(OpeningTag());
             sw.Write(Extrude.ConvertObjectToKML());
             sw.Write(AltitudeMode.ConvertObjectToKML());
-            sw.Write(CoorindatesKML());
+            sw.Write(Coordinates.ConvertObjectToKML());
             sw.Write(ClosingTag());
 
             if (Debugger.IsAttached)
@@ -126,12 +124,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         private string OpeningTag()
         {
             return string.Format("<{0} {1}=\"{2}\">", GetType().Name, nameof(Id).ConvertFirstCharacterToLowerCase(), Id);
-        }
-
-        private string CoorindatesKML()
-        {
-            return string.Format("<{0}>{1}</{0}>", nameof(Coordinates).ConvertFirstCharacterToLowerCase(),
-                                                   Coordinates.ToString("[lon:DDD.dddddddddddd],[lat:DD.ddddddddddddd],[ele:t]", CultureInfo.InvariantCulture));
         }
 
         private string ClosingTag()

@@ -9,6 +9,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 
         IAltitudeMode AltitudeMode { get; set; }
 
-        IGeographicCoordinate Coordinates { get; set; }
+        ICoordinates Coordinates { get; set; }
     }
 }
