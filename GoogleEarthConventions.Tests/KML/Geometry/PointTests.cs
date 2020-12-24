@@ -15,7 +15,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
         {
             var expected = new Point(id)
             {
-                Extrude = false,
+                Extrude = new Extrude(),
                 AltitudeMode = new AltitudeMode(),
                 Coordinates = new GeographicCoordinate()
             };
@@ -33,7 +33,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
             
             var expected = new Point(id, coordinate)
             {
-                Extrude = false,
+                Extrude = new Extrude(),
                 AltitudeMode = new AltitudeMode(),
                 Coordinates = new GeographicCoordinate()
             };
@@ -51,7 +51,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
             Assert.Throws<InvalidOperationException>(() => new Point(id)
             {
                 AltitudeMode = new AltitudeMode(altitudeMode),
-                Extrude = true,
+                Extrude = new Extrude(true),
                 Coordinates = new GeographicCoordinate()
             });
         }
@@ -65,15 +65,15 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
 
             var sut = new Point(id)
             {
-                Extrude = false,
+                Extrude = new Extrude(),
                 AltitudeMode = new AltitudeMode(AltMode.RelativeToGround),
                 Coordinates = new GeographicCoordinate()
             }; ;
 
-            sut.Extrude = true;
+            sut.Extrude.Extruded = true;
             sut.AltitudeMode.AltMode = altitudeMode;
 
-            var result = sut.Extrude;
+            var result = sut.Extrude.Extruded;
             Assert.Equal(expected, result);
         }
 
@@ -90,7 +90,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
             var sut = new Point(id)
             {
                 AltitudeMode = new AltitudeMode(altitudeMode),
-                Extrude = extrude,
+                Extrude = new Extrude(extrude),
                 Coordinates = new GeographicCoordinate()
                 {
                     Elevation = new Distance(118.663, DistanceMeasurement.Meters)
