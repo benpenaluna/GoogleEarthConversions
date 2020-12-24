@@ -106,11 +106,11 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         {
             StringWriter sw = new StringWriter();
 
-            sw.Write(OpeningTag());
+            sw.Write(OpeningTag(GetType()));
             sw.Write(Extrude.ConvertObjectToKML());
             sw.Write(AltitudeMode.ConvertObjectToKML());
             sw.Write(Coordinates.ConvertObjectToKML());
-            sw.Write(ClosingTag());
+            sw.Write(ClosingTag(GetType()));
 
             if (Debugger.IsAttached)
             {
@@ -119,16 +119,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             }
 
             return sw.ToString();
-        }
-
-        private string OpeningTag()
-        {
-            return string.Format("<{0} {1}=\"{2}\">", GetType().Name, nameof(Id).ConvertFirstCharacterToLowerCase(), Id);
-        }
-
-        private string ClosingTag()
-        {
-            return string.Format("</{0}>", GetType().Name);
         }
     }
 }
