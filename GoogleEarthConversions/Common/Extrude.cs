@@ -4,7 +4,17 @@ namespace GoogleEarthConversions.Core.Common
 {
     public class Extrude : IExtrude
     {
-        public bool Extruded { get; set; }
+        private bool _extruded;
+
+        public bool Extruded
+        {
+            get { return _extruded; }
+            set 
+            { 
+                _extruded = value;
+                Extruded_Changed_OnChange(EventArgs.Empty);
+            }
+        }
 
         public event EventHandler Extruded_Changed;
         protected virtual void Extruded_Changed_OnChange(EventArgs e)
