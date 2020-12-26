@@ -22,6 +22,15 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
         }
 
         [Theory]
+        [InlineData("Test")]
+        public void LineString_InstantiatationFailsIfCoordinatesNull(string id)
+        {
+            ICollection<ICoordinates> coordinates = null;
+
+            Assert.Throws<NullReferenceException>(() => new LineString(id, coordinates));
+        }
+
+        [Theory]
         [InlineData("Test", -37.81996667, 144.98345)]
         public void LineString_InstantiatationFailsIfLessThan2CoordinatesProvided(string id, double latA, double lonA)
         {
