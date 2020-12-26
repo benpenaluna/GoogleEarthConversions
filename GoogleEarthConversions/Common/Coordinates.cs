@@ -1,4 +1,5 @@
 ﻿using GeoFunctions.Core.Coordinates;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace GoogleEarthConversions.Core.Common
@@ -17,6 +18,19 @@ namespace GoogleEarthConversions.Core.Common
         {
             return string.Format("<{0}>{1}</{0}>", nameof(Coordinates).ConvertFirstCharacterToLowerCase(),
                                                    ToString("[lon:DDD.dddddddddddd],[lat:DD.ddddddddddddd],[ele:t]", CultureInfo.InvariantCulture));
+        }
+
+        public static string ConvertCoordinatesCollectionToKML(ICollection<ICoordinates> collection)
+        {
+            var coordinatesKML = "";
+            foreach (var coordinate in collection)
+            {
+                coordinatesKML += coordinate.ConvertObjectToKML();
+            }
+
+            var replacementString = string.Format("</{0}><{0}>", nameof(Coordinates).ConvertFirstCharacterToLowerCase());
+            return coordinatesKML.Replace(replacementString, " ");
+
         }
 
         public override bool Equals(object obj)

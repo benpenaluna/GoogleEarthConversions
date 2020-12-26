@@ -1,6 +1,7 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
+using System.Collections.Generic;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.Common
@@ -72,6 +73,22 @@ namespace GoogleEarthConventions.Tests.Common
             var sut = new Coordinates(latitude, longitude, elevation);
 
             var result = sut.ConvertObjectToKML();
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Coordinates_CorrectlyConvertsCollectionToKML()
+        {
+            var expected = "<coordinates>144.983450000000,-37.8199666700000,0 151.215297200000,-33.8567833300000,0</coordinates>";
+
+            ICollection<ICoordinates> collection = new List<ICoordinates>()
+            {
+                new Coordinates(-37.81996667, 144.98345),
+                new Coordinates(-33.85678333, 151.2152972)
+            };
+            
+            var result = Coordinates.ConvertCoordinatesCollectionToKML(collection);
 
             Assert.Equal(expected, result);
         }
