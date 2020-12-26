@@ -6,18 +6,14 @@ using System.Linq;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
 {
-    public class LineString : Geometry, ILineString
+    public class LineString : LinearPath, ILineString
     {
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#linestring
-
-        public IAltitudeOffset AltitudeOffset { get; set ; }
-
-        public ITessellate Tessellate { get; set; }
 
         public IDrawOrder DrawOrder { get; set; }
         
         private ICollection<ICoordinates> _coordinates;
-        public ICollection<ICoordinates> Coordinates
+        public override ICollection<ICoordinates> Coordinates
         {
             get { return _coordinates; }
             set 
