@@ -57,12 +57,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             sw.Write(Coordinates.ConvertObjectToKML());
             sw.Write(ClosingTag(GetType()));
 
-            if (Debugger.IsAttached)
-            {
-                Debug.Write(sw.ToString());
-                Debugger.Break();
-            }
-
             return sw.ToString();
         }
     }

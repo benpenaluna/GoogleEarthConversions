@@ -2,7 +2,6 @@ using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.Geometry;
-using System;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Geometry
@@ -40,40 +39,6 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
 
             var result = new Point(id);
 
-            Assert.Equal(expected, result);
-        }
-
-        [Theory]
-        [InlineData("Test", AltMode.ClampToGround)]
-        [InlineData("Test", AltMode.ClampToSeaFloor)]
-        public void Point_ExtrudeThrowsExceptionWhenAltidudeClampOnInitialisation(string id, AltMode altitudeMode)
-        {
-            Assert.Throws<InvalidOperationException>(() => new Point(id)
-            {
-                AltitudeMode = new AltitudeMode(altitudeMode),
-                Extrude = new Extrude(true),
-                Coordinates = new Coordinates()
-            });
-        }
-
-        [Theory]
-        [InlineData("Test", AltMode.ClampToGround)]
-        [InlineData("Test", AltMode.ClampToSeaFloor)]
-        public void Point_ExtrudeFalseIfAlitudeModeClamp(string id, AltMode altitudeMode)
-        {
-            var expected = false;
-
-            var sut = new Point(id)
-            {
-                Extrude = new Extrude(),
-                AltitudeMode = new AltitudeMode(AltMode.RelativeToGround),
-                Coordinates = new Coordinates()
-            }; ;
-
-            sut.Extrude.Extruded = true;
-            sut.AltitudeMode.AltMode = altitudeMode;
-
-            var result = sut.Extrude.Extruded;
             Assert.Equal(expected, result);
         }
 
