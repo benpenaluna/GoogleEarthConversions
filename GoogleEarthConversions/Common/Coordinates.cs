@@ -44,6 +44,13 @@ namespace GoogleEarthConversions.Core.Common
             return Equals(geographicCoordinate);
         }
 
+        public static bool Equals(ICoordinates coordA, ICoordinates coordB)
+        {
+            return Equals(coordA.Latitude,  coordB.Latitude) &&
+                   Equals(coordA.Longitude, coordB.Longitude) &&
+                   Equals(coordA.Elevation, coordB.Elevation);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
