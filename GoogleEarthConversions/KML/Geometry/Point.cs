@@ -1,6 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Diagnostics;
 using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
@@ -9,21 +8,27 @@ namespace GoogleEarthConversions.Core.KML.Geometry
     {
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#point
 
-        public ICoordinates Coordinates { get; set; }
-
-        public Point(string id)
+        private ICoordinates _coordinates;
+        public ICoordinates Coordinates
         {
-            InitialiseProperties(id, new Coordinates());
+            get { return _coordinates; }
+            set 
+            {
+                if (value is null)
+                    throw new NullReferenceException(value.ToString());
+
+                _coordinates = value; 
+            }
         }
 
-        public Point(string id, ICoordinates coordinate)
+        public Point(ICoordinates coordinate)
         {
-            InitialiseProperties(id, coordinate);
+            InitialiseProperties(coordinate);
         }
 
-        private void InitialiseProperties(string id, ICoordinates coordinate)
+        private void InitialiseProperties(ICoordinates coordinate)
         {
-            Id = id;
+            Id = string.Empty;
             Extrude = new Extrude();
             AltitudeMode = new AltitudeMode();
             Coordinates = coordinate;
