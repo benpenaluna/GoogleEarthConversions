@@ -13,7 +13,8 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 
         protected string OpeningTag(Type type)
         {
-            return string.Format("<{0} {1}=\"{2}\">", type.Name, nameof(Id).ConvertFirstCharacterToLowerCase(), Id);
+            return Id == string.Empty ? string.Format("<{0}>", type.Name) : 
+                                        string.Format("<{0} {1}=\"{2}\">", type.Name, nameof(Id).ConvertFirstCharacterToLowerCase(), Id);
         }
 
         protected string ClosingTag(Type type)

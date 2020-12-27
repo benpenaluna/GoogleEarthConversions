@@ -1,6 +1,4 @@
-﻿using GeoFunctions.Core.Coordinates;
-using GeoFunctions.Core.Coordinates.Measurement;
-using GoogleEarthConversions.Core.Common;
+﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.Geometry;
 using System;
 using System.Collections.Generic;

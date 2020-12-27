@@ -2,14 +2,13 @@
 
 namespace GoogleEarthConversions.Core.KML.Geometry
 {
-    public interface IPoint
+    public interface IPolygon
     {
         string Id { get; set; }
-
         IExtrude Extrude { get; set; }
-
+        ITessellate Tessellate { get; set; }
         IAltitudeMode AltitudeMode { get; set; }
-
-        ICoordinates Coordinates { get; set; }
+        IOuterBoundaryIs OuterBoundaryIs { get; set; }
+        IInnerBoundaryIs InnerBoundaryIs { get; set; }
     }
 }

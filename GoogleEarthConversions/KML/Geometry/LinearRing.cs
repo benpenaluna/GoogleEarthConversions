@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
 {
-    public class LinearRing : LinearPath, ILinearRing  // TODO: Unit Test this class
+    public class LinearRing : LinearPath, ILinearRing
     {
         private ICollection<ICoordinates> _coordinates;
         public override ICollection<ICoordinates> Coordinates 
@@ -31,14 +31,14 @@ namespace GoogleEarthConversions.Core.KML.Geometry
                 throw new InvalidOperationException("The collection of Coordinates, must contain at least four ICoordinates.");
         }
 
-        public LinearRing(string id, ICollection<ICoordinates> coordinates)
+        public LinearRing(ICollection<ICoordinates> coordinates)
         {
-            InitialiseProperties(id, coordinates);
+            InitialiseProperties(coordinates);
         }
 
-        private void InitialiseProperties(string id, ICollection<ICoordinates> coordinates)
+        private void InitialiseProperties(ICollection<ICoordinates> coordinates)
         {
-            Id = id;
+            Id = string.Empty;
             AltitudeOffset = new AltitudeOffset();
             Extrude = new Extrude();
             Tessellate = new Tessellate();

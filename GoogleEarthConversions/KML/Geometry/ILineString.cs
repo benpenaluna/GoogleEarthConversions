@@ -5,6 +5,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 {
     public interface ILineString
     {
+        string Id { get; set; }
         IAltitudeOffset AltitudeOffset { get; set; }
         IExtrude Extrude { get; set; }
         ITessellate Tessellate { get; set; }

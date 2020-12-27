@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
 {
-    public interface ILinearRing
+    public interface ILinearRing : IKMLFormat
     {
+        string Id { get; set; }
         IAltitudeOffset AltitudeOffset { get; set; }
         IExtrude Extrude { get; set; }
         ITessellate Tessellate { get; set; }

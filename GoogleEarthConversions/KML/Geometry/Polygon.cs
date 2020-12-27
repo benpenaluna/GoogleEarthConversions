@@ -1,0 +1,75 @@
+﻿using GoogleEarthConversions.Core.Common;
+using System;
+using System.IO;
+
+namespace GoogleEarthConversions.Core.KML.Geometry
+{
+    public class Polygon : Geometry, IPolygon
+    {
+        // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#polygon
+
+        public ITessellate Tessellate { get; set; }
+
+        private IOuterBoundaryIs _outerBoundaryIs;
+        public IOuterBoundaryIs OuterBoundaryIs
+        {
+            get { return _outerBoundaryIs; }
+            set 
+            {
+                if (value is null)
+                    throw new NullReferenceException(value.ToString());
+
+                _outerBoundaryIs = value; 
+            }
+        }
+
+        public IInnerBoundaryIs InnerBoundaryIs { get; set; }
+
+        public Polygon(IOuterBoundaryIs outerBoundary, IInnerBoundaryIs innerBoundary = null)
+        {
+            Id = string.Empty;
+            Extrude = new Extrude();
+            Tessellate = new Tessellate();
+            AltitudeMode = new AltitudeMode();
+            OuterBoundaryIs = outerBoundary;
+            InnerBoundaryIs = innerBoundary ?? new InnerBoundaryIs();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Polygon) && Equals((Polygon)obj);
+        }
+
+        protected bool Equals(Polygon other)
+        {
+            return Equals(Id, other.Id) &&
+                   Equals(Extrude, other.Extrude) &&
+                   Equals(Tessellate, other.Tessellate) &&
+                   Equals(AltitudeMode, other.AltitudeMode) &&
+                   Equals(OuterBoundaryIs, other.OuterBoundaryIs) &&
+                   Equals(InnerBoundaryIs, other.InnerBoundaryIs);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ConvertObjectToKML()
+        {
+            StringWriter sw = new StringWriter();
+
+            sw.Write(OpeningTag(GetType()));
+
+            sw.Write(Extrude.ConvertObjectToKML());
+            sw.Write(Tessellate.ConvertObjectToKML());
+            sw.Write(AltitudeMode.ConvertObjectToKML());
+            sw.Write(OuterBoundaryIs.ConvertObjectToKML());
+            sw.Write(InnerBoundaryIs.ConvertObjectToKML());
+
+            sw.Write(ClosingTag(GetType()));
+
+            return sw.ToString();
+        }
+    }
+}
