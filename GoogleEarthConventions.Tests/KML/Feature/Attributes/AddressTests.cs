@@ -3,20 +3,20 @@ using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
 {
-    public class NameTests
+    public class AddressTests
     {
         [Fact]
-        public void Name_CanInstantiate()
+        public void Address_CanInstantiate()
         {
-            var sut = new Name();
+            var sut = new Address();
 
             Assert.NotNull(sut);
         }
 
         [Fact]
-        public void Name_AllPropertiesInitialised()
+        public void Address_AllPropertiesInitialised()
         {
-            var sut = new Name();
+            var sut = new Address();
 
             foreach (var prop in sut.GetType().GetProperties())
             {
@@ -26,23 +26,23 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
         }
 
         [Fact]
-        public void Extrude_AllPropertiesInitialisedWithLabel()
+        public void Address_AllPropertiesInitialisedWithLabel()
         {
-            var label = "Test";
-            var expected = label;
-            
-            var sut = new Name(label);
-            var result = sut.Label;
+            var address = "Test";
+            var expected = address;
+
+            var sut = new Address(address);
+            var result = sut.UnstructuredAddress;
 
             Assert.Equal(expected, result);
         }
 
         [Theory]
         [InlineData("", "")]
-        [InlineData("Test", "<name>Test</name>")]
-        public void Extrude_CorrectlyConvertsToKML(string label, string expected)
+        [InlineData("Test", "<address>Test</address>")]
+        public void Address_CorrectlyConvertsToKML(string address, string expected)
         {
-            var sut = new Name(label);
+            var sut = new Address(address);
 
             var result = sut.ConvertObjectToKML();
 
