@@ -8,46 +8,44 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
 {
     public class LineStringTests
     {
-        [Theory]
-        [InlineData("Test")]
-        public void LineString_CanInstantiate(string id)
+        [Fact]
+        public void LineString_CanInstantiate()
         {
             ICollection<ICoordinates> coordinates = CreateCoordinatesList();
 
-            var sut = new LineString(id, coordinates);
+            var sut = new LineString(coordinates);
 
             Assert.NotNull(sut);
         }
 
-        [Theory]
-        [InlineData("Test")]
-        public void LineString_InstantiatationFailsIfCoordinatesNull(string id)
+        [Fact]
+        public void LineString_InstantiatationFailsIfCoordinatesNull()
         {
             ICollection<ICoordinates> coordinates = null;
 
-            Assert.Throws<NullReferenceException>(() => new LineString(id, coordinates));
+            Assert.Throws<NullReferenceException>(() => new LineString(coordinates));
         }
 
         [Theory]
-        [InlineData("Test", -37.81996667, 144.98345)]
-        public void LineString_InstantiatationFailsIfLessThan2CoordinatesProvided(string id, double latA, double lonA)
+        [InlineData(-37.81996667, 144.98345)]
+        public void LineString_InstantiatationFailsIfLessThan2CoordinatesProvided(double latA, double lonA)
         {
             ICollection<ICoordinates> coordinates = new List<ICoordinates>()
             {
                 new Coordinates(latA, lonA)
             };
 
-            Assert.Throws<InvalidOperationException>(() => new LineString(id, coordinates));
+            Assert.Throws<InvalidOperationException>(() => new LineString(coordinates));
         }
 
-        [Theory]
-        [InlineData("Test")]
-        public void LineString_CorrectlyInitialisesProperties(string id)
+        [Fact]
+        public void LineString_CorrectlyInitialisesProperties()
         {
             ICollection<ICoordinates> coordinates = CreateCoordinatesList();
 
-            var expected = new LineString(id, coordinates)
+            var expected = new LineString(coordinates)
             {
+                Id = string.Empty,
                 AltitudeOffset = new AltitudeOffset(),
                 Extrude = new Extrude(),
                 Tessellate = new Tessellate(),
@@ -55,7 +53,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
                 DrawOrder = new DrawOrder()
             };
 
-            var result = new LineString(id, coordinates);
+            var result = new LineString(coordinates);
 
             Assert.Equal(expected, result);
         }
@@ -65,12 +63,13 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
         [InlineData("Test", 0.0, true, true, AltMode.RelativeToSeaFloor, 0, "<LineString id=\"Test\"><extrude>1</extrude><tessellate>1</tessellate><gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode><coordinates>144.983450000000,-37.8199666700000,0 151.215297200000,-33.8567833300000,0</coordinates></LineString>")]
         [InlineData("Test", 200.0, true, true, AltMode.ClampToGround, 0, "<LineString id=\"Test\"><gx:altitudeOffset>200</gx:altitudeOffset><extrude>1</extrude><tessellate>1</tessellate><coordinates>144.983450000000,-37.8199666700000,0 151.215297200000,-33.8567833300000,0</coordinates></LineString>")]
         [InlineData("Test", 0, false, false, AltMode.ClampToGround, 1, "<LineString id=\"Test\"><gx:drawOrder>1</gx:drawOrder><coordinates>144.983450000000,-37.8199666700000,0 151.215297200000,-33.8567833300000,0</coordinates></LineString>")]
-        public void LineString_CorrectlyConvertsToKML(string id, double altitudeOffset,bool extrude, bool tesselate, AltMode altitudeMode, int drawOrder, string expected)
+        public void LineString_CorrectlyConvertsToKML(string id, double altitudeOffset, bool extrude, bool tesselate, AltMode altitudeMode, int drawOrder, string expected)
         {
             var coordinates = CreateCoordinatesList();
-            
-            var sut = new LineString(id, coordinates)
+
+            var sut = new LineString(coordinates)
             {
+                Id = id,
                 AltitudeOffset = new AltitudeOffset(altitudeOffset),
                 Extrude = new Extrude(extrude),
                 Tessellate = new Tessellate(tesselate),

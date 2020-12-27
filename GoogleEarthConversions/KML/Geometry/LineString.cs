@@ -18,6 +18,9 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             get { return _coordinates; }
             set 
             {
+                if (value is null)
+                    throw new NullReferenceException(value.ToString());
+
                 if (value.Count < 2)
                     throw new InvalidOperationException("The collection of Coordinates, must contain at least two ICoordinates.");
                 
@@ -25,14 +28,14 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             }
         }
 
-        public LineString(string id, ICollection<ICoordinates> coordinates)
+        public LineString(ICollection<ICoordinates> coordinates)
         {
-            InitialiseProperties(id, coordinates);
+            InitialiseProperties(coordinates);
         }
 
-        private void InitialiseProperties(string id, ICollection<ICoordinates> coordinates)
+        private void InitialiseProperties(ICollection<ICoordinates> coordinates)
         {
-            Id = id;
+            Id = string.Empty;
             AltitudeOffset = new AltitudeOffset();
             Extrude = new Extrude();
             Tessellate = new Tessellate();
