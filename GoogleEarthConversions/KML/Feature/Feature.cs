@@ -9,6 +9,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
         IOpen Open { get; set; }
         IAddress Address { get; set; }
         IPhoneNumber PhoneNumber { get; set; }
+        ISnippet Snippet { get; set; }
 
         public abstract string ConvertObjectToKML();
     }
