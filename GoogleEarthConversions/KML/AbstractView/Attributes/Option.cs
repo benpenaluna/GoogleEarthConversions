@@ -5,7 +5,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
     public class Option : IOption
     {
         public bool Enabled { get; set; }
-        public OptionName Name { get; private set; }
+        public OptionName Name { get; set; }
 
         public Option(OptionName name, bool enabled = false)
         {
