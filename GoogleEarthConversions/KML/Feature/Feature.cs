@@ -6,6 +6,8 @@ namespace GoogleEarthConversions.Core.KML.Feature
     {
         IName Name { get; set; }
 
+        IVisibility Visibility { get; set; }
+
         public abstract string ConvertObjectToKML();
     }
 }
