@@ -1,7 +1,7 @@
-﻿using GoogleEarthConversions.Core.Common;
+﻿using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using Xunit;
 
-namespace GoogleEarthConventions.Tests.Common
+namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
 {
     public class TessellateTests
     {
@@ -31,7 +31,7 @@ namespace GoogleEarthConventions.Tests.Common
         public void Tessellate_CorrectlyConvertsToKML(bool value, string expected)
         {
             var sut = new Tessellate(value);
-                        
+
             var result = sut.ConvertObjectToKML();
 
             Assert.Equal(expected, result);

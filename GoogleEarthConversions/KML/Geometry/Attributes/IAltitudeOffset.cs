@@ -1,7 +1,6 @@
 ﻿using GeoFunctions.Core.Coordinates;
-using GoogleEarthConversions.Core.KML;
 
-namespace GoogleEarthConversions.Core.Common
+namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public interface IAltitudeOffset : IKMLFormat
     {

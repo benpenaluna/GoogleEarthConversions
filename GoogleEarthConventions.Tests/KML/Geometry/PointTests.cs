@@ -1,7 +1,7 @@
 using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
-using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.Geometry;
+using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System;
 using Xunit;
 

@@ -1,6 +1,7 @@
-﻿using System;
+﻿using GoogleEarthConversions.Core.Common;
+using System;
 
-namespace GoogleEarthConversions.Core.Common
+namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public class AltitudeMode : IAltitudeMode
     {
@@ -9,8 +10,8 @@ namespace GoogleEarthConversions.Core.Common
         public AltMode AltMode
         {
             get { return _altMode; }
-            set 
-            { 
+            set
+            {
                 _altMode = value;
                 AltMode_OnChange(EventArgs.Empty);
             }
@@ -21,7 +22,7 @@ namespace GoogleEarthConversions.Core.Common
         {
             AltMode_Changed?.Invoke(this, e);
         }
-                                                    
+
 
         public AltitudeMode(AltMode altMode = AltMode.ClampToGround)
         {

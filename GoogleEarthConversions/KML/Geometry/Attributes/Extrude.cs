@@ -1,6 +1,7 @@
-﻿using System;
+﻿using GoogleEarthConversions.Core.Common;
+using System;
 
-namespace GoogleEarthConversions.Core.Common
+namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public class Extrude : IExtrude
     {
@@ -9,8 +10,8 @@ namespace GoogleEarthConversions.Core.Common
         public bool Extruded
         {
             get { return _extruded; }
-            set 
-            { 
+            set
+            {
                 _extruded = value;
                 Extruded_Changed_OnChange(EventArgs.Empty);
             }

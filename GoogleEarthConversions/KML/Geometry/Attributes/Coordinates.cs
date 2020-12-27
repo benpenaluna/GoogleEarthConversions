@@ -1,8 +1,9 @@
 ﻿using GeoFunctions.Core.Coordinates;
+using GoogleEarthConversions.Core.Common;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace GoogleEarthConversions.Core.Common
+namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public class Coordinates : GeographicCoordinate, ICoordinates
     {
@@ -13,7 +14,7 @@ namespace GoogleEarthConversions.Core.Common
         public Coordinates(double latitude, double longitude, double elevation = 0) : base(latitude, longitude, elevation) { }
 
         public Coordinates(ISphericalCoordinate latitude, ISphericalCoordinate longitude, IDistance elevation) : base(latitude, longitude, elevation) { }
-        
+
         public string ConvertObjectToKML()
         {
             return string.Format("<{0}>{1}</{0}>", nameof(Coordinates).ConvertFirstCharacterToLowerCase(),
@@ -35,7 +36,7 @@ namespace GoogleEarthConversions.Core.Common
 
         public override bool Equals(object obj)
         {
-            return obj.GetType() == typeof(Coordinates) && Equals((Coordinates) obj);
+            return obj.GetType() == typeof(Coordinates) && Equals((Coordinates)obj);
         }
 
         protected bool Equals(Coordinates other)
@@ -46,7 +47,7 @@ namespace GoogleEarthConversions.Core.Common
 
         public static bool Equals(ICoordinates coordA, ICoordinates coordB)
         {
-            return Equals(coordA.Latitude,  coordB.Latitude) &&
+            return Equals(coordA.Latitude, coordB.Latitude) &&
                    Equals(coordA.Longitude, coordB.Longitude) &&
                    Equals(coordA.Elevation, coordB.Elevation);
         }

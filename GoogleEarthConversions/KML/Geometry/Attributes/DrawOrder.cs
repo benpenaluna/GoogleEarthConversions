@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GoogleEarthConversions.Core.Common;
 
-namespace GoogleEarthConversions.Core.Common
+namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public class DrawOrder : IDrawOrder
     {

@@ -1,4 +1,4 @@
-﻿using GoogleEarthConversions.Core.Common;
+﻿using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
 {

@@ -1,6 +1,4 @@
-﻿using GoogleEarthConversions.Core.KML;
-
-namespace GoogleEarthConversions.Core.Common
+﻿namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public interface IDrawOrder : IKMLFormat
     {

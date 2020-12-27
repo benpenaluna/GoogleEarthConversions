@@ -1,7 +1,7 @@
-﻿using GoogleEarthConversions.Core.Common;
+﻿using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using Xunit;
 
-namespace GoogleEarthConventions.Tests.Common
+namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
 {
     public class ExtrudeTests
     {

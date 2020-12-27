@@ -1,9 +1,9 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
-using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using Xunit;
 
-namespace GoogleEarthConventions.Tests.Common
+namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
 {
     public class AltitudeOffsetTests
     {

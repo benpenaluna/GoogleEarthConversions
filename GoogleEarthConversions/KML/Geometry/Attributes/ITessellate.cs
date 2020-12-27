@@ -1,7 +1,6 @@
-﻿using GoogleEarthConversions.Core.KML;
-using System;
+﻿using System;
 
-namespace GoogleEarthConversions.Core.Common
+namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public interface ITessellate : IKMLFormat
     {

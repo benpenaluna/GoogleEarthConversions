@@ -1,10 +1,10 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
-using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System.Collections.Generic;
 using Xunit;
 
-namespace GoogleEarthConventions.Tests.Common
+namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
 {
     public class CoordinatesTests
     {
@@ -15,14 +15,14 @@ namespace GoogleEarthConventions.Tests.Common
 
             Assert.NotNull(sut);
         }
-        
+
         [Theory]
         [InlineData(40.68925, -74.0445)]
         public void Coordinates_CanInstantiate2(double lat, double lon)
         {
             ISphericalCoordinate latitude = new Latitude(lat);
             ISphericalCoordinate longitude = new Longitude(lon);
-                        
+
             var sut = new Coordinates(latitude, longitude);
 
             Assert.NotNull(sut);
@@ -87,7 +87,7 @@ namespace GoogleEarthConventions.Tests.Common
                 new Coordinates(-37.81996667, 144.98345),
                 new Coordinates(-33.85678333, 151.2152972)
             };
-            
+
             var result = Coordinates.ConvertCoordinatesCollectionToKML(collection);
 
             Assert.Equal(expected, result);

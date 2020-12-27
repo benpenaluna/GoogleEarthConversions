@@ -1,8 +1,8 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
-using System;
+using GoogleEarthConversions.Core.Common;
 
-namespace GoogleEarthConversions.Core.Common
+namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public class AltitudeOffset : IAltitudeOffset
     {
@@ -22,8 +22,8 @@ namespace GoogleEarthConversions.Core.Common
         {
             if (AltOffset.ToMeters() == 0)
                 return "";
-            
-            return string.Format("<gx:{0}>{1}</gx:{0}>", 
+
+            return string.Format("<gx:{0}>{1}</gx:{0}>",
                                  nameof(AltitudeOffset).ConvertFirstCharacterToLowerCase(),
                                  AltOffset.ToMeters());
         }

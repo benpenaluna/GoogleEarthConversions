@@ -1,6 +1,7 @@
-﻿using System;
+﻿using GoogleEarthConversions.Core.Common;
+using System;
 
-namespace GoogleEarthConversions.Core.Common
+namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
     public class Tessellate : ITessellate
     {

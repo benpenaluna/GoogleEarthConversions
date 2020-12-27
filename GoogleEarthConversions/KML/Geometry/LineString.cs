@@ -1,4 +1,4 @@
-﻿using GoogleEarthConversions.Core.Common;
+﻿using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -81,7 +81,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             sw.Write(Tessellate.ConvertObjectToKML());
             sw.Write(AltitudeMode.ConvertObjectToKML());
             sw.Write(DrawOrder.ConvertObjectToKML());
-            sw.Write(Common.Coordinates.ConvertCoordinatesCollectionToKML(Coordinates));
+            sw.Write(Attributes.Coordinates.ConvertCoordinatesCollectionToKML(Coordinates));
 
             sw.Write(ClosingTag(GetType()));
 

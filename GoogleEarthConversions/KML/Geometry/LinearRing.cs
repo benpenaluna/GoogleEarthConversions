@@ -1,4 +1,4 @@
-﻿using GoogleEarthConversions.Core.Common;
+﻿using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,7 +26,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             if (value is null)
                 throw new NullReferenceException(value.ToString());
 
-            if (!Common.Coordinates.Equals(value.First(), value.Last()))
+            if (!Attributes.Coordinates.Equals(value.First(), value.Last()))
                 throw new InvalidOperationException("The last element in the sequence must be the same as the first.");
 
             if (value.Count < 4)
@@ -83,7 +83,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             sw.Write(Extrude.ConvertObjectToKML());
             sw.Write(Tessellate.ConvertObjectToKML());
             sw.Write(AltitudeMode.ConvertObjectToKML());
-            sw.Write(Common.Coordinates.ConvertCoordinatesCollectionToKML(Coordinates));
+            sw.Write(Attributes.Coordinates.ConvertCoordinatesCollectionToKML(Coordinates));
 
             sw.Write(ClosingTag(GetType()));
 
