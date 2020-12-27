@@ -4,6 +4,8 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 {
     public class OuterBoundaryIs : IOuterBoundaryIs
     {
+        // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#outerboundaryis
+
         public ILinearRing LinearRing { get; set ; }
 
         public OuterBoundaryIs(ILinearRing linearRing)

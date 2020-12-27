@@ -8,6 +8,8 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 {
     public class LinearRing : LinearPath, ILinearRing
     {
+        // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#linearring
+
         private ICollection<ICoordinates> _coordinates;
         public override ICollection<ICoordinates> Coordinates 
         {

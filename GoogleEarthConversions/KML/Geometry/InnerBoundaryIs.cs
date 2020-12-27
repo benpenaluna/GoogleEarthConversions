@@ -7,6 +7,8 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 {
     public class InnerBoundaryIs : IInnerBoundaryIs
     {
+        // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#innerboundaryis
+
         public ICollection<ILinearRing> LinearRings { get; set; }
 
         public InnerBoundaryIs(ICollection<ILinearRing> linearRings = null)
