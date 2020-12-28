@@ -10,13 +10,13 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
     {
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#camera
 
-        public ISphericalCoordinate Longitude { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public ISphericalCoordinate Latitude { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IDistance Altitude { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IAngle Heading { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public ISphericalCoordinate Tilt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public ISphericalCoordinate Roll { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IAltitudeMode AltitudeMode { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ISphericalCoordinate Longitude { get; set; }
+        public ISphericalCoordinate Latitude { get; set; }
+        public IDistance Altitude { get; set; }
+        public IAngle Heading { get; set; }
+        public ISphericalCoordinate Tilt { get; set; }
+        public ISphericalCoordinate Roll { get; set; }
+        public IAltitudeMode AltitudeMode { get; set; }
 
         public Camera()
         {
@@ -28,10 +28,10 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             Longitude = new Attributes.Longitude();
             Latitude = new Attributes.Latitude();
             Altitude = new Altitude();
-            Heading = new Angle();
+            Heading = new Heading();
             Tilt = new Tilt();
             Roll = new Roll();
-
+            AltitudeMode = new AltitudeMode();
         }
 
         public string ConvertObjectToKML()
