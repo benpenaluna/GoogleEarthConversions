@@ -27,7 +27,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             HorizFov = new HorizFov();
             Longitude = new Attributes.Longitude();
             Latitude = new Attributes.Latitude();
-            Altitude = new Distance();
+            Altitude = new Altitude();
             Heading = new Angle();
             Tilt = new Tilt();
             Roll = new Roll();
