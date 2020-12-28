@@ -35,7 +35,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive.Attributes
             var dateTimeString = LocalDateTime.ToString("yyyy-MM-ddTHH:mm:ss");
 
             var offset = TimeZone.GetUtcOffset(LocalDateTime);
-            var timeZoneString = offset >= TimeSpan.Zero ? offset.ToString(@"\+hh\:mm") : offset.ToString(@"\-hh\:mm");
+            var timeZoneString = offset >= System.TimeSpan.Zero ? offset.ToString(@"\+hh\:mm") : offset.ToString(@"\-hh\:mm");
 
             return string.Format("<{0}>{1}{2}</{0}>", nameof(When).ConvertFirstCharacterToLowerCase(), dateTimeString, timeZoneString);
         }

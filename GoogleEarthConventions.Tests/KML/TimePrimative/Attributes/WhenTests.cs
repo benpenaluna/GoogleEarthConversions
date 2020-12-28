@@ -13,6 +13,7 @@ namespace GoogleEarthConventions.Tests.KML.TimePrimative.Attributes
 
             Assert.NotNull(sut);
         }
+
         [Fact]
         public void When_AllPropertiesInitialised()
         {
