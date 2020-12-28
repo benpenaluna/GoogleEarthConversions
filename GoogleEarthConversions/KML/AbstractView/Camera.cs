@@ -1,11 +1,10 @@
-﻿using System;
+﻿using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
+using System;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView
 {
-    public class Camera : ICamera
+    public class Camera : AbstractView, ICamera
     {
-        public TimePrimitive.TimePrimitive TimePrimitive { get; set; }
-
         public Camera()
         {
             TimePrimitive = new TimePrimitive.TimeSpan(null, null);

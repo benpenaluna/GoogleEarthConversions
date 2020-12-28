@@ -6,8 +6,10 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
     {
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#abstractview
 
-        IViewerOptions ViewerOptions { get; set; }
+        public TimePrimitive.TimePrimitive TimePrimitive { get; set; }
 
-        IHorizFov HorizFov { get; set; }
+        public IViewerOptions ViewerOptions { get; set; }
+
+        public IHorizFov HorizFov { get; set; }
     }
 }
