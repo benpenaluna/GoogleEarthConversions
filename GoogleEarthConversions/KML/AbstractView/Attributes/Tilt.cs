@@ -49,8 +49,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 
         protected bool Equals(Tilt other)
         {
-            return Equals(Angle, other.Angle) &&
-                   Equals(DmsCoordinate, other.DmsCoordinate);
+            return Equals(Angle, other.Angle);
         }
 
         public override int GetHashCode()
