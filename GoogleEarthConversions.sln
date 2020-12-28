@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleEarthConversions.Core", "GoogleEarthConversions\GoogleEarthConversions.Core.csproj", "{511C9141-075E-4085-AD3C-3A9125F60DB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleEarthConventions.Tests", "GoogleEarthConventions.Tests\GoogleEarthConventions.Tests.csproj", "{64E8CE5E-CBE6-42C4-BF7F-C9E36F15B8F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoogleEarthConventions.Tests", "GoogleEarthConventions.Tests\GoogleEarthConventions.Tests.csproj", "{64E8CE5E-CBE6-42C4-BF7F-C9E36F15B8F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5ADCAD9E-2170-4728-89E9-A7D220954416}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

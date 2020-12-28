@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="GeoFunctions.Core">
       <HintPath>..\..\GeoFunctions\GeoFunctions.Core\bin\Debug\netcoreapp2.1\GeoFunctions.Core.dll</HintPath>
     </Reference>
