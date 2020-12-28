@@ -1,4 +1,4 @@
-﻿using GoogleEarthConversions.Core.KML.TimePrimitive.Attributes;
+﻿using GoogleEarthConversions.Core.KML.TimePrimitive;
 using System;
 using Xunit;
 
