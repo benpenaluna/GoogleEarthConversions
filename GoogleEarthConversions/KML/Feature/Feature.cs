@@ -2,7 +2,7 @@
 
 namespace GoogleEarthConversions.Core.KML.Feature
 {
-    public abstract class Feature : GoogleEarthObject, IKMLFormat
+    public abstract class Feature : GoogleEarthObject, IKMLFormat  // TODO: Finish adding properties to this abstract class
     {
         IName Name { get; set; }
         IVisibility Visibility { get; set; }

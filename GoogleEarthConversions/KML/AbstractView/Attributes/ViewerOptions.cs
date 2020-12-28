@@ -2,7 +2,7 @@
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
-    public class ViewerOptions : IViewerOptions // TODO: Unit Test this class
+    public class ViewerOptions : IViewerOptions
     {
         private IOption Historicalimagery { get; set; }
         public bool HistoricalimageryEnabled
