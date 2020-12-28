@@ -29,7 +29,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         [InlineData(OptionName.Historicalimagery, false, "<gx:option enabled=\"0\" name=\"historicalimagery\"></gx:option>")]
         [InlineData(OptionName.Sunlight, false, "<gx:option enabled=\"0\" name=\"sunlight\"></gx:option>")]
         [InlineData(OptionName.Streetview, true, "<gx:option name=\"streetview\"></gx:option>")]
-        public void Visibility_CorrectlyConvertsToKML(OptionName name, bool enabled, string expected)
+        public void Option_CorrectlyConvertsToKML(OptionName name, bool enabled, string expected)
         {
             var sut = new Option(name, enabled);
 

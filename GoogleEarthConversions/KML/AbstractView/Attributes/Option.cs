@@ -37,10 +37,5 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
                                                                       nameof(Name).ConvertFirstCharacterToLowerCase(),
                                                                       Name.ToString().ToLower());
         }
-
-        string IKMLFormat.ConvertObjectToKML()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
