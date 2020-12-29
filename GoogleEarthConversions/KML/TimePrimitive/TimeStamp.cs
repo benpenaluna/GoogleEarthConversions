@@ -4,7 +4,7 @@ using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.TimePrimitive
 {
-    public class TimeStamp : TimePrimitive, ITimeStamp
+    public class TimeStamp : TimePrimitive, TimePrimative
     {
         public IWhen When { get; set; }
 
@@ -30,7 +30,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public override string ConvertObjectToKML()
         {
             var googleEarthNamespace = "gx:";
             

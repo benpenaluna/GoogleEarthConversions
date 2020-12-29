@@ -9,12 +9,12 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
         TimePrimitive.TimePrimitive TimePrimitive { get; set; }
         IViewerOptions ViewerOptions { get; set; }
         IHorizFov HorizFov { get; set; }
-        ISphericalCoordinate Longitude { get; set; }
-        ISphericalCoordinate Latitude { get; set; }
-        IDistance Altitude { get; set; }
-        IAngle Heading { get; set; }
-        ISphericalCoordinate Tilt { get; set; }
-        ISphericalCoordinate Roll { get; set; }
+        ISphericalCoordinateKML Longitude { get; set; }
+        ISphericalCoordinateKML Latitude { get; set; }
+        IDistanceKML Altitude { get; set; }
+        IAngleKML Heading { get; set; }
+        ISphericalCoordinateKML Tilt { get; set; }
+        ISphericalCoordinateKML Roll { get; set; }
         IAltitudeMode AltitudeMode { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
-    public class Altitude : Distance, IKMLFormat
+    public class Altitude : Distance, IDistanceKML
     {
         public Altitude(double elevation = 0.0, DistanceMeasurement measurement = DistanceMeasurement.Feet) : base(elevation, measurement) { }
 

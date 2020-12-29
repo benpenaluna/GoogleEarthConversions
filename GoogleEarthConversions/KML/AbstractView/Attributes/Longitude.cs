@@ -7,7 +7,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
-    public class Longitude : GeoFunctions.Core.Coordinates.Longitude, IKMLFormat
+    public class Longitude : GeoFunctions.Core.Coordinates.Longitude, ISphericalCoordinateKML
     {
         public Longitude() : base() { }
 

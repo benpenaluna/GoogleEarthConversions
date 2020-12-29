@@ -2,7 +2,7 @@
 
 namespace GoogleEarthConversions.Core.KML.TimePrimitive
 {
-    public interface ITimeStamp : IKMLFormat
+    public interface TimePrimative : IKMLFormat
     {
         public string Id { get; set; }
         public string TargetId { get; set; }

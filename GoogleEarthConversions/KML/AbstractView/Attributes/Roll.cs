@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
-    public class Roll : SphericalCoordinate, IKMLFormat
+    public class Roll : SphericalCoordinate, ISphericalCoordinateKML
     {
         private IAngle _angle;
 

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
-    public class Heading : Angle, IKMLFormat
+    public class Heading : Angle, IAngleKML
     {
         public Heading(double value = 0.0, AngleMeasurement measurement = AngleMeasurement.Degrees) : base(value, measurement) { }
 
