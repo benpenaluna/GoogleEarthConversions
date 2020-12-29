@@ -2,7 +2,7 @@
 
 namespace GoogleEarthConversions.Core.KML.AbstractView
 {
-    public abstract class AbstractView : GoogleEarthObject
+    public abstract class AbstractView : GoogleEarthObject, IKMLFormat
     {
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#abstractview
 
@@ -11,5 +11,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
         public IViewerOptions ViewerOptions { get; set; }
 
         public IHorizFov HorizFov { get; set; }
+
+        public abstract string ConvertObjectToKML();
     }
 }

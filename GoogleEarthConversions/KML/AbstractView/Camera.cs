@@ -3,6 +3,7 @@ using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
 using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System;
+using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView
 {
@@ -33,10 +34,43 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             Roll = new Roll();
             AltitudeMode = new AltitudeMode();
         }
-
-        public string ConvertObjectToKML()
+        public override bool Equals(object obj)
         {
-            throw new NotImplementedException();
+            return obj.GetType() == typeof(Camera) && Equals((Camera)obj);
+        }
+
+        protected bool Equals(Camera other)
+        {
+            return Equals(Id, other.Id) &&
+                   Equals(TargetId, other.TargetId) &&
+                   Equals(TimePrimitive, other.TimePrimitive) &&
+                   Equals(ViewerOptions, other.ViewerOptions) &&
+                   Equals(HorizFov, other.HorizFov) &&
+                   Equals(Longitude, other.Longitude) &&
+                   Equals(Latitude, other.Latitude) &&
+                   Equals(Altitude, other.Altitude) &&
+                   Equals(Heading, other.Heading) &&
+                   Equals(Tilt, other.Tilt) &&
+                   Equals(Roll, other.Roll) &&
+                   Equals(AltitudeMode, other.AltitudeMode);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ConvertObjectToKML()
+        {
+            StringWriter sw = new StringWriter();
+
+            sw.Write(OpeningTag(GetType()));
+
+            sw.Write(TimePrimitive.ConvertObjectToKML());
+
+            sw.Write(ClosingTag(GetType()));
+
+            return sw.ToString();
         }
     }
 }
