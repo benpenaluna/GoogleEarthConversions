@@ -1,4 +1,5 @@
 ﻿using GoogleEarthConversions.Core.KML.Feature.Attributes;
+using System;
 
 namespace GoogleEarthConversions.Core.KML.Feature
 {
@@ -10,6 +11,10 @@ namespace GoogleEarthConversions.Core.KML.Feature
         IAddress Address { get; set; }
         IPhoneNumber PhoneNumber { get; set; }
         ISnippet Snippet { get; set; }
+        AbstractView.AbstractView AbstractView { get; set; }
+        TimePrimitive.TimePrimitive TimePrimitive { get; set; }
+        Uri StyleUrl { get; set; }
+        StyleSelector.StyleSelector StyleSelector { get; set; } // TODO: Create the Style and StyleMap classes
 
         public abstract string ConvertObjectToKML();
     }
