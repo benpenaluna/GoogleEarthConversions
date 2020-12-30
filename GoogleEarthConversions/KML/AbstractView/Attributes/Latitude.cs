@@ -8,7 +8,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
-    public class Latitude : GeoFunctions.Core.Coordinates.Longitude, ISphericalCoordinateKML
+    public class Latitude : GeoFunctions.Core.Coordinates.Latitude, ISphericalCoordinateKML
     {
         public Latitude() : base() { }
 
