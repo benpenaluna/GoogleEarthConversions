@@ -1,10 +1,9 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
-using GoogleEarthConversions.Core.Geographical;
 using System;
 
-namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
+namespace GoogleEarthConversions.Core.Geographical
 {
     public class Latitude : GeoFunctions.Core.Coordinates.Latitude, ISphericalCoordinateKML
     {
@@ -35,7 +34,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
         {
             if (_convertObjectToKML != null)
                 return _convertObjectToKML(this);
-            
+
             return string.Format("<{0}>{1}</{0}>", nameof(Latitude).ConvertFirstCharacterToLowerCase(), Angle.ToDegrees());
         }
     }

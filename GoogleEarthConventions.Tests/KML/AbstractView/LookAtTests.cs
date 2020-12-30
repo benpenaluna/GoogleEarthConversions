@@ -62,8 +62,8 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView
             {
                 Id = id,
                 TimePrimitive = CreateTimeStamp(),
-                Longitude = new GoogleEarthConversions.Core.KML.AbstractView.Attributes.Longitude(longitude, AngleMeasurement.Degrees),
-                Latitude = new GoogleEarthConversions.Core.KML.AbstractView.Attributes.Latitude(latitude, AngleMeasurement.Degrees),
+                Longitude = new GoogleEarthConversions.Core.Geographical.Longitude(longitude, AngleMeasurement.Degrees),
+                Latitude = new GoogleEarthConversions.Core.Geographical.Latitude(latitude, AngleMeasurement.Degrees),
                 Altitude = new Altitude(altitude, DistanceMeasurement.Meters),
                 Heading = new Heading(heading, AngleMeasurement.Degrees),
                 Tilt = new Tilt(tilt, AngleMeasurement.Degrees),

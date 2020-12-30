@@ -1,12 +1,11 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
-using GoogleEarthConversions.Core.Geographical;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
+namespace GoogleEarthConversions.Core.Geographical
 {
     public class Longitude : GeoFunctions.Core.Coordinates.Longitude, ISphericalCoordinateKML
     {

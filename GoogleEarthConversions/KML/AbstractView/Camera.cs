@@ -27,8 +27,8 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             TimePrimitive = new TimePrimitive.TimeSpan(null, null);
             ViewerOptions = new ViewerOptions();
             HorizFov = new HorizFov();
-            Longitude = new Attributes.Longitude();
-            Latitude = new Attributes.Latitude();
+            Longitude = new Geographical.Longitude();
+            Latitude = new Geographical.Latitude();
             Altitude = new Altitude();
             Heading = new Heading();
             Tilt = new Tilt();
