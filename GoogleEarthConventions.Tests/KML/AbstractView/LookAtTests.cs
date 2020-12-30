@@ -43,18 +43,18 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView
                 "<range>500</range>" +
                 "<altitudeMode>relativeToGround</altitudeMode>" +
             "</LookAt>")]
-        [InlineData("Test", -37.81996667, 144.98345, 96.0, 10.0, 45.0, 500.0, AltMode.ClampToGround,
+        [InlineData("Test", 144.98345, -37.81996667, 96.0, 10.0, 45.0, 500.0, AltMode.ClampToGround,
             "<LookAt id=\"Test\">" +
                 "<gx:TimeStamp><when>2020-12-28T12:10:52+11:00</when></gx:TimeStamp>" +
                 "<gx:ViewerOptions><gx:option enabled=\"0\" name=\"historicalimagery\"></gx:option><gx:option enabled=\"0\" name=\"sunlight\"></gx:option><gx:option enabled=\"0\" name=\"streetview\"></gx:option></gx:ViewerOptions>" +
-                "<longitude>-37.81996667</longitude>" +
-                "<latitude>144.98345</latitude>" +
+                "<longitude>144.98345</longitude>" +
+                "<latitude>-37.81996667</latitude>" +
                 "<altitude>96</altitude>" +
                 "<heading>10</heading>" +
                 "<tilt>45</tilt>" +
                 "<range>500</range>" +
             "</LookAt>")]
-        public void Camera_CorrectlyConvertsToKML(string id, double longitude, double latitude, double altitude,
+        public void LookAt_CorrectlyConvertsToKML(string id, double longitude, double latitude, double altitude,
                                                   double heading, double tilt, double range, AltMode altitudeMode, string expected)
         {
             IDistance rangeObject = new Range(range, DistanceMeasurement.Meters);
