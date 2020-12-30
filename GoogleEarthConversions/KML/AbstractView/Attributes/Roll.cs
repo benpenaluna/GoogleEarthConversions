@@ -2,6 +2,7 @@
 using GeoFunctions.Core.Coordinates.Measurement;
 using GeoFunctions.Core.Coordinates.Structs;
 using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.Common;
 using System;
 using System.Globalization;
 
