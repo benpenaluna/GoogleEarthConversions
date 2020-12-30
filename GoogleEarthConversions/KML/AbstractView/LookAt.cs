@@ -1,5 +1,6 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
+using GoogleEarthConversions.Core.KML.Common;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System;
 using System.Collections.Generic;
