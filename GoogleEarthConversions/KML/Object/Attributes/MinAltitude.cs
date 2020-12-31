@@ -8,7 +8,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object.Attributes
 {
-    public class MinAltitude : Distance, IDistanceKML
+    public class MinAltitude : GeoFunctions.Core.Coordinates.Distance, IDistanceKML
     {
         public MinAltitude(double altitdue = 0.0, DistanceMeasurement measurement = DistanceMeasurement.Feet) : base(altitdue, measurement) { }
         public MinAltitude(IDistance altitude)

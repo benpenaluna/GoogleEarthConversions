@@ -8,7 +8,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
-    public class Altitude : Distance, IDistanceKML
+    public class Altitude : GeoFunctions.Core.Coordinates.Distance, IDistanceKML
     {
         public Altitude(double altitdue = 0.0, DistanceMeasurement measurement = DistanceMeasurement.Feet) : base(altitdue, measurement) { }
         public Altitude(IDistance altitude) 

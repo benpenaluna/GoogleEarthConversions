@@ -8,7 +8,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object.Attributes
 {
-    public class MaxAltitude : Distance, IDistanceKML
+    public class MaxAltitude : GeoFunctions.Core.Coordinates.Distance, IDistanceKML
     {
         public MaxAltitude(double altitdue = 0.0, DistanceMeasurement measurement = DistanceMeasurement.Feet) : base(altitdue, measurement) { }
         public MaxAltitude(IDistance altitude)
