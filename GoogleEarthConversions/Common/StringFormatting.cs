@@ -18,5 +18,21 @@
 
             return convertedString;
         }
+        public static string ConvertFirstCharacterToUpperCase(this string stringToConvert)
+        {
+            var convertedString = "";
+
+            if (stringToConvert.Length == 1)
+                return stringToConvert.ToUpper();
+
+            if (stringToConvert.Length > 1)
+            {
+                var firstCharacter = stringToConvert.Substring(0, 1);
+                var stringRemainder = stringToConvert.Substring(1, stringToConvert.Length - 1);
+                return firstCharacter.ToUpper() + stringRemainder;
+            }
+
+            return convertedString;
+        }
     }
 }

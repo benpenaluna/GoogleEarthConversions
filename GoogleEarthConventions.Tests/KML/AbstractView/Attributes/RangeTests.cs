@@ -11,7 +11,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
     {
         [Theory]
         [InlineData(0, DistanceMeasurement.Meters)]
-        public void Option_CanInstantiateWithIDistance(double distance, DistanceMeasurement measurement)
+        public void Range_CanInstantiateWithIDistance(double distance, DistanceMeasurement measurement)
         {
             IDistance range = new Distance(distance, measurement); 
             var sut = new Range(range);
@@ -21,7 +21,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
 
         [Theory]
         [InlineData(0, DistanceMeasurement.Meters)]
-        public void Option_AllPropertiesInitialisedWithIDistance(double distance, DistanceMeasurement measurement)
+        public void Range_AllPropertiesInitialisedWithIDistance(double distance, DistanceMeasurement measurement)
         {
             IDistance range = new Distance(distance, measurement);
             var sut = new Range(range);
@@ -38,7 +38,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         [InlineData(90, DistanceMeasurement.Meters, "<range>90</range>")]
         [InlineData(9000, DistanceMeasurement.Centimeters, "<range>90</range>")]
         [InlineData(5280, DistanceMeasurement.Feet, "<range>1609.344</range>")]
-        public void Altitude_CorrectlyConvertsToKML(double elevation, DistanceMeasurement measurement, string expected)
+        public void Range_CorrectlyConvertsToKML(double elevation, DistanceMeasurement measurement, string expected)
         {
             var sut = new Range(elevation, measurement);
 
