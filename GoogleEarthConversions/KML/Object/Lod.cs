@@ -55,6 +55,36 @@ namespace GoogleEarthConversions.Core.KML.Object
             return string.Format("<{0}>{1}</{0}>", nameof(MaxFadeExtent).ConvertFirstCharacterToLowerCase(), lodElement.Value);
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Lod) && Equals((Lod)obj);
+        }
+
+        protected bool Equals(Lod other)
+        {
+            return Equals(Id, other.Id) &&
+                   Equals(TargetId, other.TargetId) &&
+                   Equals(MinLodPixels, other.MinLodPixels) &&
+                   Equals(MaxLodPixels, other.MaxLodPixels) &&
+                   Equals(MinFadeExtent, other.MinFadeExtent) &&
+                   Equals(MaxFadeExtent, other.MaxFadeExtent);
+        }
+
+        public static bool operator ==(Lod a, Lod b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Lod a, Lod b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public string ConvertObjectToKML()
         {
             StringWriter sw = new StringWriter();
