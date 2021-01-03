@@ -10,6 +10,9 @@ namespace GoogleEarthConversions.Core.KML.Object
 {
     public interface ILatLonAltBox : IKMLFormat
     {
+        string Id { get; set; }
+        string TargetId { get; set; }
+        
         ISphericalCoordinateKML North { get; }
         ISphericalCoordinateKML South { get; }
         ISphericalCoordinateKML East { get; }
