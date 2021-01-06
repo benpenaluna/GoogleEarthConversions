@@ -29,7 +29,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         }
 
         [Theory]
-        [InlineData(DisplayModeEnum.Default, "<displayMode>default</displayMode>")]
+        [InlineData(DisplayModeEnum.Default, "")]
         [InlineData(DisplayModeEnum.Hide, "<displayMode>hide</displayMode>")]
         public void LatLonAltBox_CorrectlyConvertsToKML(DisplayModeEnum mode, string expected)
         {

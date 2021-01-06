@@ -41,6 +41,9 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 
         public string ConvertObjectToKML()
         {
+            if (Mode == DisplayModeEnum.Default)
+                return "";
+            
             return string.Format("<{0}>{1}</{0}>", nameof(DisplayMode).ConvertFirstCharacterToLowerCase(),
                                                    Mode.ToString().ConvertFirstCharacterToLowerCase());
         }
