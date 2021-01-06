@@ -8,10 +8,14 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
     public class Color : IColor
     {
         public System.Drawing.Color Value { get; set; }
+        public System.Drawing.Color DefaultColor { get; set; }
+        public string KmlTagName { get; set; }
 
-        public Color(int alpha = 255, int red = 255, int green = 255, int blue = 255)
+        public Color(string kmlTagName)
         {
-            Value = System.Drawing.Color.FromArgb(alpha, red, green, blue);
+            KmlTagName = kmlTagName;
+            Value = System.Drawing.Color.Black;
+            DefaultColor = System.Drawing.Color.Black;
         }
 
         public override bool Equals(object obj)
@@ -41,13 +45,18 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 
         public string ConvertObjectToKML()
         {
-            return string.Format("<{0}>{1}</{0}>", nameof(Color).ConvertFirstCharacterToLowerCase(), ColorHexValue());
+            if (Value.ColorHexValue() == DefaultColor.ColorHexValue())
+                return "";
+
+            if (KmlTagName == string.Empty)
+                return FormatKmlString(nameof(Color).ConvertFirstCharacterToLowerCase());
+
+            return FormatKmlString(KmlTagName);
         }
 
-        public string ColorHexValue()
+        private string FormatKmlString(string tagName)
         {
-            return Value.A.ToString("X2").ToLower() + Value.R.ToString("X2").ToLower() + 
-                   Value.G.ToString("X2").ToLower() + Value.B.ToString("X2").ToLower();
+            return string.Format("<{0}>{1}</{0}>", tagName, Value.ColorHexValue());
         }
     }
 }

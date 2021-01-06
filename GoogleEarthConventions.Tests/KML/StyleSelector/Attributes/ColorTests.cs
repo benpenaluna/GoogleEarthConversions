@@ -1,4 +1,5 @@
-﻿using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
+﻿using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [Fact]
         public void Color_CanInstantiate()
         {
-            var sut = new Color();
+            var sut = new Color(string.Empty);
 
             Assert.NotNull(sut);
         }
@@ -19,25 +20,13 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [Fact]
         public void Color_AllPropertiesInitialised()
         {
-            var sut = new Color();
+            var sut = new Color(string.Empty);
 
             foreach (var prop in sut.GetType().GetProperties())
             {
                 var value = prop.GetValue(sut);
                 Assert.NotNull(value);
             }
-        }
-
-        [Fact]
-        public void Color_ValueDefaultsToWhite()
-        {
-            var expected = -1;
-
-            var sut = new Color();
-
-            var result = sut.Value.ToArgb();
-
-            Assert.Equal(expected, result);
         }
 
         [Theory]
@@ -48,7 +37,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [InlineData(-1, 0, 0, 0)]
         public void Color_ExceptionOnInvalidARGBValues(int alpha, int red, int green, int blue)
         {
-            Assert.Throws<ArgumentException>(() => new Color(alpha, red, green, blue));
+            Assert.Throws<ArgumentException>(() => new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(alpha, red, green, blue) });
         }
 
         [Theory]
@@ -58,21 +47,26 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [InlineData(167, 178, 12, 205, "a7b20ccd")]
         public void Color_CorrectlyOutputHexValue(int alpha, int red, int green, int blue, string expected)
         {
-            var sut = new Color(alpha, red, green, blue);
+            var sut = new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(alpha, red, green, blue) };
 
-            var result = sut.ColorHexValue();
+            var result = sut.Value.ColorHexValue();
 
             Assert.Equal(expected, result);
         }
 
         [Theory]
-        [InlineData(255, 255, 255, 255, "<color>ffffffff</color>")]
-        [InlineData(0, 0, 0, 0, "<color>00000000</color>")]
-        [InlineData(255, 240, 248, 255, "<color>fff0f8ff</color>")]
-        [InlineData(167, 178, 12, 205, "<color>a7b20ccd</color>")]
-        public void LatLonAltBox_CorrectlyConvertsToKML(int alpha, int red, int green, int blue, string expected)
+        [InlineData(255, 255, 255, 255, 255, 255, 255, 255, "color", "")]
+        [InlineData(0, 0, 0, 0, 0, 0, 0, 0, "color", "")]
+        [InlineData(0, 0, 0, 0, 255, 255, 255, 255, "", "<color>00000000</color>")]
+        [InlineData(255, 240, 248, 255, 255, 255, 255, 255, "color", "<color>fff0f8ff</color>")]
+        [InlineData(167, 178, 12, 205, 255, 255, 255, 255, "bgColor", "<bgColor>a7b20ccd</bgColor>")]
+        public void Color_CorrectlyConvertsToKML(int valueAlpha, int valueRed, int valueGreen, int valueBlue, 
+                                                 int defaultAlpha, int defaultRed, int defaultGreen, int defaultBlue, 
+                                                 string kmlTag, string expected)
         {
-            var sut = new Color(alpha, red, green, blue);
+            var value = System.Drawing.Color.FromArgb(valueAlpha, valueRed, valueGreen, valueBlue);
+            var def = System.Drawing.Color.FromArgb(defaultAlpha, defaultRed, defaultGreen, defaultBlue);
+            var sut = new Color(kmlTag) { Value = value, DefaultColor = def };
 
             var result = sut.ConvertObjectToKML();
 
