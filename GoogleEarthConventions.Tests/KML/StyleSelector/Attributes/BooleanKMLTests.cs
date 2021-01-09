@@ -6,20 +6,20 @@ using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
 {
-    public class ColorModeTests
+    public class BooleanKMLTests
     {
         [Fact]
-        public void ColorMode_CanInstantiate()
+        public void BooleanKML_CanInstantiate()
         {
-            var sut = new ColorMode();
+            var sut = new BooleanKML(nameof(BooleanKML));
 
             Assert.NotNull(sut);
         }
 
         [Fact]
-        public void ColorMode_AllPropertiesInitialised()
+        public void BooleanKML_AllPropertiesInitialised()
         {
-            var sut = new ColorMode();
+            var sut = new BooleanKML(nameof(BooleanKML));
 
             foreach (var prop in sut.GetType().GetProperties())
             {
@@ -29,11 +29,11 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         }
 
         [Theory]
-        [InlineData(ColorModeEnum.Normal, "")]
-        [InlineData(ColorModeEnum.Random, "<colorMode>random</colorMode>")]
-        public void LatLonAltBox_CorrectlyConvertsToKML(ColorModeEnum mode, string expected)
+        [InlineData("gx:labelVisibility", false, false, "")]
+        [InlineData("gx:labelVisibility", true, false, "<gx:labelVisibility>1</gx:labelVisibility>")]
+        public void BooleanKML_CorrectlyConvertsToKML(string kmlTagName, bool value, bool def, string expected)
         {
-            var sut = new ColorMode(mode);
+            var sut = new BooleanKML(kmlTagName) { Value = value, Default = def };
 
             var result = sut.ConvertObjectToKML();
 
