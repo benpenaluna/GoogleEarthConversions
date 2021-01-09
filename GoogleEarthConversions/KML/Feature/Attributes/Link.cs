@@ -7,26 +7,16 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 {
     public class Link : ILink
     {
-        private string _href;
-
+        private IHref _href;
         public string Href
         {
-            get => _href;
-            set 
-            {
-                if (value != string.Empty && !value.IsValidUri())
-                    throw new UriFormatException(string.Format("{0} must be an empty string or a valid URI.", nameof(Href))); 
-                
-                _href = value;
-
-                
-            }
+            get => _href.Value;
+            set => _href.Value = value;
         }
-
 
         public Link(string absolutePath = "")
         {
-            Href = absolutePath;
+            _href = new Href(absolutePath);
         }
 
         public override bool Equals(object obj)
