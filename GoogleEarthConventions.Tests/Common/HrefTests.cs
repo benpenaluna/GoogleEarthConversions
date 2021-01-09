@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
+namespace GoogleEarthConventions.Tests.Common
 {
     public class HrefTests
     {
