@@ -39,14 +39,15 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
 
             Assert.Equal(expected, result);
         }
-
+        
         [Theory]
-        [InlineData("", 255, 255, 255, 255, ColorModeEnum.Normal, 1, 255, 255, 255, 255, 0, 0, false, "<LineStyle><width>1</width></LineStyle>")]
-        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Normal, 1, 255, 255, 255, 255, 0, 0, false, "<LineStyle id=\"ID\"><color>ff000000</color><width>1</width></LineStyle>")]
-        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, 1, 255, 255, 255, 255, 0, 0, false, "<LineStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode><width>1</width></LineStyle>")]
-        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, 1, 255, 0, 0, 0, 0, 0, false, "<LineStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode><width>1</width><gx:outerColor>ff000000</gx:outerColor></LineStyle>")]
-        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, 1, 255, 0, 0, 0, 1, 1.2, false, "<LineStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode><width>1</width><gx:outerColor>ff000000</gx:outerColor><gx:outerWidth>1</gx:outerWidth><gx:physicalWidth>1.2</gx:physicalWidth></LineStyle>")]
-        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, 1, 255, 0, 0, 0, 1, 1.2, true, "<LineStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode><width>1</width><gx:outerColor>ff000000</gx:outerColor><gx:outerWidth>1</gx:outerWidth><gx:physicalWidth>1.2</gx:physicalWidth><gx:labelVisibility>1</gx:labelVisibility></LineStyle>")]
+        [InlineData("", 255, 255, 255, 255, ColorModeEnum.Normal, 1, 255, 255, 255, 255, 0, 0, false, "")]
+        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Normal, 1, 255, 255, 255, 255, 0, 0, false, "<LineStyle id=\"ID\"><color>ff000000</color></LineStyle>")]
+        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Normal, 12, 255, 255, 255, 255, 0, 0, false, "<LineStyle id=\"ID\"><color>ff000000</color><width>12</width></LineStyle>")]
+        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, 1, 255, 255, 255, 255, 0, 0, false, "<LineStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode></LineStyle>")]
+        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, 1, 255, 0, 0, 0, 0, 0, false, "<LineStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode><gx:outerColor>ff000000</gx:outerColor></LineStyle>")]
+        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, 1, 255, 0, 0, 0, 1, 1.2, false, "<LineStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode><gx:outerColor>ff000000</gx:outerColor><gx:outerWidth>1</gx:outerWidth><gx:physicalWidth>1.2</gx:physicalWidth></LineStyle>")]
+        [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, 1, 255, 0, 0, 0, 1, 1.2, true, "<LineStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode><gx:outerColor>ff000000</gx:outerColor><gx:outerWidth>1</gx:outerWidth><gx:physicalWidth>1.2</gx:physicalWidth><gx:labelVisibility>1</gx:labelVisibility></LineStyle>")]
         public void LineStyle_CorrectlyConvertsToKML(string id, int colorAlpha, int colorRed, int colorGreen, int colorBlue, ColorModeEnum colorMode,
                                                      double width, int outerColorAlpha, int outerColorRed, int outerColorGreen, int outerColorBlue, 
                                                      double outerWidth, double physicalWidth, bool labelVisibility, string expected)

@@ -21,7 +21,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             Color = new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(255,255,255,255), DefaultColor = System.Drawing.Color.FromArgb(255, 255, 255, 255) };
             ColorMode = new ColorMode(ColorModeEnum.Normal);
 
-            Width = new DoubleKML(nameof(Width).ConvertFirstCharacterToLowerCase()) { Value = 1.0, Default = 0.0 };
+            Width = new DoubleKML(nameof(Width).ConvertFirstCharacterToLowerCase()) { Value = 1.0, Default = 1.0 };
             OuterColor = new Color("gx:" + nameof(OuterColor).ConvertFirstCharacterToLowerCase()) { Value = System.Drawing.Color.White, DefaultColor = System.Drawing.Color.White };
             OuterWidth = new DoubleKML("gx:" + nameof(OuterWidth).ConvertFirstCharacterToLowerCase()) { Value = 0.0, Default = 0.0 };
             PhysicalWidth = new DoubleKML("gx:" + nameof(PhysicalWidth).ConvertFirstCharacterToLowerCase()) { Value = 0.0, Default = 0.0 };
@@ -63,9 +63,23 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 
         public override string ConvertObjectToKML()
         {
+            var body = GetKMLBody();
+            if (body.ToString() == string.Empty)
+                return string.Empty;
+
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
+            sw.Write(body);
+            sw.Write(ClosingTag(GetType()));
+
+            return sw.ToString();
+        }
+
+        private string GetKMLBody()
+        {
+            StringWriter sw = new StringWriter();
+
             sw.Write(Color.ConvertObjectToKML());
             sw.Write(ColorMode.ConvertObjectToKML());
             sw.Write(Width.ConvertObjectToKML());
@@ -73,8 +87,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             sw.Write(OuterWidth.ConvertObjectToKML());
             sw.Write(PhysicalWidth.ConvertObjectToKML());
             sw.Write(LabelVisibility.ConvertObjectToKML());
-            sw.Write(ClosingTag(GetType()));
-
+            
             return sw.ToString();
         }
     }
