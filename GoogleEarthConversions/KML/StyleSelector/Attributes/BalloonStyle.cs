@@ -59,14 +59,27 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 
         public override string ConvertObjectToKML()
         {
+            var body = GetKMLBody();
+            if (body == string.Empty)
+                return string.Empty;
+
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
+            sw.Write(body);
+            sw.Write(ClosingTag(GetType()));
+
+            return sw.ToString();
+        }
+
+        private string GetKMLBody()
+        {
+            StringWriter sw = new StringWriter();
+
             sw.Write(BgColor.ConvertObjectToKML());
             sw.Write(TextColor.ConvertObjectToKML());
             sw.Write(Text.ConvertObjectToKML());
             sw.Write(DisplayMode.ConvertObjectToKML());
-            sw.Write(ClosingTag(GetType()));
 
             return sw.ToString();
         }

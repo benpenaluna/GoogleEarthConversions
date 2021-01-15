@@ -49,6 +49,8 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         }
 
         [Theory]
+        [InlineData(255, 255, 255, 255, 255, 0, 0, 0, "", "", DisplayModeEnum.Default, "")]
+        [InlineData(255, 255, 255, 255, 255, 0, 0, 0, "ID", "", DisplayModeEnum.Default, "")]
         [InlineData(255, 255, 255, 255, 255, 0, 0, 0, "ID", "This is a test string", DisplayModeEnum.Default, "<BalloonStyle id=\"ID\"><text>This is a test string</text></BalloonStyle>")]
         [InlineData(167, 178, 12, 205, 255, 0, 0, 0, "", "This is a test string", DisplayModeEnum.Default, "<BalloonStyle><bgColor>a7b20ccd</bgColor><text>This is a test string</text></BalloonStyle>")]
         [InlineData(255, 255, 255, 255, 167, 178, 12, 205, "ID", "This is a test string", DisplayModeEnum.Default, "<BalloonStyle id=\"ID\"><textColor>a7b20ccd</textColor><text>This is a test string</text></BalloonStyle>")]
