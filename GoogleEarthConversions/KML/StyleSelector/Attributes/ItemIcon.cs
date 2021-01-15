@@ -1,6 +1,7 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
@@ -50,9 +51,22 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 
         public string ConvertObjectToKML()
         {
+            var body = GetKMLBody();
+            if (body == string.Empty)
+                return string.Empty;
+
+            return string.Format("<{0}>{1}</{0}>", nameof(ItemIcon), body);
+        }
+
+        private string GetKMLBody()
+        {
             var hrefKMLString = Href == string.Empty ? string.Empty : string.Format("<{0}>{1}</{0}>", nameof(Href).ConvertFirstCharacterToLowerCase(), Href);
 
-            return string.Format("<{0}>{1}{2}</{0}>", nameof(ItemIcon), State.ConvertObjectToKML(), hrefKMLString);
+            StringWriter sw = new StringWriter();
+            sw.Write(State.ConvertObjectToKML());
+            sw.Write(hrefKMLString);
+
+            return sw.ToString();
         }
     }
 }

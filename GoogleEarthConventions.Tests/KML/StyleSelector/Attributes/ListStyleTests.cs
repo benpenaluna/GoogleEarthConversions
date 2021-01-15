@@ -37,9 +37,9 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         }
 
         [Theory]
-        [InlineData("", ListItemTypeEnum.Check, 255, 255, 255, 255, ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "", "<ListStyle><ItemIcon><state>open</state></ItemIcon></ListStyle>")]
-        [InlineData("ID", ListItemTypeEnum.CheckOffOnly, 255, 255, 255, 255, ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "", "<ListStyle id=\"ID\"><listItemType>checkOffOnly</listItemType><ItemIcon><state>open</state></ItemIcon></ListStyle>")]
-        [InlineData("ID", ListItemTypeEnum.CheckOffOnly, 255, 0, 0, 0, ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "", "<ListStyle id=\"ID\"><listItemType>checkOffOnly</listItemType><bgColor>ff000000</bgColor><ItemIcon><state>open</state></ItemIcon></ListStyle>")]
+        [InlineData("", ListItemTypeEnum.Check, 255, 255, 255, 255, ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "", "")]
+        [InlineData("ID", ListItemTypeEnum.CheckOffOnly, 255, 255, 255, 255, ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "", "<ListStyle id=\"ID\"><listItemType>checkOffOnly</listItemType></ListStyle>")]
+        [InlineData("ID", ListItemTypeEnum.CheckOffOnly, 255, 0, 0, 0, ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "", "<ListStyle id=\"ID\"><listItemType>checkOffOnly</listItemType><bgColor>ff000000</bgColor></ListStyle>")]
         [InlineData("ID", ListItemTypeEnum.CheckOffOnly, 255, 0, 0, 0, ItemStateModeEnum.Closed, ItemIconModeEnum.Fetching0, "", "<ListStyle id=\"ID\"><listItemType>checkOffOnly</listItemType><bgColor>ff000000</bgColor><ItemIcon><state>closed fetching0</state></ItemIcon></ListStyle>")]
         [InlineData("ID", ListItemTypeEnum.CheckOffOnly, 255, 0, 0, 0, ItemStateModeEnum.Closed, ItemIconModeEnum.Fetching0, "http://www.harrypotter.com", "<ListStyle id=\"ID\"><listItemType>checkOffOnly</listItemType><bgColor>ff000000</bgColor><ItemIcon><state>closed fetching0</state><href>http://www.harrypotter.com</href></ItemIcon></ListStyle>")]
         public void ListStyle_CorrectlyConvertsToKML(string id, ListItemTypeEnum itemType,

@@ -7,10 +7,13 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
     public class State : IState
     {
+        private const ItemStateModeEnum DefaultStateMode = ItemStateModeEnum.Open;
+        private const ItemIconModeEnum DefaultIconMode = ItemIconModeEnum.Nil;
+        
         public ItemStateModeEnum ItemStateMode { get; set; }
         public ItemIconModeEnum ItemIconMode { get; set; }
 
-        public State(ItemStateModeEnum stateMode = ItemStateModeEnum.Open, ItemIconModeEnum iconMode = ItemIconModeEnum.Nil)
+        public State(ItemStateModeEnum stateMode = DefaultStateMode, ItemIconModeEnum iconMode = DefaultIconMode)
         {
             ItemStateMode = stateMode;
             ItemIconMode = iconMode;
@@ -44,6 +47,9 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 
         public string ConvertObjectToKML()
         {
+            if (ItemStateMode == DefaultStateMode && ItemIconMode == DefaultIconMode)
+                return string.Empty;
+            
             var stateString = ItemStateMode.ToString().ConvertFirstCharacterToLowerCase();
 
             if (ItemIconMode != ItemIconModeEnum.Nil)

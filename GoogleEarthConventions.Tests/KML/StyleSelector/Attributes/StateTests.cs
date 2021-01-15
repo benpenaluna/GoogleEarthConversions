@@ -51,7 +51,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         }
 
         [Theory]
-        [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "<state>open</state>")]
+        [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "")]
         [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Error, "<state>open error</state>")]
         [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Fetching0, "<state>open fetching0</state>")]
         [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Fetching1, "<state>open fetching1</state>")]

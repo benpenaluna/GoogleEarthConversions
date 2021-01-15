@@ -46,9 +46,9 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         }
 
         [Theory]
-        [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "", "<ItemIcon><state>open</state></ItemIcon>")]
+        [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "", "")]
         [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Error, "", "<ItemIcon><state>open error</state></ItemIcon>")]
-        [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "http://www.harrypotter.com", "<ItemIcon><state>open</state><href>http://www.harrypotter.com</href></ItemIcon>")]
+        [InlineData(ItemStateModeEnum.Open, ItemIconModeEnum.Nil, "http://www.harrypotter.com", "<ItemIcon><href>http://www.harrypotter.com</href></ItemIcon>")]
         [InlineData(ItemStateModeEnum.Closed, ItemIconModeEnum.Fetching0, "http://www.harrypotter.com", "<ItemIcon><state>closed fetching0</state><href>http://www.harrypotter.com</href></ItemIcon>")]
         public void ItemIcon_CorrectlyConvertsToKML(ItemStateModeEnum stateMode, ItemIconModeEnum iconMode, string uri, string expected)
         {
