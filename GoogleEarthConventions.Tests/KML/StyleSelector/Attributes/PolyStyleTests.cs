@@ -29,8 +29,8 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         }
 
         [Theory]
-        [InlineData("", 255, 255, 255, 255, ColorModeEnum.Normal, false, false, "<PolyStyle></PolyStyle>")]
-        [InlineData("ID", 255, 255, 255, 255, ColorModeEnum.Normal, false, false, "<PolyStyle id=\"ID\"></PolyStyle>")]
+        [InlineData("", 255, 255, 255, 255, ColorModeEnum.Normal, false, false, "")]
+        [InlineData("ID", 255, 255, 255, 255, ColorModeEnum.Normal, false, false, "")]
         [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Normal, false, false, "<PolyStyle id=\"ID\"><color>ff000000</color></PolyStyle>")]
         [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, false, false, "<PolyStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode></PolyStyle>")]
         [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Random, true, false, "<PolyStyle id=\"ID\"><color>ff000000</color><colorMode>random</colorMode><fill>1</fill></PolyStyle>")]
