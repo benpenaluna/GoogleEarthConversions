@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
-    public interface ILabelStyle
+    public interface ILabelStyle : IKMLFormat
     {
         string Id { get; set; }
         string TargetId { get; set; }
