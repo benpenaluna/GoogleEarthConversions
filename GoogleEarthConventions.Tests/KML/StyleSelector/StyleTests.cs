@@ -1,11 +1,12 @@
-﻿using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
+﻿using GoogleEarthConversions.Core.KML.StyleSelector;
+using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Xunit;
 
-namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
+namespace GoogleEarthConventions.Tests.KML.StyleSelector
 {
     public class StyleTests
     {
@@ -75,7 +76,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         {
             var iconStyle = new IconStyle();
             iconStyle.Color.Value = System.Drawing.Color.FromArgb(255, 0, 0, 0);
-            
+
             return iconStyle;
         }
 
