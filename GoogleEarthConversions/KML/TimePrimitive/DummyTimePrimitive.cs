@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.TimePrimitive
 {
-    public class DummyTimePrimitive : TimePrimitive
+    internal class DummyTimePrimitive : TimePrimitive
     {
         public DummyTimePrimitive()
         {

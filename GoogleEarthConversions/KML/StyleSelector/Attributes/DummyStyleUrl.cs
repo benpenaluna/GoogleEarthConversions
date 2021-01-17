@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
-    public class DummyStyleUrl : IStyleUrl
+    internal class DummyStyleUrl : IStyleUrl
     {
         public Uri Url { get; set; }
 

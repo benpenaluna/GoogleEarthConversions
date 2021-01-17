@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView
 {
-    public class DummyAbstractView : AbstractView
+    internal class DummyAbstractView : AbstractView
     {
         public DummyAbstractView()
         {
