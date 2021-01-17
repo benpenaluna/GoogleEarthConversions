@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
+{
+    public class DummyStyleUrl : IStyleUrl
+    {
+        public Uri Url { get; set; }
+
+        public DummyStyleUrl()
+        {
+            Url = new Uri("http://google.com/");
+        }
+
+        public string ConvertObjectToKML()
+        {
+            return string.Empty;
+        }
+    }
+}
