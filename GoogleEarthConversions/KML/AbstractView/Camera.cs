@@ -22,11 +22,6 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
 
         public Camera()
         {
-            Id = string.Empty;
-            TargetId = string.Empty;
-            TimePrimitive = new TimePrimitive.TimeSpan(null, null);
-            ViewerOptions = new ViewerOptions();
-            HorizFov = new HorizFov();
             Longitude = new Geographical.Longitude();
             Latitude = new Geographical.Latitude();
             Altitude = new Altitude();
@@ -34,6 +29,8 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             Tilt = new Tilt();
             Roll = new Roll();
             AltitudeMode = new AltitudeMode();
+
+            InitialiseBaseProperties();
         }
 
         public override bool Equals(object obj)

@@ -12,6 +12,15 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
 
         public IHorizFov HorizFov { get; set; }
 
+        protected void InitialiseBaseProperties()
+        {
+            Id = string.Empty;
+            TargetId = string.Empty;
+            TimePrimitive = new TimePrimitive.TimeSpan(null, null);
+            ViewerOptions = new ViewerOptions();
+            HorizFov = new HorizFov();
+        }
+
         public abstract string ConvertObjectToKML();
     }
 }

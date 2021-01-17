@@ -21,11 +21,6 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
 
         public LookAt(IDistance range)
         {
-            Id = string.Empty;
-            TargetId = string.Empty;
-            TimePrimitive = new TimePrimitive.TimeSpan(null, null);
-            ViewerOptions = new ViewerOptions();
-            HorizFov = new HorizFov();
             Longitude = new Geographical.Longitude();
             Latitude = new Geographical.Latitude();
             Altitude = new Altitude();
@@ -33,6 +28,8 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             Tilt = new Tilt();
             Range = new Attributes.Range(range);
             AltitudeMode = new AltitudeMode();
+
+            InitialiseBaseProperties();
         }
 
         public override bool Equals(object obj)
