@@ -8,8 +8,29 @@ namespace GoogleEarthConversions.Core.KML.Object
 {
     public class Region : GoogleEarthObject, IRegion
     {
-        public ILatLonAltBox LatLonAltBox { get; set; }
-        public ILod Lod { get; set; }
+        private bool _notChangedSinceInitialisation = true;
+        
+        private ILatLonAltBox _latLonAltBox;
+        public ILatLonAltBox LatLonAltBox
+        {
+            get => _latLonAltBox;
+            set 
+            { 
+                _latLonAltBox = value;
+                _notChangedSinceInitialisation = false;
+            }
+        }
+
+        private ILod lod;
+        public ILod Lod
+        {
+            get => lod;
+            set 
+            { 
+                lod = value;
+                _notChangedSinceInitialisation = false;
+            }
+        }
 
         public Region()
         {
@@ -17,6 +38,8 @@ namespace GoogleEarthConversions.Core.KML.Object
             TargetId = string.Empty;
             LatLonAltBox = new LatLonAltBox();
             Lod = new Lod();
+
+            _notChangedSinceInitialisation = true;
         }
 
         public override bool Equals(object obj)
@@ -49,6 +72,9 @@ namespace GoogleEarthConversions.Core.KML.Object
 
         public string ConvertObjectToKML()
         {
+            if (_notChangedSinceInitialisation)
+                return string.Empty;
+            
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));

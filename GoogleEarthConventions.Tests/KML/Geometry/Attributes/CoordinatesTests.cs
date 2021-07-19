@@ -63,7 +63,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
         }
 
         [Theory]
-        [InlineData(40.68925, -74.0445, 200.4, "<coordinates>-074.044500000000,40.6892500000000,200</coordinates>")]
+        [InlineData(40.68925, -74.0445, 200.4, "<coordinates>-74.0445,40.68925,200</coordinates>")]
         public void Coordinates_CorrectlyConvertsToKML(double lat, double lon, double elev, string expected)
         {
             ISphericalCoordinate latitude = new Latitude(lat);
@@ -80,7 +80,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
         [Fact]
         public void Coordinates_CorrectlyConvertsCollectionToKML()
         {
-            var expected = "<coordinates>144.983450000000,-37.8199666700000,0 151.215297200000,-33.8567833300000,0</coordinates>";
+            var expected = "<coordinates>144.98345,-37.81996667,0 151.2152972,-33.85678333,0</coordinates>";
 
             ICollection<ICoordinates> collection = new List<ICoordinates>()
             {

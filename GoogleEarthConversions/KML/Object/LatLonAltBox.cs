@@ -13,6 +13,14 @@ namespace GoogleEarthConversions.Core.KML.Object
     public class LatLonAltBox : GoogleEarthObject, ILatLonAltBox
     {
         private ISphericalCoordinateKML _north;
+
+        private readonly Geographical.Distance MinAltitudeDefault = new Geographical.Distance(ConvertMinAltitudeToKML, 0.0, DistanceMeasurement.Meters);
+        private readonly Geographical.Distance MaxAltitudeDefault = new Geographical.Distance(ConvertMaxAltitudeToKML, 0.0, DistanceMeasurement.Meters);
+        private readonly Geographical.Latitude NorthDefault = new Geographical.Latitude(90.0, AngleMeasurement.Degrees, ConvertNorthToKML);
+        private readonly Geographical.Latitude SouthDefault = new Geographical.Latitude(-90.0, AngleMeasurement.Degrees, ConvertSouthToKML);
+        private readonly Geographical.Longitude EastDefault = new Geographical.Longitude(180.0, AngleMeasurement.Degrees, ConvertEastToKML);
+        private readonly Geographical.Longitude WestDefault = new Geographical.Longitude(-179.999999999999, AngleMeasurement.Degrees, ConvertWestToKML);
+
         public ISphericalCoordinateKML North
         {
             get => _north;
@@ -96,12 +104,12 @@ namespace GoogleEarthConversions.Core.KML.Object
             Id = string.Empty;
             TargetId = string.Empty;
             AltitudeMode = new AltitudeMode();
-            MinAltitude = new Geographical.Distance(ConvertMinAltitudeToKML, 0.0, DistanceMeasurement.Meters);
-            MaxAltitude = new Geographical.Distance(ConvertMaxAltitudeToKML, 0.0, DistanceMeasurement.Meters);
-            North = new Geographical.Latitude(90.0, AngleMeasurement.Degrees, ConvertNorthToKML);
-            South = new Geographical.Latitude(-90.0, AngleMeasurement.Degrees, ConvertSouthToKML);
-            East = new Geographical.Longitude(180.0, AngleMeasurement.Degrees, ConvertEastToKML);
-            West = new Geographical.Longitude(-179.999999999999, AngleMeasurement.Degrees, ConvertWestToKML);
+            MinAltitude = MinAltitudeDefault.Clone();
+            MaxAltitude = MaxAltitudeDefault.Clone();
+            North = NorthDefault.Clone();
+            South = SouthDefault.Clone();
+            East = EastDefault.Clone();
+            West = WestDefault.Clone();
         }
 
         private void ThrowNullReferenceException(string subjectObject)

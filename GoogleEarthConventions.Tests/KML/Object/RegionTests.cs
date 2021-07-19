@@ -34,10 +34,7 @@ namespace GoogleEarthConventions.Tests.KML.Object
         [Fact]
         public void Region_CorrectlyConvertsToKMLDefault()
         {
-            var expected = "<Region>" +
-                               "<LatLonAltBox><north>90</north><south>-90</south><east>180</east><west>-179.999999999999</west><minAltitude>0</minAltitude><maxAltitude>0</maxAltitude></LatLonAltBox>" +
-                               "<Lod><minLodPixels>256</minLodPixels><maxLodPixels>-1</maxLodPixels></Lod>" +
-                            "</Region>";
+            var expected = string.Empty;
 
             var sut = new Region();
 

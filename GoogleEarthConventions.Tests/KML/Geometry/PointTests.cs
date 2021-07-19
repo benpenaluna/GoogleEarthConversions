@@ -56,13 +56,13 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
 
 
         [Theory]
-        [InlineData("", AltMode.RelativeToGround, true, "<Point><extrude>1</extrude><altitudeMode>relativeToGround</altitudeMode><coordinates>000.000000000000,00.0000000000000,119</coordinates></Point>")]
-        [InlineData("Test", AltMode.Absolute, true, "<Point id=\"Test\"><extrude>1</extrude><altitudeMode>absolute</altitudeMode><coordinates>000.000000000000,00.0000000000000,119</coordinates></Point>")]
-        [InlineData("", AltMode.RelativeToSeaFloor, true, "<Point><extrude>1</extrude><gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode><coordinates>000.000000000000,00.0000000000000,119</coordinates></Point>")]
-        [InlineData("Test", AltMode.ClampToGround, false, "<Point id=\"Test\"><coordinates>000.000000000000,00.0000000000000,119</coordinates></Point>")]
-        [InlineData("", AltMode.Absolute, false, "<Point><altitudeMode>absolute</altitudeMode><coordinates>000.000000000000,00.0000000000000,119</coordinates></Point>")]
-        [InlineData("Test", AltMode.RelativeToSeaFloor, false, "<Point id=\"Test\"><gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode><coordinates>000.000000000000,00.0000000000000,119</coordinates></Point>")]
-        [InlineData("", AltMode.ClampToSeaFloor, false, "<Point><gx:altitudeMode>clampToSeaFloor</gx:altitudeMode><coordinates>000.000000000000,00.0000000000000,119</coordinates></Point>")]
+        [InlineData("", AltMode.RelativeToGround, true, "<Point><extrude>1</extrude><altitudeMode>relativeToGround</altitudeMode><coordinates>0,0,119</coordinates></Point>")]
+        [InlineData("Test", AltMode.Absolute, true, "<Point id=\"Test\"><extrude>1</extrude><altitudeMode>absolute</altitudeMode><coordinates>0,0,119</coordinates></Point>")]
+        [InlineData("", AltMode.RelativeToSeaFloor, true, "<Point><extrude>1</extrude><gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode><coordinates>0,0,119</coordinates></Point>")]
+        [InlineData("Test", AltMode.ClampToGround, false, "<Point id=\"Test\"><coordinates>0,0,119</coordinates></Point>")]
+        [InlineData("", AltMode.Absolute, false, "<Point><altitudeMode>absolute</altitudeMode><coordinates>0,0,119</coordinates></Point>")]
+        [InlineData("Test", AltMode.RelativeToSeaFloor, false, "<Point id=\"Test\"><gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode><coordinates>0,0,119</coordinates></Point>")]
+        [InlineData("", AltMode.ClampToSeaFloor, false, "<Point><gx:altitudeMode>clampToSeaFloor</gx:altitudeMode><coordinates>0,0,119</coordinates></Point>")]
         public void Point_CorrectlyConvertsToKML(string id, AltMode altitudeMode, bool extrude, string expected)
         {
             var coordinate = new Coordinates() { Elevation = new Distance(118.663, DistanceMeasurement.Meters) };

@@ -13,7 +13,7 @@ namespace GoogleEarthConversions.Core.Common
             get { return _value; }
             set
             {
-                if (value != string.Empty && !value.IsValidUri())
+                if (value != string.Empty && !(value.IsValidUriFragmentName() || value.IsValidUri()))
                     throw new UriFormatException(string.Format("{0} must be an empty string or a valid URI.", nameof(Href)));
 
                 _value = value;

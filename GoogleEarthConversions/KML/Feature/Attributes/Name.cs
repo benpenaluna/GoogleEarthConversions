@@ -10,6 +10,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
         {
             Label = label;
         }
+
         public override bool Equals(object obj)
         {
             return obj.GetType() == typeof(Name) && Equals((Name)obj);

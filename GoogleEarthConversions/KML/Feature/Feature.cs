@@ -6,6 +6,7 @@ using GoogleEarthConversions.Core.KML.StyleSelector;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using GoogleEarthConversions.Core.KML.TimePrimitive;
 using System;
+using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.Feature
 {
@@ -21,24 +22,14 @@ namespace GoogleEarthConversions.Core.KML.Feature
         public IAddress Address { get; set; }
         public IPhoneNumber PhoneNumber { get; set; }
         public ISnippet Snippet { get; set; }
+        public IDescription Description { get; set; }
         public AbstractView.AbstractView AbstractView { get; set; }
         public TimePrimitive.TimePrimitive TimePrimitive { get; set; }
         public IStyleUrl StyleUrl { get; private set; }
         public StyleSelector.StyleSelector StyleSelector { get; set; }
         public IRegion Region { get; set; }
+        public IExtendedData ExtendedData { get; set; }
         
-        private string _extendedData;
-        public string ExtendedData
-        {
-            get => _extendedData;
-            set 
-            {
-                if (value != string.Empty && !value.IsValidXML())
-                    throw new InvalidOperationException(string.Format("{0} must contain valid XML.", nameof(ExtendedData)));
-                
-                _extendedData = value; 
-            }
-        }
 
         protected void InitiailiseFeatureProperties()
         {
@@ -52,12 +43,13 @@ namespace GoogleEarthConversions.Core.KML.Feature
             Address = new Address();
             PhoneNumber = new PhoneNumber();
             Snippet = new Snippet();
+            Description = new Description();
             AbstractView = new DummyAbstractView();
             TimePrimitive = new DummyTimePrimitive();
             StyleUrl = new DummyStyleUrl();
             StyleSelector = new DummyStyleSelector();
             Region = new Region();
-            ExtendedData = string.Empty;
+            ExtendedData = new ExtendedData();
         }
 
         public void SetStyleUrl(IStyleUrl styleUrl)
@@ -84,6 +76,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
                    Equals(Address, other.Address) &&
                    Equals(PhoneNumber, other.PhoneNumber) &&
                    Equals(Snippet, other.Snippet) &&
+                   Equals(Description, other.Description) &&
                    Equals(AbstractView, other.AbstractView) &&
                    Equals(TimePrimitive, other.TimePrimitive) &&
                    Equals(StyleUrl, other.StyleUrl) &&
@@ -105,6 +98,35 @@ namespace GoogleEarthConversions.Core.KML.Feature
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        protected string GetFeatureKMLTags(bool includeTypeTag = true)
+        {
+            StringWriter sw = new StringWriter();
+
+            if (includeTypeTag)
+                sw.Write(OpeningTag(GetType()));
+
+            sw.Write(Name.ConvertObjectToKML());
+            sw.Write(Visibility.ConvertObjectToKML());
+            sw.Write(Open.ConvertObjectToKML());
+            sw.Write(Author.ConvertObjectToKML());
+            sw.Write(Link.ConvertObjectToKML());
+            sw.Write(Address.ConvertObjectToKML());
+            sw.Write(PhoneNumber.ConvertObjectToKML());
+            sw.Write(Snippet.ConvertObjectToKML());
+            sw.Write(Description.ConvertObjectToKML());
+            sw.Write(AbstractView.ConvertObjectToKML());
+            sw.Write(TimePrimitive.ConvertObjectToKML());
+            sw.Write(StyleUrl.ConvertObjectToKML());
+            sw.Write(StyleSelector.ConvertObjectToKML());
+            sw.Write(Region.ConvertObjectToKML());
+            sw.Write(ExtendedData.ConvertObjectToKML());
+
+            if (includeTypeTag)
+                sw.Write(ClosingTag(GetType()));
+
+            return sw.ToString();
         }
     }
 }

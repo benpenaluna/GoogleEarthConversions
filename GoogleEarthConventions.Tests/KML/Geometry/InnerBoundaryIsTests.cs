@@ -28,8 +28,8 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
         }
 
         [Theory]
-        [InlineData("<innerBoundaryIs><LinearRing><coordinates>144.983450000000,-37.8199666700000,0 151.215297200000,-33.8567833300000,0 142.531413900000,-10.6871138900000,0 131.036883300000,-25.3444277800000,0 144.983450000000,-37.8199666700000,0</coordinates></LinearRing>" +
-                    "<LinearRing><coordinates>-074.044500000000,40.6892500000000,0 002.294480556000,48.8583694400000,0 -000.119552778000,51.5032972200000,0 -074.044500000000,40.6892500000000,0</coordinates></LinearRing></innerBoundaryIs>")]
+        [InlineData("<innerBoundaryIs><LinearRing><coordinates>144.98345,-37.81996667,0 151.2152972,-33.85678333,0 142.5314139,-10.68711389,0 131.0368833,-25.34442778,0 144.98345,-37.81996667,0</coordinates></LinearRing>" +
+                    "<LinearRing><coordinates>-74.0445,40.68925,0 2.294480556,48.85836944,0 -0.119552778,51.50329722,0 -74.0445,40.68925,0</coordinates></LinearRing></innerBoundaryIs>")]
         public void InnerBoundaryIs_CorrectlyConvertsToKML(string expected)
         {
             var sut = new InnerBoundaryIs(CreateLinearRingCollection());

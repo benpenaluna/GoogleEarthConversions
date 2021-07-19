@@ -30,6 +30,36 @@ namespace GoogleEarthConversions.Core.Geographical
                 _convertObjectToKML = convertObjectToKML;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Latitude) && Equals((Latitude)obj);
+        }
+
+        protected bool Equals(Latitude other)
+        {
+            return Equals(Angle, other.Angle);
+        }
+
+        public static bool operator ==(Latitude a, Latitude b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Latitude a, Latitude b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public Latitude Clone()
+        {
+            return new Latitude(this.Angle, _convertObjectToKML);
+        }
+
         public string ConvertObjectToKML()
         {
             if (_convertObjectToKML != null)

@@ -31,6 +31,37 @@ namespace GoogleEarthConversions.Core.Geographical
             _convertObjectToKML = convertObjectToKML;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Distance) && Equals((Distance)obj);
+        }
+
+        protected bool Equals(Distance other)
+        {
+            return Equals(Value, other.Value) &&
+                   Equals(DistanceMeasurement, other.DistanceMeasurement);
+        }
+
+        public static bool operator ==(Distance a, Distance b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Distance a, Distance b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public Distance Clone()
+        {
+            return new Distance(this, _convertObjectToKML);
+        }
+
         public string ConvertObjectToKML()
         {
             return _convertObjectToKML(this);
