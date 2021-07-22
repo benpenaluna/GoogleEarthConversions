@@ -28,7 +28,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             FollowsTerrain = followsTerrain;
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (FollowsTerrain == false)
                 return "";

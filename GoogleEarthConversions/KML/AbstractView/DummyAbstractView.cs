@@ -11,7 +11,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             InitialiseBaseProperties();
         }
         
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             return string.Empty;
         }

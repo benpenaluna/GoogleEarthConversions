@@ -42,7 +42,7 @@ namespace GoogleEarthConversions.Core.KML.Object.Attributes
             return !EqualityCheck.ObjectEquals(a, b);
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (_convertObjectToKML != null)
                 return _convertObjectToKML(this);

@@ -20,7 +20,7 @@ namespace GoogleEarthConventions.Tests.Geographical
         {
             var sut = new Latitude(angle, angleMeasurement);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

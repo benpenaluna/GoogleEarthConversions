@@ -42,7 +42,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (Value == string.Empty)
                 return string.Empty;

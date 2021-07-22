@@ -90,7 +90,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         {
             var sut = new ViewerOptions(historicalimageryEnabled, sunlightEnabled, streetviewEnabled);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

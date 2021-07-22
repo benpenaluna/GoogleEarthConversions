@@ -35,7 +35,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
         {
             var sut = new AltitudeMode(value);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

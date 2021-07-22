@@ -28,7 +28,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             var enabledText = Enabled == true ? " " : string.Format(" {0}=\"0\" ", nameof(Enabled).ConvertFirstCharacterToLowerCase());
 

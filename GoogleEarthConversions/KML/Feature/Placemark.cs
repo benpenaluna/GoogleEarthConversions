@@ -53,10 +53,10 @@ namespace GoogleEarthConversions.Core.KML.Feature
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             var baseKML = GetFeatureKMLTags(includeTypeTag: false);
-            var geometryKML = Geometry.ConvertObjectToKML();
+            var geometryKML = Geometry.SerialiseToKML();
 
             return string.Format("<{0}>{1}{2}</{0}>", nameof(Placemark), baseKML, geometryKML);
         }

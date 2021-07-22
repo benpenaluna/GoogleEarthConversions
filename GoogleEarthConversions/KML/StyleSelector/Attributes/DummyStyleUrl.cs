@@ -13,7 +13,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             Url = new Uri("http://google.com/");
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             return string.Empty;
         }

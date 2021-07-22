@@ -68,7 +68,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
             var def = System.Drawing.Color.FromArgb(defaultAlpha, defaultRed, defaultGreen, defaultBlue);
             var sut = new Color(kmlTag) { Value = value, DefaultColor = def };
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

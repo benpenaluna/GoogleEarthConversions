@@ -28,7 +28,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             Extruded = extruded;
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (Extruded == false)
                 return "";

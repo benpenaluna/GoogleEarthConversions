@@ -65,7 +65,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         {
             var sut = new State(stateMode, iconMode);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

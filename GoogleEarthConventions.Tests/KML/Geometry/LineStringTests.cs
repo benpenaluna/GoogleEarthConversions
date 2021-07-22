@@ -78,7 +78,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
                 DrawOrder = new DrawOrder(drawOrder)
             };
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

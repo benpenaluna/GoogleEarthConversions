@@ -25,7 +25,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (Number == string.Empty)
                 return string.Empty;

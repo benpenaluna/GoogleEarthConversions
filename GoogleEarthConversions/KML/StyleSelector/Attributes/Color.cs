@@ -43,7 +43,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (Value.ColorHexValue() == DefaultColor.ColorHexValue())
                 return "";

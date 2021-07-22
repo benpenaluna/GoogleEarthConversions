@@ -38,7 +38,7 @@ namespace GoogleEarthConventions.Tests.KML.Object
 
             var sut = new Region();
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }
@@ -70,7 +70,7 @@ namespace GoogleEarthConventions.Tests.KML.Object
             sut.LatLonAltBox.UpdateMinAltitude(minAlt, DistanceMeasurement.Meters);
             sut.LatLonAltBox.UpdateMaxAltitude(maxAlt, DistanceMeasurement.Meters);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

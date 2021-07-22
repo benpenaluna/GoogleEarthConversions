@@ -120,7 +120,7 @@ namespace GoogleEarthConventions.Tests.KML.Object
             sut.UpdateMinAltitude(minAlt, DistanceMeasurement.Meters);
             sut.UpdateMaxAltitude(maxAlt, DistanceMeasurement.Meters);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

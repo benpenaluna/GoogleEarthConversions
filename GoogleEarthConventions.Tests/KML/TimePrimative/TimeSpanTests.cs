@@ -37,7 +37,7 @@ namespace GoogleEarthConventions.Tests.KML.TimePrimative
             System.DateTime? end = endEnabled ? CreateDateTime_End() : null;
             var sut = new TimeSpan(begin, end);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

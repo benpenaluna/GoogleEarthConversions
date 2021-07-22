@@ -2,6 +2,6 @@
 {
     public abstract class TimePrimitive : GoogleEarthObject, IKMLFormat
     {
-        public abstract string ConvertObjectToKML();
+        public abstract string SerialiseToKML();
     }
 }

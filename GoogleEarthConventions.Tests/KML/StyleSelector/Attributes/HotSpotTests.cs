@@ -43,7 +43,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
                 Yunits = yunits
             };
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

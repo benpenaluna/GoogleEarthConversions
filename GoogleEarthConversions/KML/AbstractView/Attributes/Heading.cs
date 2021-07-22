@@ -12,7 +12,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
     {
         public Heading(double value = 0.0, AngleMeasurement measurement = AngleMeasurement.Degrees) : base(value, measurement) { }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             var heading = AngleMeasurement == AngleMeasurement.Degrees ? CoTerminalValue : Angle.ToDegrees(CoTerminalValue);
             

@@ -42,7 +42,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             var simpleDataKML = GetSimpleDataKML();
             if(simpleDataKML == string.Empty)
@@ -60,7 +60,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 
             foreach (ISimpleData simpleData in SimpleData)
             {
-                sw.Append(simpleData.ConvertObjectToKML());
+                sw.Append(simpleData.SerialiseToKML());
             }
 
             return sw.ToString();

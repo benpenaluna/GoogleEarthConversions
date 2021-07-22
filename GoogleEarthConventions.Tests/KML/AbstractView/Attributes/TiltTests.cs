@@ -69,7 +69,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         {
             var sut = new Tilt(angle, angleMeasurement);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

@@ -29,7 +29,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             AltMode = altMode;
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (AltMode == AltMode.ClampToGround)
                 return "";

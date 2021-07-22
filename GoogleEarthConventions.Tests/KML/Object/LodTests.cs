@@ -35,7 +35,7 @@ namespace GoogleEarthConventions.Tests.KML.Object
 
             var sut = new Lod();
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }
@@ -47,7 +47,7 @@ namespace GoogleEarthConventions.Tests.KML.Object
         {
             var sut = new Lod(minLodPixels, maxLodPixels, minFadeExtent, maxFadeExtent);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

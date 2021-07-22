@@ -59,7 +59,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView
                 AltitudeMode = new AltitudeMode(altitudeMode)
             };
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

@@ -30,7 +30,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             var googleEarthNamespace = "gx:";
             
@@ -38,7 +38,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
 
             sw.Write(OpeningTag(GetType(), googleEarthNamespace));
 
-            sw.Write(When.ConvertObjectToKML());
+            sw.Write(When.SerialiseToKML());
 
             sw.Write(ClosingTag(GetType(), googleEarthNamespace));
 

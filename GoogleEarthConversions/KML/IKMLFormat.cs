@@ -2,6 +2,6 @@
 {
     public interface IKMLFormat
     {
-        string ConvertObjectToKML();
+        string SerialiseToKML();
     }
 }

@@ -60,7 +60,7 @@ namespace GoogleEarthConversions.Core.Geographical
             return new Latitude(this.Angle, _convertObjectToKML);
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (_convertObjectToKML != null)
                 return _convertObjectToKML(this);

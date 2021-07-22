@@ -42,7 +42,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
             sut.ColorMode.Mode = colorMode;
             sut.Scale.Value = scale;
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

@@ -72,7 +72,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
 
             var sut = new ExtendedData(data, schemaData);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }
@@ -84,7 +84,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
             
             var sut = new ExtendedData();
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

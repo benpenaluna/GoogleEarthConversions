@@ -34,7 +34,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
         {
             var sut = new AltitudeOffset(value);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }
@@ -46,7 +46,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
             IDistance distance = new Distance(value, DistanceMeasurement.Feet);
             var sut = new AltitudeOffset(distance);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

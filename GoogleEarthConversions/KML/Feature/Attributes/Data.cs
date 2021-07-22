@@ -45,7 +45,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             return string.Format("<{0}{1}>{2}<{3}>{4}</{3}></{0}>", nameof(Data),
                                                                    ConvertNameToKML(),

@@ -61,7 +61,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             var body = GetKMLBody();
             if (body.ToString() == string.Empty)
@@ -80,13 +80,13 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             StringWriter sw = new StringWriter();
 
-            sw.Write(Color.ConvertObjectToKML());
-            sw.Write(ColorMode.ConvertObjectToKML());
-            sw.Write(Width.ConvertObjectToKML());
-            sw.Write(OuterColor.ConvertObjectToKML());
-            sw.Write(OuterWidth.ConvertObjectToKML());
-            sw.Write(PhysicalWidth.ConvertObjectToKML());
-            sw.Write(LabelVisibility.ConvertObjectToKML());
+            sw.Write(Color.SerialiseToKML());
+            sw.Write(ColorMode.SerialiseToKML());
+            sw.Write(Width.SerialiseToKML());
+            sw.Write(OuterColor.SerialiseToKML());
+            sw.Write(OuterWidth.SerialiseToKML());
+            sw.Write(PhysicalWidth.SerialiseToKML());
+            sw.Write(LabelVisibility.SerialiseToKML());
             
             return sw.ToString();
         }

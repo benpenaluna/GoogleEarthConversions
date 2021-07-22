@@ -48,7 +48,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature
             sut.StyleSelectors.Add(GenerateIconStyle("sn_ylw-pushpin", 1.1, "http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png"));
             sut.Features.Add(placemark);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

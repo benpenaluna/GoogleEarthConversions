@@ -33,7 +33,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         {
             var sut = new Option(name, enabled);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

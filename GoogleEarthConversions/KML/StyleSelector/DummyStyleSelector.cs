@@ -12,7 +12,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
             TargetId = string.Empty;
         }
         
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             return string.Empty;
         }

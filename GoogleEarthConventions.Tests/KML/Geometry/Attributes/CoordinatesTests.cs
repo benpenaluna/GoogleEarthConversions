@@ -72,7 +72,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry.Attributes
 
             var sut = new Coordinates(latitude, longitude, elevation);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

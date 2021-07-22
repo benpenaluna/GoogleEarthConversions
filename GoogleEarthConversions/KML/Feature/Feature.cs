@@ -57,7 +57,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             StyleUrl = styleUrl;
         }
 
-        public abstract string ConvertObjectToKML();
+        public abstract string SerialiseToKML();
 
         public override bool Equals(object obj)
         {
@@ -107,21 +107,21 @@ namespace GoogleEarthConversions.Core.KML.Feature
             if (includeTypeTag)
                 sw.Write(OpeningTag(GetType()));
 
-            sw.Write(Name.ConvertObjectToKML());
-            sw.Write(Visibility.ConvertObjectToKML());
-            sw.Write(Open.ConvertObjectToKML());
-            sw.Write(Author.ConvertObjectToKML());
-            sw.Write(Link.ConvertObjectToKML());
-            sw.Write(Address.ConvertObjectToKML());
-            sw.Write(PhoneNumber.ConvertObjectToKML());
-            sw.Write(Snippet.ConvertObjectToKML());
-            sw.Write(Description.ConvertObjectToKML());
-            sw.Write(AbstractView.ConvertObjectToKML());
-            sw.Write(TimePrimitive.ConvertObjectToKML());
-            sw.Write(StyleUrl.ConvertObjectToKML());
-            sw.Write(StyleSelector.ConvertObjectToKML());
-            sw.Write(Region.ConvertObjectToKML());
-            sw.Write(ExtendedData.ConvertObjectToKML());
+            sw.Write(Name.SerialiseToKML());
+            sw.Write(Visibility.SerialiseToKML());
+            sw.Write(Open.SerialiseToKML());
+            sw.Write(Author.SerialiseToKML());
+            sw.Write(Link.SerialiseToKML());
+            sw.Write(Address.SerialiseToKML());
+            sw.Write(PhoneNumber.SerialiseToKML());
+            sw.Write(Snippet.SerialiseToKML());
+            sw.Write(Description.SerialiseToKML());
+            sw.Write(AbstractView.SerialiseToKML());
+            sw.Write(TimePrimitive.SerialiseToKML());
+            sw.Write(StyleUrl.SerialiseToKML());
+            sw.Write(StyleSelector.SerialiseToKML());
+            sw.Write(Region.SerialiseToKML());
+            sw.Write(ExtendedData.SerialiseToKML());
 
             if (includeTypeTag)
                 sw.Write(ClosingTag(GetType()));

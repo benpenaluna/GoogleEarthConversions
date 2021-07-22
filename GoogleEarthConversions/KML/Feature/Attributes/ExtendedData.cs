@@ -56,17 +56,17 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             var dataKML = ConvertDataToKML();
-            var schemaDataKML = SchemaData.ConvertObjectToKML();
+            var schemaDataKML = SchemaData.SerialiseToKML();
 
             if (dataKML == string.Empty && schemaDataKML == string.Empty)
                 return string.Empty;
 
             return string.Format("<{0}>{1}{2}</{0}>", nameof(ExtendedData), 
                                                       ConvertDataToKML(), 
-                                                      SchemaData.ConvertObjectToKML());
+                                                      SchemaData.SerialiseToKML());
         }
 
         private string ConvertDataToKML()
@@ -75,7 +75,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 
             foreach (var data in Data)
             {
-                sw.Append(data.ConvertObjectToKML());
+                sw.Append(data.SerialiseToKML());
             }
 
             return sw.ToString();

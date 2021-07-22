@@ -42,7 +42,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             var url = StyleInLocalDocument ? Url.Fragment : Url.AbsoluteUri;
             

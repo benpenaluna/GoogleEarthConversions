@@ -41,7 +41,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             return string.Empty;
         }

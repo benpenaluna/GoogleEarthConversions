@@ -52,7 +52,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             var body = GetKMLBody();
             if (body == string.Empty)
@@ -71,10 +71,10 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             StringWriter sw = new StringWriter();
 
-            sw.Write(Color.ConvertObjectToKML());
-            sw.Write(ColorMode.ConvertObjectToKML());
-            sw.Write(Fill.ConvertObjectToKML());
-            sw.Write(Outline.ConvertObjectToKML());
+            sw.Write(Color.SerialiseToKML());
+            sw.Write(ColorMode.SerialiseToKML());
+            sw.Write(Fill.SerialiseToKML());
+            sw.Write(Outline.SerialiseToKML());
 
             return sw.ToString();
         }

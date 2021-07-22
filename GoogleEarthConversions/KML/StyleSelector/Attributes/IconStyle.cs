@@ -60,7 +60,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             var body = GenerateKmlBody();
 
@@ -80,12 +80,12 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             StringWriter sw = new StringWriter();
 
-            sw.Write(Color.ConvertObjectToKML());
-            sw.Write(ColorMode.ConvertObjectToKML());
-            sw.Write(Scale.ConvertObjectToKML());
+            sw.Write(Color.SerialiseToKML());
+            sw.Write(ColorMode.SerialiseToKML());
+            sw.Write(Scale.SerialiseToKML());
             sw.Write(GetHeadingKML());
-            sw.Write(Icon.ConvertObjectToKML());
-            sw.Write(HotSpot.ConvertObjectToKML());
+            sw.Write(Icon.SerialiseToKML());
+            sw.Write(HotSpot.SerialiseToKML());
 
             return sw.ToString();
         }
@@ -95,7 +95,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             if (Heading.CoTerminalValue == 0.0)
                 return string.Empty;
 
-            return Heading.ConvertObjectToKML();
+            return Heading.SerialiseToKML();
         }
     }
 }

@@ -74,7 +74,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
                 Extrude = new Extrude(extrude)
             };
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

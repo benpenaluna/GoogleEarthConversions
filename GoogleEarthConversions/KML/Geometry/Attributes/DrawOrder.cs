@@ -11,7 +11,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             OrderValue = orderValue;
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (OrderValue == 0)
                 return "";

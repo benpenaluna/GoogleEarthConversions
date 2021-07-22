@@ -62,7 +62,7 @@ namespace GoogleEarthConversions.Core.Geographical
             return new Distance(this, _convertObjectToKML);
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             return _convertObjectToKML(this);
         }

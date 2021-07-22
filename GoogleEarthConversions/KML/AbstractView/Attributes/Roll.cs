@@ -57,7 +57,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             return string.Format("<{0}>{1}</{0}>", nameof(Roll).ConvertFirstCharacterToLowerCase(), Angle.ToDegrees());
         }

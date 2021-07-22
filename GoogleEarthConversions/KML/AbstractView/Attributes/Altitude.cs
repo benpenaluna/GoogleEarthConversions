@@ -17,7 +17,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             DistanceMeasurement = altitude.DistanceMeasurement;
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             return string.Format("<{0}>{1}</{0}>", nameof(Altitude).ConvertFirstCharacterToLowerCase(), ToMeters());
         }

@@ -89,7 +89,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature
                 sut.Geometry = new Point(coordinate);
             }
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }
@@ -111,7 +111,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature
             };
             sut.Geometry = new LineString(coordinates);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

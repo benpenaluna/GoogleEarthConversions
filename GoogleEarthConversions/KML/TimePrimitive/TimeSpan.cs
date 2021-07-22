@@ -34,7 +34,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             if (Begin.Enabled == false && End.Enabled == false)
                 return "";

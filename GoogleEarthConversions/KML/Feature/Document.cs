@@ -43,7 +43,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML() // TODO: Unit Test this
+        public override string SerialiseToKML() // TODO: Unit Test this
         {
             var baseKML = GetFeatureKMLTags(includeTypeTag: false);
 
@@ -55,7 +55,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             StringWriter stylesKML = new StringWriter();
             foreach (var styleSelector in StyleSelectors)
             {
-                stylesKML.Write(styleSelector.ConvertObjectToKML());
+                stylesKML.Write(styleSelector.SerialiseToKML());
             }
 
             return stylesKML.ToString();
@@ -66,7 +66,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             StringWriter featuresKML = new StringWriter();
             foreach (var feature in Features)
             {
-                featuresKML.Write(feature.ConvertObjectToKML());
+                featuresKML.Write(feature.SerialiseToKML());
             }
 
             return featuresKML.ToString();

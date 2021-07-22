@@ -28,10 +28,10 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             return string.Format("<{0}>{1}</{0}>", nameof(OuterBoundaryIs).ConvertFirstCharacterToLowerCase(),
-                                                   LinearRing.ConvertObjectToKML());
+                                                   LinearRing.SerialiseToKML());
         }
     }
 }

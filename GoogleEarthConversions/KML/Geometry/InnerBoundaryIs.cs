@@ -31,7 +31,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (LinearRings?.Count == 0)
                 return "";
@@ -39,7 +39,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             StringWriter linearRingsKML = new StringWriter();
             foreach (var linearRing in LinearRings)
             {
-                linearRingsKML.Write(linearRing.ConvertObjectToKML());
+                linearRingsKML.Write(linearRing.SerialiseToKML());
             }
 
             return string.Format("<{0}>{1}</{0}>", nameof(InnerBoundaryIs).ConvertFirstCharacterToLowerCase(), linearRingsKML.ToString());

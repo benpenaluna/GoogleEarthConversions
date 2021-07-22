@@ -35,7 +35,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         {
             var sut = new ColorMode(mode);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

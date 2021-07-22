@@ -68,21 +68,21 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             return !Common.EqualityCheck.ObjectEquals(a, b);
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
 
-            sw.Write(TimePrimitive.ConvertObjectToKML());
-            sw.Write(ViewerOptions.ConvertObjectToKML());
-            sw.Write(Longitude.ConvertObjectToKML());
-            sw.Write(Latitude.ConvertObjectToKML());
-            sw.Write(Altitude.ConvertObjectToKML());
-            sw.Write(Heading.ConvertObjectToKML());
-            sw.Write(Tilt.ConvertObjectToKML());
-            sw.Write(Range.ConvertObjectToKML());
-            sw.Write(AltitudeMode.ConvertObjectToKML());
+            sw.Write(TimePrimitive.SerialiseToKML());
+            sw.Write(ViewerOptions.SerialiseToKML());
+            sw.Write(Longitude.SerialiseToKML());
+            sw.Write(Latitude.SerialiseToKML());
+            sw.Write(Altitude.SerialiseToKML());
+            sw.Write(Heading.SerialiseToKML());
+            sw.Write(Tilt.SerialiseToKML());
+            sw.Write(Range.SerialiseToKML());
+            sw.Write(AltitudeMode.SerialiseToKML());
 
             sw.Write(ClosingTag(GetType()));
 

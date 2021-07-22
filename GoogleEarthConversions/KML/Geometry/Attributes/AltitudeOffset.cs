@@ -18,7 +18,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             AltOffset = altOffset;
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (AltOffset.ToMeters() == 0)
                 return "";

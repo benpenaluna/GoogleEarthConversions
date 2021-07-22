@@ -61,7 +61,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
             sut.PhysicalWidth.Value = physicalWidth;
             sut.LabelVisibility.Value = labelVisibility;
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

@@ -30,7 +30,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             var dateTimeString = LocalDateTime.ToString("yyyy-MM-ddTHH:mm:ss");
 

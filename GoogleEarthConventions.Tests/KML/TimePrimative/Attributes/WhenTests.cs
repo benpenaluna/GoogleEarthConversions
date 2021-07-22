@@ -37,7 +37,7 @@ namespace GoogleEarthConventions.Tests.KML.TimePrimative.Attributes
 
             var sut = new When(dateTime, timeZone);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

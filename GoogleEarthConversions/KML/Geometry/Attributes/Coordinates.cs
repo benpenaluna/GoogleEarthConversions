@@ -15,7 +15,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 
         public Coordinates(ISphericalCoordinate latitude, ISphericalCoordinate longitude, IDistance elevation) : base(latitude, longitude, elevation) { }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             var coordinateString = FormatCoordinatesString();
 
@@ -45,7 +45,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             var coordinatesKML = "";
             foreach (var coordinate in collection)
             {
-                coordinatesKML += coordinate.ConvertObjectToKML();
+                coordinatesKML += coordinate.SerialiseToKML();
             }
 
             var replacementString = string.Format("</{0}><{0}>", nameof(Coordinates).ConvertFirstCharacterToLowerCase());

@@ -26,7 +26,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             return string.Format("<gx:{0}>{1}</gx:{0}>",
                                  nameof(HorizFov).ConvertFirstCharacterToLowerCase(),

@@ -45,12 +45,12 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             return string.Format("<{0}><{1}>{2}</{1}>{3}</{0}>", nameof(Pair),
                                                                             "key",
                                                                             ModeUrlMap.Key.ToString().ConvertFirstCharacterToLowerCase(),
-                                                                            ModeUrlMap.Value.ConvertObjectToKML());
+                                                                            ModeUrlMap.Value.SerialiseToKML());
         }
     }
 }

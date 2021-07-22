@@ -85,15 +85,15 @@ namespace GoogleEarthConversions.Core.KML.Object
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
-            sw.Write(MinLodPixels.ConvertObjectToKML());
-            sw.Write(MaxLodPixels.ConvertObjectToKML());
-            sw.Write(MinFadeExtent.ConvertObjectToKML());
-            sw.Write(MaxFadeExtent.ConvertObjectToKML());
+            sw.Write(MinLodPixels.SerialiseToKML());
+            sw.Write(MaxLodPixels.SerialiseToKML());
+            sw.Write(MinFadeExtent.SerialiseToKML());
+            sw.Write(MaxFadeExtent.SerialiseToKML());
             sw.Write(ClosingTag(GetType()));
 
             return sw.ToString();

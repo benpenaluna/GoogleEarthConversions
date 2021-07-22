@@ -44,7 +44,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
         {
             var sut = new Snippet(address, maxLines);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

@@ -45,7 +45,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
             sut.Outline.Value = outline;
             
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

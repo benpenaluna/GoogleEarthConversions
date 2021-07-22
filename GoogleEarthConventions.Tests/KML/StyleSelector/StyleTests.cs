@@ -67,7 +67,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector
             if (includeListStyle)
                 sut.ListStyle = CreateTestListStyle();
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

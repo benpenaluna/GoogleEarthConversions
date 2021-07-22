@@ -47,14 +47,14 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             StringWriter sw = new StringWriter();
 
             sw.Write(string.Format("<gx:{0}>", nameof(ViewerOptions)));
-            sw.Write(Historicalimagery.ConvertObjectToKML());
-            sw.Write(Sunlight.ConvertObjectToKML());
-            sw.Write(Streetview.ConvertObjectToKML());
+            sw.Write(Historicalimagery.SerialiseToKML());
+            sw.Write(Sunlight.SerialiseToKML());
+            sw.Write(Streetview.SerialiseToKML());
             sw.Write(string.Format("</gx:{0}>", nameof(ViewerOptions)));
 
             return sw.ToString();

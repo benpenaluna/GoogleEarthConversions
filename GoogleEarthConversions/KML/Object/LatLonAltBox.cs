@@ -227,18 +227,18 @@ namespace GoogleEarthConversions.Core.KML.Object
             return string.Format("<{0}>{1}</{0}>", nameof(West).ConvertFirstCharacterToLowerCase(), lon.Angle.ToDegrees());
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
-            sw.Write(North.ConvertObjectToKML());
-            sw.Write(South.ConvertObjectToKML());
-            sw.Write(East.ConvertObjectToKML());
-            sw.Write(West.ConvertObjectToKML());
-            sw.Write(MinAltitude.ConvertObjectToKML());
-            sw.Write(MaxAltitude.ConvertObjectToKML());
-            sw.Write(AltitudeMode.ConvertObjectToKML());
+            sw.Write(North.SerialiseToKML());
+            sw.Write(South.SerialiseToKML());
+            sw.Write(East.SerialiseToKML());
+            sw.Write(West.SerialiseToKML());
+            sw.Write(MinAltitude.SerialiseToKML());
+            sw.Write(MaxAltitude.SerialiseToKML());
+            sw.Write(AltitudeMode.SerialiseToKML());
             sw.Write(ClosingTag(GetType()));
 
             return sw.ToString();

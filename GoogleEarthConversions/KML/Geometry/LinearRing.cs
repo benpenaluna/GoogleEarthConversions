@@ -73,16 +73,16 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
 
-            sw.Write(AltitudeOffset.ConvertObjectToKML());
-            sw.Write(Extrude.ConvertObjectToKML());
-            sw.Write(Tessellate.ConvertObjectToKML());
-            sw.Write(AltitudeMode.ConvertObjectToKML());
+            sw.Write(AltitudeOffset.SerialiseToKML());
+            sw.Write(Extrude.SerialiseToKML());
+            sw.Write(Tessellate.SerialiseToKML());
+            sw.Write(AltitudeMode.SerialiseToKML());
             sw.Write(Attributes.Coordinates.ConvertCoordinatesCollectionToKML(Coordinates));
 
             sw.Write(ClosingTag(GetType()));

@@ -55,7 +55,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
             };
             sut.BgColor.Value = System.Drawing.Color.FromArgb(valueAlpha, valueRed, valueGreen, valueBlue);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

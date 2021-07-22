@@ -48,7 +48,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         {
             var sut = new ListItemType(itemType);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

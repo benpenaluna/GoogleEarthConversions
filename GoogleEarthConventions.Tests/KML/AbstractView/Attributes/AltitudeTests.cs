@@ -16,7 +16,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         {
             var sut = new Altitude(elevation, measurement);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

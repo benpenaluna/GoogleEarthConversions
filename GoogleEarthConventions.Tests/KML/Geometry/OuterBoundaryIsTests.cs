@@ -34,7 +34,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
         {
             var sut = new OuterBoundaryIs(CreateLinearRing());
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }
@@ -47,7 +47,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
             var sut = new OuterBoundaryIs(CreateLinearRing());
             sut.LinearRing.Id = "Test";
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

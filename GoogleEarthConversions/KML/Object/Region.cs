@@ -70,7 +70,7 @@ namespace GoogleEarthConversions.Core.KML.Object
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (_notChangedSinceInitialisation)
                 return string.Empty;
@@ -78,8 +78,8 @@ namespace GoogleEarthConversions.Core.KML.Object
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
-            sw.Write(LatLonAltBox.ConvertObjectToKML());
-            sw.Write(Lod.ConvertObjectToKML());
+            sw.Write(LatLonAltBox.SerialiseToKML());
+            sw.Write(Lod.SerialiseToKML());
             sw.Write(ClosingTag(GetType()));
 
             return sw.ToString();

@@ -145,7 +145,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector
                 sut = new StyleMap(pair1, pair2);
             }
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

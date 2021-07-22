@@ -21,6 +21,6 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             HorizFov = new HorizFov();
         }
 
-        public abstract string ConvertObjectToKML();
+        public abstract string SerialiseToKML();
     }
 }

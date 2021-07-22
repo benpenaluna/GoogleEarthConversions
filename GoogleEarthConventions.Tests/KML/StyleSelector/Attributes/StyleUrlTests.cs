@@ -46,7 +46,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
             var uri = new Uri(href);
             var sut = new StyleUrl(uri, styleLocal);
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

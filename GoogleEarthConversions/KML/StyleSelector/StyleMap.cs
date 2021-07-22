@@ -61,7 +61,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML()
+        public override string SerialiseToKML()
         {
             StringWriter sw = new StringWriter();
 
@@ -69,7 +69,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
             
             foreach (var pair in Pairs)
             {
-                sw.Write(pair.ConvertObjectToKML());
+                sw.Write(pair.SerialiseToKML());
             }
 
             sw.Write(ClosingTag(GetType()));

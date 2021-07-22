@@ -48,7 +48,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             if (X == 0.5 && Y == 0.5 && Xunits == UnitsEnum.Fraction && Yunits == UnitsEnum.Fraction)
                 return string.Empty;

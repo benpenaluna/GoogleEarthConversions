@@ -34,7 +34,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
         {
             var sut = new InnerBoundaryIs(CreateLinearRingCollection());
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

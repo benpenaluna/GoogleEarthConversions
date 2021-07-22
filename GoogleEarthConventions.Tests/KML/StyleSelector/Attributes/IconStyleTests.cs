@@ -53,7 +53,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
             sut.HotSpot.Xunits = xunits;
             sut.HotSpot.Yunits = yunits;
 
-            var result = sut.ConvertObjectToKML();
+            var result = sut.SerialiseToKML();
 
             Assert.Equal(expected, result);
         }

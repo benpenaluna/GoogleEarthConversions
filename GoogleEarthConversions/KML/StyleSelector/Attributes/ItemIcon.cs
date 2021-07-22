@@ -49,7 +49,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return base.GetHashCode();
         }
 
-        public string ConvertObjectToKML()
+        public string SerialiseToKML()
         {
             var body = GetKMLBody();
             if (body == string.Empty)
@@ -63,7 +63,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             var hrefKMLString = Href == string.Empty ? string.Empty : string.Format("<{0}>{1}</{0}>", nameof(Href).ConvertFirstCharacterToLowerCase(), Href);
 
             StringWriter sw = new StringWriter();
-            sw.Write(State.ConvertObjectToKML());
+            sw.Write(State.SerialiseToKML());
             sw.Write(hrefKMLString);
 
             return sw.ToString();
