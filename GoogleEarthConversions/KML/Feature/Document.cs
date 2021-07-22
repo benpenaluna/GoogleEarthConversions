@@ -2,6 +2,7 @@
 using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature
@@ -42,9 +43,33 @@ namespace GoogleEarthConversions.Core.KML.Feature
             return base.GetHashCode();
         }
 
-        public override string ConvertObjectToKML() // TODO: Unit Test this once Placemark created
+        public override string ConvertObjectToKML() // TODO: Unit Test this
         {
-            throw new NotImplementedException();
+            var baseKML = GetFeatureKMLTags(includeTypeTag: false);
+
+            return string.Format("<{0}>{1}{2}{3}</{0}>", nameof(Document), baseKML, GetStylesKML(), GetFeaturesKML());
+        }
+
+        private string GetStylesKML()
+        {
+            StringWriter stylesKML = new StringWriter();
+            foreach (var styleSelector in StyleSelectors)
+            {
+                stylesKML.Write(styleSelector.ConvertObjectToKML());
+            }
+
+            return stylesKML.ToString();
+        }
+
+        private string GetFeaturesKML()
+        {
+            StringWriter featuresKML = new StringWriter();
+            foreach (var feature in Features)
+            {
+                featuresKML.Write(feature.ConvertObjectToKML());
+            }
+
+            return featuresKML.ToString();
         }
     }
 }
