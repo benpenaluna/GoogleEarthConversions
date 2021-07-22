@@ -1,4 +1,5 @@
-﻿using GoogleEarthConversions.Core.KML.Feature;
+﻿using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.Feature;
 using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using GoogleEarthConversions.Core.KML.Geometry;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;

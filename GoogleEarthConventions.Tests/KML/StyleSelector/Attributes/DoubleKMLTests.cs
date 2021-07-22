@@ -1,4 +1,5 @@
-﻿using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
+﻿using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;

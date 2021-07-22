@@ -1,4 +1,5 @@
-﻿using GoogleEarthConversions.Core.Geographical;
+﻿using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.Geographical;
 using System;
 using System.Collections.Generic;
 using System.Text;

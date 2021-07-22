@@ -1,10 +1,7 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.Geographical;
 using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {

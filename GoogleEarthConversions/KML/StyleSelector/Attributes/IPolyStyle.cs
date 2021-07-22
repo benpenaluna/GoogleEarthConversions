@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using GoogleEarthConversions.Core.Common;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
