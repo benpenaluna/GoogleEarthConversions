@@ -43,7 +43,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             return base.GetHashCode();
         }
 
-        public override string SerialiseToKML() // TODO: Unit Test this
+        public override string SerialiseToKML()
         {
             var baseKML = GetFeatureKMLTags(includeTypeTag: false);
 
