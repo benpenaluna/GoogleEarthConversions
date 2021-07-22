@@ -9,28 +9,31 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
 {
     public class StyleMap : StyleSelector, IStyleMap
     {
-        public IPair Pair { get; set; }
+        public ICollection<IPair> Pairs { get; set; }
 
-        public StyleMap(IPair pair)
+        public StyleMap(IPair pair1, IPair pair2 = null)
         {
-            InitialiseBaseProperties(pair);
+            InitialiseBaseProperties(pair1, pair2);
         }
 
         public StyleMap(IStyleUrl styleUrl, StyleStateEnum styleStateEnum = StyleStateEnum.Normal)
         {
-            InitialiseBaseProperties(new Pair(styleUrl, styleStateEnum)); 
+            InitialiseBaseProperties(new Pair(styleUrl, styleStateEnum), null); 
         }
 
         public StyleMap(Uri url, StyleStateEnum styleStateEnum = StyleStateEnum.Normal)
         {
-            InitialiseBaseProperties(new Pair(url, styleStateEnum));
+            InitialiseBaseProperties(new Pair(url, styleStateEnum), null);
         }
 
-        private void InitialiseBaseProperties(IPair pair)
+        private void InitialiseBaseProperties(IPair pair1, IPair pair2)
         {
             Id = string.Empty;
             TargetId = string.Empty;
-            Pair = pair;
+
+            Pairs = new List<IPair>() { pair1 };
+            if (pair2 != null)
+                Pairs.Add(pair2);
         }
 
         public override bool Equals(object obj)
@@ -40,7 +43,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
 
         protected bool Equals(StyleMap other)
         {
-            return Equals(Pair, other.Pair);
+            return Equals(Pairs, other.Pairs);
         }
 
         public static bool operator ==(StyleMap a, StyleMap b)
@@ -63,7 +66,12 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
-            sw.Write(Pair.ConvertObjectToKML());
+            
+            foreach (var pair in Pairs)
+            {
+                sw.Write(pair.ConvertObjectToKML());
+            }
+
             sw.Write(ClosingTag(GetType()));
 
             return sw.ToString();

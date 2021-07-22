@@ -9,6 +9,6 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
     {
         string Id { get; set; }
         string TargetId { get; set; }
-        IPair Pair { get; set; }
+        ICollection<IPair> Pairs { get; set; }
     }
 }
