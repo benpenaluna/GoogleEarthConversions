@@ -60,16 +60,5 @@ namespace GoogleEarthConversions.Core.KML.Feature
 
             return stylesKML.ToString();
         }
-
-        private string GetFeaturesKML()
-        {
-            StringWriter featuresKML = new StringWriter();
-            foreach (var feature in Features)
-            {
-                featuresKML.Write(feature.SerialiseToKML());
-            }
-
-            return featuresKML.ToString();
-        }
     }
 }

@@ -41,5 +41,16 @@ namespace GoogleEarthConversions.Core.KML.Feature
         {
             return base.GetHashCode();
         }
+
+        protected string GetFeaturesKML()
+        {
+            StringWriter featuresKML = new StringWriter();
+            foreach (var feature in Features)
+            {
+                featuresKML.Write(feature.SerialiseToKML());
+            }
+
+            return featuresKML.ToString();
+        }
     }
 }
