@@ -6,20 +6,20 @@ using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
 {
-    public class LinkTests
+    public class BasicLinkTests
     {
         [Fact]
-        public void Link_CanInstantiate()
+        public void BasicLink_CanInstantiate()
         {
-            var sut = new Link();
+            var sut = new BasicLink();
 
             Assert.NotNull(sut);
         }
 
         [Fact]
-        public void Link_AllPropertiesInitialised()
+        public void BasicLink_AllPropertiesInitialised()
         {
-            var sut = new Link();
+            var sut = new BasicLink();
 
             foreach (var prop in sut.GetType().GetProperties())
             {
@@ -29,20 +29,20 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
         }
 
         [Fact]
-        public void Link_InstantiatesWithValidUri()
+        public void BasicLink_InstantiatesWithValidUri()
         {
             var validUri = "https://user:password@www.contoso.com:80/Home/Index.htm?q1=v1&q2=v2#FragmentName";
-            var sut = new Link(validUri);
+            var sut = new BasicLink(validUri);
 
             Assert.NotNull(sut);
         }
 
         [Fact]
-        public void Link_ExceptionOnInvalidUri()
+        public void BasicLink_ExceptionOnInvalidUri()
         {
             var invalidUri = "Invalid URI";
             
-            Assert.Throws<UriFormatException>(() => new Link(invalidUri));
+            Assert.Throws<UriFormatException>(() => new BasicLink(invalidUri));
         }
 
         [Theory]
@@ -50,7 +50,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
         [InlineData("http://www.harrypotter.com", "<atom:link href=\"http://www.harrypotter.com\" />")]
         public void LatLonAltBox_CorrectlyConvertsToKML(string uri, string expected)
         {
-            var sut = new Link(uri);
+            var sut = new BasicLink(uri);
 
             var result = sut.SerialiseToKML();
 

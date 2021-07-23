@@ -18,7 +18,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
         public IVisibility Visibility { get; set; }
         public IOpen Open { get; set; }
         public IAuthor Author { get; set; }
-        public ILink Link { get; set; }
+        public IBasicLink Link { get; set; }
         public IAddress Address { get; set; }
         public IPhoneNumber PhoneNumber { get; set; }
         public ISnippet Snippet { get; set; }
@@ -39,7 +39,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             Visibility = new Visibility();
             Open = new Open();
             Author = new Author();
-            Link = new Link();
+            Link = new BasicLink();
             Address = new Address();
             PhoneNumber = new PhoneNumber();
             Snippet = new Snippet();

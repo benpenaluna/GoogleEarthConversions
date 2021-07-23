@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 {
-    public interface ILink : IKMLFormat
+    public interface IBasicLink : IKMLFormat
     {
         string Href { get; set; }
     }

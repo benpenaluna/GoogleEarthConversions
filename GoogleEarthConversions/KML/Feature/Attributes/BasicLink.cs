@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 {
-    public class Link : ILink
+    public class BasicLink : IBasicLink
     {
         private IHref _href;
         public string Href
@@ -14,27 +14,27 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             set => _href.Value = value;
         }
 
-        public Link(string absolutePath = "")
+        public BasicLink(string absolutePath = "")
         {
             _href = new Href(absolutePath);
         }
 
         public override bool Equals(object obj)
         {
-            return obj.GetType() == typeof(Link) && Equals((Link)obj);
+            return obj.GetType() == typeof(BasicLink) && Equals((BasicLink)obj);
         }
 
-        protected bool Equals(Link other)
+        protected bool Equals(BasicLink other)
         {
             return Equals(Href, other.Href);
         }
 
-        public static bool operator ==(Link a, Link b)
+        public static bool operator ==(BasicLink a, BasicLink b)
         {
             return EqualityCheck.ObjectEquals(a, b);
         }
 
-        public static bool operator !=(Link a, Link b)
+        public static bool operator !=(BasicLink a, BasicLink b)
         {
             return !EqualityCheck.ObjectEquals(a, b);
         }
@@ -49,9 +49,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             if (Href == string.Empty)
                 return string.Empty;
 
-            return string.Format("<atom:{0} {1}=\"{2}\" />", nameof(Link).ConvertFirstCharacterToLowerCase(),
-                                                                       nameof(Href).ConvertFirstCharacterToLowerCase(),
-                                                                       Href);
+            return string.Format("<atom:link {0}=\"{1}\" />", nameof(Href).ConvertFirstCharacterToLowerCase(), Href);
         }
     }
 }
