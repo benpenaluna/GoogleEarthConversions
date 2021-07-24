@@ -1,4 +1,5 @@
-﻿using GoogleEarthConversions.Core.KML.Feature.Attributes;
+﻿using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using GoogleEarthConversions.Core.KML.Object;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
@@ -16,7 +17,6 @@ namespace GoogleEarthConversions.Core.KML.Feature
         IVisibility Visibility { get; set; }
         IOpen Open { get; set; }
         IAuthor Author { get; set; }
-        ILink Link { get; set; }
         IAddress Address { get; set; }
         IPhoneNumber PhoneNumber { get; set; }
         ISnippet Snippet { get; set; }
@@ -26,5 +26,10 @@ namespace GoogleEarthConversions.Core.KML.Feature
         StyleSelector.StyleSelector StyleSelector { get; set; }
         IRegion Region { get; set; }
         IExtendedData ExtendedData { get; set; }
+
+        IBooleanKML RefreshVisibility { get; set; }
+        IBooleanKML FlyToView { get; set; }
+        IBasicLink Link { get; set; }
+
     }
 }
