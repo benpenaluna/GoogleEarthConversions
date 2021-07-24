@@ -27,17 +27,12 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             var coordinatesString = ToString("[lon:D.dddddddddddd],[lat:D.ddddddddddddd],[ele:t]", CultureInfo.InvariantCulture);
 
             string[] coordinates = coordinatesString.Split(',');
-            var lon = RemoveTrailingZerosAndDecimalPoints(coordinates[0]);
-            var lat = RemoveTrailingZerosAndDecimalPoints(coordinates[1]);
+            var lon = coordinates[0].RemoveTrailingZerosAndDecimalPoints();
+            var lat = coordinates[1].RemoveTrailingZerosAndDecimalPoints();
             var elev = coordinates[2];
 
             coordinatesString = string.Format("{0},{1},{2}", lon, lat, elev);
             return coordinatesString;
-        }
-
-        private static string RemoveTrailingZerosAndDecimalPoints(string coordinate)
-        {
-            return coordinate.TrimEnd('0').TrimEnd('.');
         }
 
         public static string ConvertCoordinatesCollectionToKML(ICollection<ICoordinates> collection)

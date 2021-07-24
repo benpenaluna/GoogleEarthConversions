@@ -34,5 +34,10 @@
 
             return convertedString;
         }
+
+        public static string RemoveTrailingZerosAndDecimalPoints(this string coordinate)
+        {
+            return coordinate.TrimEnd('0').TrimEnd('.');
+        }
     }
 }
