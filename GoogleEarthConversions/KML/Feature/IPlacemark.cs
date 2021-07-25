@@ -13,7 +13,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
         IVisibility Visibility { get; set; }
         IOpen Open { get; set; }
         IAuthor Author { get; set; }
-        IBasicLink Link { get; set; }
+        IBasicLink BasicLink { get; set; }
         IAddress Address { get; set; }
         IPhoneNumber PhoneNumber { get; set; }
         ISnippet Snippet { get; set; }

@@ -18,7 +18,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
         public IVisibility Visibility { get; set; }
         public IOpen Open { get; set; }
         public IAuthor Author { get; set; }
-        public IBasicLink Link { get; set; }
+        public IBasicLink BasicLink { get; set; }
         public IAddress Address { get; set; }
         public IPhoneNumber PhoneNumber { get; set; }
         public ISnippet Snippet { get; set; }
@@ -39,7 +39,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             Visibility = new Visibility();
             Open = new Open();
             Author = new Author();
-            Link = new BasicLink();
+            BasicLink = new BasicLink();
             Address = new Address();
             PhoneNumber = new PhoneNumber();
             Snippet = new Snippet();
@@ -72,7 +72,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
                    Equals(Visibility, other.Visibility) &&
                    Equals(Open, other.Open) &&
                    Equals(Author, other.Author) &&
-                   Equals(Link, other.Link) &&
+                   Equals(BasicLink, other.BasicLink) &&
                    Equals(Address, other.Address) &&
                    Equals(PhoneNumber, other.PhoneNumber) &&
                    Equals(Snippet, other.Snippet) &&
@@ -111,7 +111,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             sw.Write(Visibility.SerialiseToKML());
             sw.Write(Open.SerialiseToKML());
             sw.Write(Author.SerialiseToKML());
-            sw.Write(Link.SerialiseToKML());
+            sw.Write(BasicLink.SerialiseToKML());
             sw.Write(Address.SerialiseToKML());
             sw.Write(PhoneNumber.SerialiseToKML());
             sw.Write(Snippet.SerialiseToKML());

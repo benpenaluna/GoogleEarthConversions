@@ -29,7 +29,6 @@ namespace GoogleEarthConversions.Core.KML.Feature
 
         IBooleanKML RefreshVisibility { get; set; }
         IBooleanKML FlyToView { get; set; }
-        IBasicLink Link { get; set; }
-
+        ILink Link { get; set; }
     }
 }

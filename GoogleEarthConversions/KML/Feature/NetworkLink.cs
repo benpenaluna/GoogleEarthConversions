@@ -1,5 +1,6 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.Feature.Attributes;
+using GoogleEarthConversions.Core.KML.Object;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,18 +11,53 @@ namespace GoogleEarthConversions.Core.KML.Feature
     {
         public IBooleanKML RefreshVisibility { get; set; }
         public IBooleanKML FlyToView { get; set; }
+        public ILink Link { get; set; }
 
-        public NetworkLink(IBasicLink link)
+        public NetworkLink(ILink link)
         {
-            InitiailiseFeatureProperties();
+            if (link == null)
+                throw new ArgumentNullException(string.Format("{0} must be a valid Link, not a null reference.", nameof(link)));
+
+            if (!HrefUriIsValid(link.Href.Value, out string errorMessage))
+                throw new UriFormatException(errorMessage);
+
             InitialiseNetworkLinkProperties(link);
         }
 
-        private void InitialiseNetworkLinkProperties(IBasicLink link)
+        public NetworkLink(string uri)
         {
+            if (uri == null || uri == string.Empty)
+                throw new ArgumentNullException(string.Format("{0} must be a valid Uri, not a null reference or empty string.", nameof(uri)));
+
+            IHref href;
+            try { href = new Href(uri); }
+            catch (UriFormatException) { throw; }
+
+            ILink link = new Link() { Href = href };
+            InitialiseNetworkLinkProperties(link);
+        }
+
+        private static bool HrefUriIsValid(string href, out string errorMessage)
+        {
+            try { var uri = new Uri(href); }
+            catch (Exception e)
+            {
+                errorMessage = e.Message;
+                return false; 
+            }
+
+            errorMessage = string.Empty;
+            return true;
+        }
+
+        private void InitialiseNetworkLinkProperties(ILink link)
+        {
+            InitiailiseFeatureProperties();
+
             RefreshVisibility = new BooleanKML(nameof(RefreshVisibility).ConvertFirstCharacterToLowerCase()) { Value = false, Default = false };
             FlyToView = new BooleanKML(nameof(FlyToView).ConvertFirstCharacterToLowerCase()) { Value = false, Default = false };
-            Link = link ?? throw new NullReferenceException(string.Format("'{0}' must not be null.", nameof(link)));
+
+            Link = link ?? new Link();
         }
 
         public override bool Equals(object obj)
@@ -56,8 +92,9 @@ namespace GoogleEarthConversions.Core.KML.Feature
             var baseKML = GetFeatureKMLTags(includeTypeTag: false);
             var refreshVisibilityKML = RefreshVisibility.SerialiseToKML();
             var flyToViewKML = FlyToView.SerialiseToKML();
+            var linkKML = Link.SerialiseToKML();
 
-            return string.Format("<{0}>{1}{2}{3}</{0}>", nameof(NetworkLink), baseKML, refreshVisibilityKML, flyToViewKML); 
+            return string.Format("<{0}>{1}{2}{3}{4}</{0}>", nameof(NetworkLink), baseKML, refreshVisibilityKML, flyToViewKML, linkKML); 
         }
     }
 }
