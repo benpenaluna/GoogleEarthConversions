@@ -3,6 +3,5 @@
     public interface IKMLFormat
     {
         string SerialiseToKML();
-        object DeserialiseFromKML();
     }
 }
