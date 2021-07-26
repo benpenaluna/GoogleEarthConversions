@@ -10,7 +10,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive.Attributes
         public TimeSpanDateTime(DateTime? dateTime)
         {
             DateTime = dateTime ?? DateTime.Now;
-            Enabled = dateTime == null ? false : true;
+            Enabled = dateTime != null;
         }
 
         public override bool Equals(object obj)

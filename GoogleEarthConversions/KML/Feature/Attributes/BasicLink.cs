@@ -5,7 +5,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 {
     public class BasicLink : IBasicLink
     {
-        private IHref _href;
+        private readonly IHref _href;
         public string Href
         {
             get => _href.Value;

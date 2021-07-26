@@ -8,7 +8,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
     {
         public IState State { get; set; }
 
-        private IHref _href;
+        private readonly IHref _href;
         public string Href
         {
             get => _href.Value;

@@ -12,7 +12,7 @@
             if (stringToConvert.Length > 1)
             {
                 var firstCharacter = stringToConvert.Substring(0, 1);
-                var stringRemainder = stringToConvert.Substring(1, stringToConvert.Length - 1);
+                var stringRemainder = stringToConvert[1..];
                 return firstCharacter.ToLower() + stringRemainder;
             }
 
@@ -28,7 +28,7 @@
             if (stringToConvert.Length > 1)
             {
                 var firstCharacter = stringToConvert.Substring(0, 1);
-                var stringRemainder = stringToConvert.Substring(1, stringToConvert.Length - 1);
+                var stringRemainder = stringToConvert[1..];
                 return firstCharacter.ToUpper() + stringRemainder;
             }
 

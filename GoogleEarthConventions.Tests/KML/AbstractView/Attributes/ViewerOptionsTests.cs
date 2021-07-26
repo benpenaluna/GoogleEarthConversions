@@ -47,8 +47,10 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         {
             var expected = true;
 
-            var sut = new ViewerOptions();
-            sut.HistoricalimageryEnabled = true;
+            var sut = new ViewerOptions
+            {
+                HistoricalimageryEnabled = true
+            };
 
             var result = sut.HistoricalimageryEnabled;
 
@@ -60,8 +62,10 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         {
             var expected = true;
 
-            var sut = new ViewerOptions();
-            sut.SunlightEnabled = true;
+            var sut = new ViewerOptions
+            {
+                SunlightEnabled = true
+            };
 
             var result = sut.SunlightEnabled;
 
@@ -73,8 +77,10 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         {
             var expected = true;
 
-            var sut = new ViewerOptions();
-            sut.StreetviewEnabled = true;
+            var sut = new ViewerOptions
+            {
+                StreetviewEnabled = true
+            };
 
             var result = sut.StreetviewEnabled;
 

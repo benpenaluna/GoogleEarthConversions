@@ -5,7 +5,7 @@ using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.TimePrimitive
 {
-    public class TimeStamp : TimePrimitive, TimePrimative
+    public class TimeStamp : TimePrimitive, ITimePrimative
     {
         public IWhen When { get; set; }
 

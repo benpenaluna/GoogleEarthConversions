@@ -5,7 +5,7 @@ namespace GoogleEarthConversions.Core.KML.Object.Attributes
 {
     public class LodElement : ILodElement
     {
-        private Func<ILodElement, string> _convertObjectToKML;
+        private readonly Func<ILodElement, string> _convertObjectToKML;
 
         public double Value { get; set; }
 

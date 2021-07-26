@@ -5,7 +5,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
     public class Icon : IIcon
     {
-        private IHref _href;
+        private readonly IHref _href;
         public string Href
         {
             get => _href.Value;
