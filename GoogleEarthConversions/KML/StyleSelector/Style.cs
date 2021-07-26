@@ -1,9 +1,7 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector
 {

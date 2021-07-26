@@ -1,16 +1,14 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.Object.Attributes;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object
 {
     public class Lod : GoogleEarthObject, ILod
     {
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#lod
-        
+
         public ILodElement MinLodPixels { get; set; }
         public ILodElement MaxLodPixels { get; set; }
         public ILodElement MinFadeExtent { get; set; }

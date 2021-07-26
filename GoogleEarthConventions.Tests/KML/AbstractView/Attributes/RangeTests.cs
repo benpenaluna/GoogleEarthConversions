@@ -1,8 +1,6 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
@@ -13,7 +11,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         [InlineData(0, DistanceMeasurement.Meters)]
         public void Range_CanInstantiateWithIDistance(double distance, DistanceMeasurement measurement)
         {
-            IDistance range = new Distance(distance, measurement); 
+            IDistance range = new Distance(distance, measurement);
             var sut = new Range(range);
 
             Assert.NotNull(sut);

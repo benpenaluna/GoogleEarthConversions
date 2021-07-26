@@ -1,14 +1,12 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object.Attributes
 {
     public class ViewRefreshMode : IViewRefreshMode
     {
         public ViewRefreshModeEnum Value { get; set; }
-        
+
         public ViewRefreshMode(ViewRefreshModeEnum value = ViewRefreshModeEnum.Never)
         {
             Value = value;

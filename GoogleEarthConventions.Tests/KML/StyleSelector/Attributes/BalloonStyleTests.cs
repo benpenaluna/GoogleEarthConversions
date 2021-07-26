@@ -30,7 +30,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         public void BalloonStyle_BgColorDefaultsToOpaqueWhite()
         {
             var expected = "ffffffff";
-            
+
             var sut = new BalloonStyle();
             var result = sut.BgColor.Value.ColorHexValue();
 

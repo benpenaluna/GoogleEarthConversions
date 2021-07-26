@@ -1,8 +1,6 @@
 ﻿using GoogleEarthConversions.Core.KML.StyleSelector;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.StyleSelector
@@ -77,8 +75,8 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector
             var pair1 = new Pair(styleUr1l);
 
             var styleUr12 = new StyleUrl(new Uri(url2));
-            var pair2 = new Pair(styleUr12); 
-            
+            var pair2 = new Pair(styleUr12);
+
             var sut = new StyleMap(pair1, pair2);
 
             Assert.NotNull(sut);
@@ -91,7 +89,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector
             var uri = new Uri(url);
             var styleUrl = new StyleUrl(uri);
             var pair = new Pair(styleUrl);
-            
+
             var sut = new StyleMap(pair);
 
             foreach (var prop in sut.GetType().GetProperties())
@@ -129,10 +127,10 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector
         public void StyleMap_CorrectlyConvertsToKML(string href1, string href2, StyleStateEnum styleState, bool styleLocal, string expected)
         {
             IStyleMap sut;
-            
+
             var styleUrl1 = new StyleUrl(new Uri(href1), styleLocal);
             var pair1 = new Pair(styleUrl1, styleState);
-            
+
             if (href2 == null)
             {
                 sut = new StyleMap(pair1);

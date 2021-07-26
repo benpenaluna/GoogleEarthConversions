@@ -3,15 +3,13 @@ using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.Geographical;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
     public class Altitude : GeoFunctions.Core.Coordinates.Distance, IDistanceKML
     {
         public Altitude(double altitdue = 0.0, DistanceMeasurement measurement = DistanceMeasurement.Feet) : base(altitdue, measurement) { }
-        public Altitude(IDistance altitude) 
+        public Altitude(IDistance altitude)
         {
             Value = altitude.Value;
             DistanceMeasurement = altitude.DistanceMeasurement;

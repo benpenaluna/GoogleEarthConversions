@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object.Attributes
 {
@@ -43,7 +41,7 @@ namespace GoogleEarthConversions.Core.KML.Object.Attributes
         {
             if (Value == RefreshModeEnum.OnChange)
                 return string.Empty;
-            
+
             return string.Format("<{0}>{1}</{0}>", nameof(RefreshMode).ConvertFirstCharacterToLowerCase(),
                                                    Value.ToString().ConvertFirstCharacterToLowerCase());
         }

@@ -15,7 +15,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             Id = string.Empty;
             TargetId = string.Empty;
-            Color = new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(255,255,255,255), DefaultColor = System.Drawing.Color.FromArgb(255, 255, 255, 255) };
+            Color = new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(255, 255, 255, 255), DefaultColor = System.Drawing.Color.FromArgb(255, 255, 255, 255) };
             ColorMode = new ColorMode(ColorModeEnum.Normal);
 
             Width = new DoubleKML(nameof(Width).ConvertFirstCharacterToLowerCase()) { Value = 1.0, Default = 1.0 };
@@ -84,7 +84,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             sw.Write(OuterWidth.SerialiseToKML());
             sw.Write(PhysicalWidth.SerialiseToKML());
             sw.Write(LabelVisibility.SerialiseToKML());
-            
+
             return sw.ToString();
         }
 

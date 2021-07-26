@@ -12,7 +12,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
         public TimeStamp(DateTime localDateTime, TimeZoneInfo timeZone)
         {
             Id = string.Empty;
-            TargetId = string.Empty; 
+            TargetId = string.Empty;
             When = new When(localDateTime, timeZone);
         }
 
@@ -44,7 +44,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
         public override string SerialiseToKML()
         {
             var googleEarthNamespace = "gx:";
-            
+
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType(), googleEarthNamespace));

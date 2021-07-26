@@ -29,7 +29,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         public void ViewerOptions_AllOptionsEnabledFalseByDefault()
         {
             var expected = false;
-            
+
             var sut = new ViewerOptions();
 
             foreach (var prop in sut.GetType().GetProperties())
@@ -46,7 +46,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
         public void ViewerOptions_CanEnableHistoricalimagery()
         {
             var expected = true;
-            
+
             var sut = new ViewerOptions();
             sut.HistoricalimageryEnabled = true;
 

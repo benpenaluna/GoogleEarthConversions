@@ -3,7 +3,6 @@ using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector
 {
@@ -18,7 +17,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
 
         public StyleMap(IStyleUrl styleUrl, StyleStateEnum styleStateEnum = StyleStateEnum.Normal)
         {
-            InitialiseBaseProperties(new Pair(styleUrl, styleStateEnum), null); 
+            InitialiseBaseProperties(new Pair(styleUrl, styleStateEnum), null);
         }
 
         public StyleMap(Uri url, StyleStateEnum styleStateEnum = StyleStateEnum.Normal)
@@ -66,7 +65,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
-            
+
             foreach (var pair in Pairs)
             {
                 sw.Write(pair.SerialiseToKML());

@@ -3,8 +3,6 @@ using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using GoogleEarthConversions.Core.KML.Object;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Object
@@ -44,7 +42,7 @@ namespace GoogleEarthConventions.Tests.KML.Object
         public void LatLonAltBox_ExceptionOInvalidNorthAngle(double northAngleinDegrees)
         {
             var sut = new LatLonAltBox();
-            
+
             IAngle newNorthAngle = new Angle(northAngleinDegrees, AngleMeasurement.Degrees);
             Assert.Throws<ArgumentOutOfRangeException>(() => sut.UpdateNorthAngle(newNorthAngle));
         }

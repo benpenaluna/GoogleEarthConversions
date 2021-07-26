@@ -2,9 +2,7 @@
 using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using GoogleEarthConversions.Core.KML.Geometry;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature
@@ -73,12 +71,12 @@ namespace GoogleEarthConventions.Tests.KML.Feature
 
         [Theory]
         [InlineData("", "", double.MaxValue, double.MaxValue, double.MaxValue, "<Placemark></Placemark>")]
-        [InlineData("", "", 48.25450093195546, -90.86948943473118, 0, "<Placemark><Point><coordinates>-90.869489434731,48.2545009319555,0</coordinates></Point></Placemark>")] 
-        [InlineData("Google Earth - New Placemark", "Some Descriptive text.", 48.25450093195546, -90.86948943473118, 0, "<Placemark><name>Google Earth - New Placemark</name><description>Some Descriptive text.</description><Point><coordinates>-90.869489434731,48.2545009319555,0</coordinates></Point></Placemark>")] 
+        [InlineData("", "", 48.25450093195546, -90.86948943473118, 0, "<Placemark><Point><coordinates>-90.869489434731,48.2545009319555,0</coordinates></Point></Placemark>")]
+        [InlineData("Google Earth - New Placemark", "Some Descriptive text.", 48.25450093195546, -90.86948943473118, 0, "<Placemark><name>Google Earth - New Placemark</name><description>Some Descriptive text.</description><Point><coordinates>-90.869489434731,48.2545009319555,0</coordinates></Point></Placemark>")]
         public void Placemark_CorrectlyConvertsToKMLWithPoint(string nameLabel, string description, double lat, double lon, double elev, string expected)
         {
-            var sut = new Placemark() 
-            { 
+            var sut = new Placemark()
+            {
                 Name = new Name(nameLabel),
                 Description = new Description(description)
             };

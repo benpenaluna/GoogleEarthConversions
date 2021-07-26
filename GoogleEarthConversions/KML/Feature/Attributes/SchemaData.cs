@@ -45,7 +45,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
         public string SerialiseToKML()
         {
             var simpleDataKML = GetSimpleDataKML();
-            if(simpleDataKML == string.Empty)
+            if (simpleDataKML == string.Empty)
                 return string.Empty;
 
             return string.Format("<{0} {1}=\"{2}\">{3}</{0}>", nameof(SchemaData),

@@ -64,8 +64,8 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             if (dataKML == string.Empty && schemaDataKML == string.Empty)
                 return string.Empty;
 
-            return string.Format("<{0}>{1}{2}</{0}>", nameof(ExtendedData), 
-                                                      ConvertDataToKML(), 
+            return string.Format("<{0}>{1}{2}</{0}>", nameof(ExtendedData),
+                                                      ConvertDataToKML(),
                                                       SchemaData.SerialiseToKML());
         }
 

@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
@@ -9,7 +7,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
     {
         private const ItemStateModeEnum DefaultStateMode = ItemStateModeEnum.Open;
         private const ItemIconModeEnum DefaultIconMode = ItemIconModeEnum.Nil;
-        
+
         public ItemStateModeEnum ItemStateMode { get; set; }
         public ItemIconModeEnum ItemIconMode { get; set; }
 
@@ -49,7 +47,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             if (ItemStateMode == DefaultStateMode && ItemIconMode == DefaultIconMode)
                 return string.Empty;
-            
+
             var stateString = ItemStateMode.ToString().ConvertFirstCharacterToLowerCase();
 
             if (ItemIconMode != ItemIconModeEnum.Nil)

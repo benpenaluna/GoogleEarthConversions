@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 {
@@ -46,8 +44,8 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
         {
             if (Value == string.Empty)
                 return string.Empty;
-            
-            return string.Format("<{0} {1}=\"{2}\">{3}</{0}>", nameof(SimpleData), 
+
+            return string.Format("<{0} {1}=\"{2}\">{3}</{0}>", nameof(SimpleData),
                                                                nameof(Name).ConvertFirstCharacterToLowerCase(),
                                                                Name,
                                                                Value);

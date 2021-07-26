@@ -30,7 +30,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
         {
             var label = "Test";
             var expected = label;
-            
+
             var sut = new Name(label);
             var result = sut.Label;
 

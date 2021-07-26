@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace GoogleEarthConversions.Core.Common
+﻿namespace GoogleEarthConversions.Core.Common
 {
     public static class ColorComparison
     {

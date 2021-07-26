@@ -1,7 +1,4 @@
-﻿using GeoFunctions.Core.Coordinates;
-using GeoFunctions.Core.Coordinates.Measurement;
-using GoogleEarthConversions.Core.Common;
-using GoogleEarthConversions.Core.KML.AbstractView;
+﻿using GoogleEarthConversions.Core.Common;
 using System;
 using System.Globalization;
 
@@ -55,7 +52,7 @@ namespace GoogleEarthConversions.Core.KML.Object.Attributes
             var bboxSouth = BoundingBox.South.ToString("D.ddddddddddddd", CultureInfo.InvariantCulture).RemoveTrailingZerosAndDecimalPoints();
             var bboxEast = BoundingBox.East.ToString("D.dddddddddddd", CultureInfo.InvariantCulture).RemoveTrailingZerosAndDecimalPoints();
             var bboxWest = BoundingBox.West.ToString("D.dddddddddddd", CultureInfo.InvariantCulture).RemoveTrailingZerosAndDecimalPoints();
-                
+
             return string.Format("BBOX={0},{1},{2},{3}", bboxWest, bboxSouth, bboxEast, bboxNorth);
         }
 

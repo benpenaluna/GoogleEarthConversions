@@ -12,20 +12,20 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#linestring
 
         public IDrawOrder DrawOrder { get; set; }
-        
+
         private ICollection<ICoordinates> _coordinates;
         public override ICollection<ICoordinates> Coordinates
         {
             get { return _coordinates; }
-            set 
+            set
             {
                 if (value is null)
                     throw new NullReferenceException(value.ToString());
 
                 if (value.Count < 2)
                     throw new InvalidOperationException("The collection of Coordinates, must contain at least two ICoordinates.");
-                
-                _coordinates = value; 
+
+                _coordinates = value;
             }
         }
 
@@ -86,7 +86,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));
-            
+
             sw.Write(AltitudeOffset.SerialiseToKML());
             sw.Write(Extrude.SerialiseToKML());
             sw.Write(Tessellate.SerialiseToKML());

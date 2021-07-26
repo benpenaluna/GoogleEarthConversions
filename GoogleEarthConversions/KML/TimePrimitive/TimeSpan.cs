@@ -13,7 +13,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
         public TimeSpan(DateTime? begin, DateTime? end)
         {
             Id = string.Empty;
-            TargetId = string.Empty; 
+            TargetId = string.Empty;
             Begin = new TimeSpanDateTime(begin);
             End = new TimeSpanDateTime(end);
         }
@@ -48,7 +48,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
         {
             if (Begin.Enabled == false && End.Enabled == false)
                 return "";
-            
+
             var googleEarthNamespace = "gx:";
             var timeformat = "yyyy-MM-ddTHH:mm:ss";
 

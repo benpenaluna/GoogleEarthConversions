@@ -1,7 +1,4 @@
 ﻿using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
@@ -35,8 +32,8 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [InlineData(10.0, 10.0, UnitsEnum.Pixels, UnitsEnum.Pixels, "<hotSpot x=\"10\" y=\"10\" xunits=\"pixels\" yunits=\"pixels\"/>")]
         public void HotSpot_CorrectlyConvertsToKML(double x, double y, UnitsEnum xunits, UnitsEnum yunits, string expected)
         {
-            var sut = new HotSpot() 
-            { 
+            var sut = new HotSpot()
+            {
                 X = x,
                 Y = y,
                 Xunits = xunits,

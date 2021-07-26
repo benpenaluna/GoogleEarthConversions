@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.Common
 {
@@ -46,7 +44,7 @@ namespace GoogleEarthConversions.Core.Common
         {
             if (Value == Default)
                 return string.Empty;
-            
+
             return string.Format("<{0}>{1}</{0}>", KmlTagName, Value);
         }
 

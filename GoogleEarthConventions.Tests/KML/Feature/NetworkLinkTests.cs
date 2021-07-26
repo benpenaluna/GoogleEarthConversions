@@ -3,8 +3,6 @@ using GoogleEarthConversions.Core.KML.Feature;
 using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using GoogleEarthConversions.Core.KML.Object;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature

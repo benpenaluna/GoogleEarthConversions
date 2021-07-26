@@ -1,7 +1,4 @@
 ﻿using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
@@ -39,7 +36,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [InlineData("ID", 255, 255, 255, 255, ColorModeEnum.Normal, 1, 0, "http://www.harrypotter.com", 0.5, 0.5, UnitsEnum.Fraction, UnitsEnum.Fraction, "<IconStyle id=\"ID\"><Icon><href>http://www.harrypotter.com</href></Icon></IconStyle>")]
         [InlineData("ID", 255, 0, 0, 0, ColorModeEnum.Normal, 1, 0, "", 0.4, 0.5, UnitsEnum.Fraction, UnitsEnum.Fraction, "<IconStyle id=\"ID\"><color>ff000000</color><hotSpot x=\"0.4\" y=\"0.5\" xunits=\"fraction\" yunits=\"fraction\"/></IconStyle>")]
         public void IconStyle_CorrectlyConvertsToKML(string id, int colorAlpha, int colorRed, int colorGreen, int colorBlue, ColorModeEnum colorMode,
-                                                     double scale, double heading, string uri, 
+                                                     double scale, double heading, string uri,
                                                      double x, double y, UnitsEnum xunits, UnitsEnum yunits, string expected)
         {
             var sut = new IconStyle() { Id = id };

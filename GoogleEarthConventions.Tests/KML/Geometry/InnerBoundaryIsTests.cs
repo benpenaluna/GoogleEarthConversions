@@ -41,7 +41,7 @@ namespace GoogleEarthConventions.Tests.KML.Geometry
 
         private ICollection<ILinearRing> CreateLinearRingCollection()
         {
-            return new List<ILinearRing>() 
+            return new List<ILinearRing>()
             {
                 new LinearRing(CoordinatesSet1()),
                 new LinearRing(CoordinatesSet2())

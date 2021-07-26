@@ -15,12 +15,12 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         public IOuterBoundaryIs OuterBoundaryIs
         {
             get { return _outerBoundaryIs; }
-            set 
+            set
             {
                 if (value is null)
                     throw new NullReferenceException(value.ToString());
 
-                _outerBoundaryIs = value; 
+                _outerBoundaryIs = value;
             }
         }
 

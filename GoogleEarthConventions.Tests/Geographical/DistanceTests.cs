@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Geographical;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.Geographical

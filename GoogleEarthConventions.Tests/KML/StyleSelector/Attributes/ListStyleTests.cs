@@ -1,7 +1,4 @@
 ﻿using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
@@ -43,8 +40,8 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [InlineData("ID", ListItemTypeEnum.CheckOffOnly, 255, 0, 0, 0, ItemStateModeEnum.Closed, ItemIconModeEnum.Fetching0, "", "<ListStyle id=\"ID\"><listItemType>checkOffOnly</listItemType><bgColor>ff000000</bgColor><ItemIcon><state>closed fetching0</state></ItemIcon></ListStyle>")]
         [InlineData("ID", ListItemTypeEnum.CheckOffOnly, 255, 0, 0, 0, ItemStateModeEnum.Closed, ItemIconModeEnum.Fetching0, "http://www.harrypotter.com", "<ListStyle id=\"ID\"><listItemType>checkOffOnly</listItemType><bgColor>ff000000</bgColor><ItemIcon><state>closed fetching0</state><href>http://www.harrypotter.com</href></ItemIcon></ListStyle>")]
         public void ListStyle_CorrectlyConvertsToKML(string id, ListItemTypeEnum itemType,
-                                                     int valueAlpha, int valueRed, int valueGreen, int valueBlue, 
-                                                     ItemStateModeEnum stateMode, ItemIconModeEnum iconMode, string uri, 
+                                                     int valueAlpha, int valueRed, int valueGreen, int valueBlue,
+                                                     ItemStateModeEnum stateMode, ItemIconModeEnum iconMode, string uri,
                                                      string expected)
         {
             var sut = new ListStyle()

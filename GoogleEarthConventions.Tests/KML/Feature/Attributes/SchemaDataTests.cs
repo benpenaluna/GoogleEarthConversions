@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.KML.Feature.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
@@ -40,7 +38,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
                 new SimpleData(name1, value1),
                 new SimpleData(name2, value2)
             };
-            
+
             var sut = new SchemaData(url, simpleData);
 
             var result = sut.SerialiseToKML();

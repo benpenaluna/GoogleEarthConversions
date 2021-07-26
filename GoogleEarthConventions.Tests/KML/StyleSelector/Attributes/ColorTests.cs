@@ -1,8 +1,6 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
@@ -60,8 +58,8 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [InlineData(0, 0, 0, 0, 255, 255, 255, 255, "", "<color>00000000</color>")]
         [InlineData(255, 240, 248, 255, 255, 255, 255, 255, "color", "<color>fff0f8ff</color>")]
         [InlineData(167, 178, 12, 205, 255, 255, 255, 255, "bgColor", "<bgColor>a7b20ccd</bgColor>")]
-        public void Color_CorrectlyConvertsToKML(int valueAlpha, int valueRed, int valueGreen, int valueBlue, 
-                                                 int defaultAlpha, int defaultRed, int defaultGreen, int defaultBlue, 
+        public void Color_CorrectlyConvertsToKML(int valueAlpha, int valueRed, int valueGreen, int valueBlue,
+                                                 int defaultAlpha, int defaultRed, int defaultGreen, int defaultBlue,
                                                  string kmlTag, string expected)
         {
             var value = System.Drawing.Color.FromArgb(valueAlpha, valueRed, valueGreen, valueBlue);

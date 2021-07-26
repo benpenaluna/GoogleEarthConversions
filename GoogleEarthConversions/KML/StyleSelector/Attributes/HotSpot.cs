@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
@@ -53,7 +51,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             if (X == 0.5 && Y == 0.5 && Xunits == UnitsEnum.Fraction && Yunits == UnitsEnum.Fraction)
                 return string.Empty;
 
-            return string.Format("<{0} {1}=\"{2}\" {3}=\"{4}\" {5}=\"{6}\" {7}=\"{8}\"/>", 
+            return string.Format("<{0} {1}=\"{2}\" {3}=\"{4}\" {5}=\"{6}\" {7}=\"{8}\"/>",
                                  nameof(HotSpot).ConvertFirstCharacterToLowerCase(),
                                  nameof(X).ConvertFirstCharacterToLowerCase(), X,
                                  nameof(Y).ConvertFirstCharacterToLowerCase(), Y,

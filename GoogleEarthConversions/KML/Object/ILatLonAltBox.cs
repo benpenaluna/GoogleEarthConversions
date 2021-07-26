@@ -2,9 +2,6 @@
 using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Geographical;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object
 {
@@ -12,7 +9,7 @@ namespace GoogleEarthConversions.Core.KML.Object
     {
         string Id { get; set; }
         string TargetId { get; set; }
-        
+
         ISphericalCoordinateKML North { get; }
         ISphericalCoordinateKML South { get; }
         ISphericalCoordinateKML East { get; }

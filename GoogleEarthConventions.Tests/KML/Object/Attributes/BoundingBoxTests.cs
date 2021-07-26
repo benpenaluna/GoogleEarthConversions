@@ -45,7 +45,7 @@ namespace GoogleEarthConventions.Tests.KML.Object.Attributes
         public void BoundingBox_NorthException(double angle, AngleMeasurement measurement)
         {
             var sut = new BoundingBox();
-            
+
             Assert.Throws<ArgumentOutOfRangeException>(() => sut.SetNorthAngle(angle, measurement));
         }
 

@@ -4,8 +4,6 @@ using GoogleEarthConversions.Core.KML.Geometry;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature

@@ -1,7 +1,4 @@
 ﻿using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
@@ -43,7 +40,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
             sut.ColorMode.Mode = colorMode;
             sut.Fill.Value = fill;
             sut.Outline.Value = outline;
-            
+
 
             var result = sut.SerialiseToKML();
 

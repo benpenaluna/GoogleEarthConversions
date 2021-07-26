@@ -24,7 +24,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             set { Streetview.Enabled = value; }
         }
 
-        public ViewerOptions(bool historicalimageryEnabled = false, bool sunlightEnabled = false, bool streetviewEnabled = false) 
+        public ViewerOptions(bool historicalimageryEnabled = false, bool sunlightEnabled = false, bool streetviewEnabled = false)
         {
             Historicalimagery = new Option(OptionName.Historicalimagery, historicalimageryEnabled);
             Sunlight = new Option(OptionName.Sunlight, sunlightEnabled);

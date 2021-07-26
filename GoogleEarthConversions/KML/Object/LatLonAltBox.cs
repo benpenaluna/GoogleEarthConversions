@@ -4,9 +4,7 @@ using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.Geographical;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object
 {
@@ -24,12 +22,12 @@ namespace GoogleEarthConversions.Core.KML.Object
         public ISphericalCoordinateKML North
         {
             get => _north;
-            private set 
+            private set
             {
                 if (value is null)
                     ThrowNullReferenceException(nameof(North));
 
-                _north = value; 
+                _north = value;
             }
         }
 
@@ -42,7 +40,7 @@ namespace GoogleEarthConversions.Core.KML.Object
                 if (value is null)
                     ThrowNullReferenceException(nameof(South));
 
-                _south = value; 
+                _south = value;
             }
         }
 
@@ -55,7 +53,7 @@ namespace GoogleEarthConversions.Core.KML.Object
                 if (value is null)
                     ThrowNullReferenceException(nameof(East));
 
-                _east = value; 
+                _east = value;
             }
         }
 
@@ -68,7 +66,7 @@ namespace GoogleEarthConversions.Core.KML.Object
                 if (value is null)
                     ThrowNullReferenceException(nameof(West));
 
-                _west = value; 
+                _west = value;
             }
         }
 

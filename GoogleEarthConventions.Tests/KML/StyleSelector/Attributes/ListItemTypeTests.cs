@@ -1,7 +1,4 @@
 ﻿using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
@@ -32,7 +29,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         public void ListItemType_ItemTypeDefaultsToCheck()
         {
             var expected = ListItemTypeEnum.Check;
-            
+
             var sut = new ListItemType();
             var result = sut.ItemType;
 

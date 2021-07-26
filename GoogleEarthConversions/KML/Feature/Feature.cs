@@ -5,7 +5,6 @@ using GoogleEarthConversions.Core.KML.Object;
 using GoogleEarthConversions.Core.KML.StyleSelector;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using GoogleEarthConversions.Core.KML.TimePrimitive;
-using System;
 using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.Feature
@@ -29,7 +28,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
         public StyleSelector.StyleSelector StyleSelector { get; set; }
         public IRegion Region { get; set; }
         public IExtendedData ExtendedData { get; set; }
-        
+
 
         protected void InitiailiseFeatureProperties()
         {

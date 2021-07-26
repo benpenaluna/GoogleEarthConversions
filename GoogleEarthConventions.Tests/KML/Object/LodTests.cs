@@ -1,7 +1,4 @@
 ﻿using GoogleEarthConversions.Core.KML.Object;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Object

@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
@@ -43,7 +41,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             if (ItemType == ListItemTypeEnum.Check)
                 return "";
-            
+
             return string.Format("<{0}>{1}</{0}>", nameof(ListItemType).ConvertFirstCharacterToLowerCase(),
                                                    ItemType.ToString().ConvertFirstCharacterToLowerCase());
         }

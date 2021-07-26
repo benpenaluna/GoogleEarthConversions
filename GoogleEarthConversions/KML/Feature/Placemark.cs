@@ -1,9 +1,6 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.Geometry;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature
 {
@@ -34,7 +31,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
 
         protected bool Equals(Placemark other)
         {
-            return Equals(Geometry, other.Geometry) && 
+            return Equals(Geometry, other.Geometry) &&
                    base.Equals(other);
         }
 

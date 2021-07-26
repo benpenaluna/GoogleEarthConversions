@@ -6,10 +6,10 @@ namespace GoogleEarthConventions.Tests.Common
     public class StringFormattingTests
     {
         [Theory]
-        [InlineData("","")]
-        [InlineData("0","0")]
-        [InlineData("A","a")]
-        [InlineData("a","a")]
+        [InlineData("", "")]
+        [InlineData("0", "0")]
+        [InlineData("A", "a")]
+        [InlineData("a", "a")]
         [InlineData("Test", "test")]
         [InlineData("TEST", "tEST")]
         [InlineData("Test00", "test00")]

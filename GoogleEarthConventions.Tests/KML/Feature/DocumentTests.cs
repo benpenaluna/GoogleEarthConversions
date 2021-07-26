@@ -6,8 +6,6 @@ using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using GoogleEarthConversions.Core.KML.StyleSelector;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature
@@ -68,10 +66,10 @@ namespace GoogleEarthConventions.Tests.KML.Feature
             {
                 Icon = new Icon(href),
                 Scale = new DoubleKML(nameof(scale)) { Value = scale },
-                HotSpot = new HotSpot() { X = 20, Y = 2, Xunits = UnitsEnum.Pixels, Yunits = UnitsEnum.Pixels}
+                HotSpot = new HotSpot() { X = 20, Y = 2, Xunits = UnitsEnum.Pixels, Yunits = UnitsEnum.Pixels }
             };
 
-            return new Style() 
+            return new Style()
             {
                 Id = id,
                 IconStyle = iconStyle
@@ -83,7 +81,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature
             var placemark = new Placemark()
             {
                 Name = new Name(nameLabel),
-                Description = new Description(description)                
+                Description = new Description(description)
             };
             placemark.SetStyleUrl(new StyleUrl(new Uri("file://C://Test.kml#msn_ylw-pushpin"), styleLocal: true));
 

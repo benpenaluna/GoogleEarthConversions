@@ -2,8 +2,6 @@
 using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.Geographical
 {
@@ -27,7 +25,7 @@ namespace GoogleEarthConversions.Core.Geographical
         {
             if (convertObjectToKML is null)
                 throw new NullReferenceException(string.Format("{0} can not be a null reference.", nameof(convertObjectToKML)));
-                
+
             _convertObjectToKML = convertObjectToKML;
         }
 

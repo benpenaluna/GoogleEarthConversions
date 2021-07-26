@@ -13,12 +13,12 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         public ICoordinates Coordinates
         {
             get { return _coordinates; }
-            set 
+            set
             {
                 if (value is null)
                     throw new NullReferenceException(value.ToString());
 
-                _coordinates = value; 
+                _coordinates = value;
             }
         }
 
@@ -42,9 +42,9 @@ namespace GoogleEarthConversions.Core.KML.Geometry
 
         protected bool Equals(Point other)
         {
-            return Equals(Id, other.Id) && 
+            return Equals(Id, other.Id) &&
                    Equals(Coordinates, other.Coordinates) &&
-                   Equals(Extrude, other.Extrude) && 
+                   Equals(Extrude, other.Extrude) &&
                    Equals(AltitudeMode, other.AltitudeMode);
         }
 

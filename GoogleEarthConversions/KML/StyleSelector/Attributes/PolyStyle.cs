@@ -1,8 +1,6 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
@@ -57,7 +55,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             var body = GetKMLBody();
             if (body == string.Empty)
                 return string.Empty;
-            
+
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));

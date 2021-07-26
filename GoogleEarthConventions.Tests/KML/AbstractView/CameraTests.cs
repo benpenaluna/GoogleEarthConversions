@@ -31,7 +31,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView
         }
 
         [Theory]
-        [InlineData("", 0, 0, 0, 0, 0, 0, AltMode.RelativeToGround, 
+        [InlineData("", 0, 0, 0, 0, 0, 0, AltMode.RelativeToGround,
             "<Camera>" +
                 "<gx:TimeStamp><when>2020-12-28T12:10:52+11:00</when></gx:TimeStamp>" +
                 "<gx:ViewerOptions><gx:option enabled=\"0\" name=\"historicalimagery\"></gx:option><gx:option enabled=\"0\" name=\"sunlight\"></gx:option><gx:option enabled=\"0\" name=\"streetview\"></gx:option></gx:ViewerOptions>" +
@@ -43,7 +43,7 @@ namespace GoogleEarthConventions.Tests.KML.AbstractView
                 "<roll>0</roll>" +
                 "<altitudeMode>relativeToGround</altitudeMode>" +
             "</Camera>")]
-        public void Camera_CorrectlyConvertsToKML(string id, double longitude, double latitude, double altitude, 
+        public void Camera_CorrectlyConvertsToKML(string id, double longitude, double latitude, double altitude,
                                                   double heading, double tilt, double roll, AltMode altitudeMode, string expected)
         {
             var sut = new Camera()

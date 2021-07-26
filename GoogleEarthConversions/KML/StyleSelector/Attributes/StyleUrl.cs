@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
@@ -45,7 +43,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         public string SerialiseToKML()
         {
             var url = StyleInLocalDocument ? Url.Fragment : Url.AbsoluteUri;
-            
+
             return string.Format("<{0}>{1}</{0}>", nameof(StyleUrl).ConvertFirstCharacterToLowerCase(), url);
         }
 

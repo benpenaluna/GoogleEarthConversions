@@ -2,9 +2,6 @@
 using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using GoogleEarthConversions.Core.KML.Object;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature
 {

@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.KML.Feature.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
@@ -55,7 +53,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
         [InlineData("holeNumber", "1", "", "", "", "", "", "<ExtendedData><Data name=\"holeNumber\"><value>1</value></Data></ExtendedData>")]
         [InlineData("holeNumber", "1", "holeYardage", "234", "", "", "", "<ExtendedData><Data name=\"holeNumber\"><value>1</value></Data><Data name=\"holeYardage\"><value>234</value></Data></ExtendedData>")]
         [InlineData("", "", "", "", "http://host.com/PlacesIHaveLived.kml#my-schema-id", "TrailHeadName", "Pi in the sky", "<ExtendedData><SchemaData schemaUrl=\"http://host.com/PlacesIHaveLived.kml#my-schema-id\"><SimpleData name=\"TrailHeadName\">Pi in the sky</SimpleData></SchemaData></ExtendedData>")]
-        public void ExtendedData_CorrectlyConvertsToKML(string dataName1, string dataValue1, string dataName2, string dataValue2, 
+        public void ExtendedData_CorrectlyConvertsToKML(string dataName1, string dataValue1, string dataName2, string dataValue2,
                                                         string schemaURL, string simpleDataName, string simpleDataValue, string expected)
         {
             var data1 = dataName1 == string.Empty && dataValue1 == string.Empty ? null : new Data(dataName1, dataValue1);
@@ -81,7 +79,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
         public void ExtendedData_CorrectlyConvertsToKMLWithoutData()
         {
             var expected = string.Empty;
-            
+
             var sut = new ExtendedData();
 
             var result = sut.SerialiseToKML();

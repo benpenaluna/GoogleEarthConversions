@@ -1,12 +1,10 @@
 ﻿using GoogleEarthConversions.Core.Common;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature
 {
-    public abstract class Container : Feature 
+    public abstract class Container : Feature
     {
         public ICollection<Feature> Features { get; set; }
 

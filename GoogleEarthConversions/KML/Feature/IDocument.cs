@@ -1,9 +1,7 @@
 ﻿using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using GoogleEarthConversions.Core.KML.Object;
 using GoogleEarthConversions.Core.KML.StyleSelector.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature
 {
@@ -11,7 +9,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
     {
         string Id { get; set; }
         string TargetId { get; set; }
-        
+
         IName Name { get; set; }
         IVisibility Visibility { get; set; }
         IOpen Open { get; set; }

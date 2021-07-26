@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 
 namespace GoogleEarthConversions.Core.Common
@@ -28,10 +26,10 @@ namespace GoogleEarthConversions.Core.Common
 
             if (result.Value == fragmentName)
                 return true;
-            
+
             return false;
         }
-        
+
         public static bool IsValidXML(this string xml)
         {
             try

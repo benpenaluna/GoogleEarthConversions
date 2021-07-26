@@ -1,8 +1,5 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object.Attributes
 {

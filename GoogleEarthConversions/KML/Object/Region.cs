@@ -1,21 +1,19 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object
 {
     public class Region : GoogleEarthObject, IRegion
     {
         private bool _notChangedSinceInitialisation = true;
-        
+
         private ILatLonAltBox _latLonAltBox;
         public ILatLonAltBox LatLonAltBox
         {
             get => _latLonAltBox;
-            set 
-            { 
+            set
+            {
                 _latLonAltBox = value;
                 _notChangedSinceInitialisation = false;
             }
@@ -25,8 +23,8 @@ namespace GoogleEarthConversions.Core.KML.Object
         public ILod Lod
         {
             get => lod;
-            set 
-            { 
+            set
+            {
                 lod = value;
                 _notChangedSinceInitialisation = false;
             }
@@ -74,7 +72,7 @@ namespace GoogleEarthConversions.Core.KML.Object
         {
             if (_notChangedSinceInitialisation)
                 return string.Empty;
-            
+
             StringWriter sw = new StringWriter();
 
             sw.Write(OpeningTag(GetType()));

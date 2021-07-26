@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 {
@@ -43,7 +41,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
         {
             if (Name == string.Empty)
                 return string.Empty;
-            
+
             return string.Format("<atom:{0}><atom:{1}>{2}</atom:{1}></atom:{0}>", nameof(Author).ConvertFirstCharacterToLowerCase(),
                                                                                   nameof(Name).ConvertFirstCharacterToLowerCase(),
                                                                                   Name);

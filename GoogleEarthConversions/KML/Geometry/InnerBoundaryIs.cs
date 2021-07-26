@@ -45,7 +45,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         {
             if (LinearRings?.Count == 0)
                 return "";
-            
+
             StringWriter linearRingsKML = new StringWriter();
             foreach (var linearRing in LinearRings)
             {

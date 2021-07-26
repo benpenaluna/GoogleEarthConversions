@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
@@ -41,7 +39,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature.Attributes
         public void BasicLink_ExceptionOnInvalidUri()
         {
             var invalidUri = "Invalid URI";
-            
+
             Assert.Throws<UriFormatException>(() => new BasicLink(invalidUri));
         }
 

@@ -3,8 +3,6 @@ using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.Geographical;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
@@ -15,7 +13,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
         public string SerialiseToKML()
         {
             var heading = AngleMeasurement == AngleMeasurement.Degrees ? CoTerminalValue : Angle.ToDegrees(CoTerminalValue);
-            
+
             return string.Format("<{0}>{1}</{0}>", nameof(Heading).ConvertFirstCharacterToLowerCase(), heading);
         }
 

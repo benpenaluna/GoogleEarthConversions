@@ -1,11 +1,10 @@
 ﻿using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
-using System;
 using Xunit;
 
 namespace GoogleEarthConventions.Tests.KML.AbstractView.Attributes
 {
-    public  class AltitudeTests
+    public class AltitudeTests
     {
         [Theory]
         [InlineData(0, DistanceMeasurement.Meters, "<altitude>0</altitude>")]

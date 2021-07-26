@@ -1,6 +1,5 @@
 ﻿using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Geographical;
-using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
 using System;
 using Xunit;
 

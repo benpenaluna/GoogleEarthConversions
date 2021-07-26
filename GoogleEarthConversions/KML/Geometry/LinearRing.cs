@@ -12,7 +12,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         // Source: https://developers.google.com/kml/documentation/kmlreference?hl=en#linearring
 
         private ICollection<ICoordinates> _coordinates;
-        public override ICollection<ICoordinates> Coordinates 
+        public override ICollection<ICoordinates> Coordinates
         {
             get { return _coordinates; }
             set

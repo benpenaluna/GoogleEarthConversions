@@ -1,7 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
@@ -43,8 +41,8 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             if (Mode == ColorModeEnum.Normal)
                 return "";
-            
-            return string.Format("<{0}>{1}</{0}>", nameof(ColorMode).ConvertFirstCharacterToLowerCase(), 
+
+            return string.Format("<{0}>{1}</{0}>", nameof(ColorMode).ConvertFirstCharacterToLowerCase(),
                                                    Mode.ToString().ConvertFirstCharacterToLowerCase());
         }
 

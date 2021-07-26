@@ -1,9 +1,6 @@
 ﻿using GoogleEarthConversions.Core.Common;
-using GoogleEarthConversions.Core.KML.Feature.Attributes;
 using GoogleEarthConversions.Core.KML.Object;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Feature
 {
@@ -43,7 +40,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             catch (Exception e)
             {
                 errorMessage = e.Message;
-                return false; 
+                return false;
             }
 
             errorMessage = string.Empty;
@@ -94,7 +91,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             var flyToViewKML = FlyToView.SerialiseToKML();
             var linkKML = Link.SerialiseToKML();
 
-            return string.Format("<{0}>{1}{2}{3}{4}</{0}>", nameof(NetworkLink), baseKML, refreshVisibilityKML, flyToViewKML, linkKML); 
+            return string.Format("<{0}>{1}{2}{3}{4}</{0}>", nameof(NetworkLink), baseKML, refreshVisibilityKML, flyToViewKML, linkKML);
         }
 
         public override object DeserialiseFromKML()

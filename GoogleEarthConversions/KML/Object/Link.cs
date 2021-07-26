@@ -1,8 +1,6 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.KML.Object.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GoogleEarthConversions.Core.KML.Object
 {
@@ -80,7 +78,7 @@ namespace GoogleEarthConversions.Core.KML.Object
         {
             if (Href.Value == string.Empty)
                 return string.Empty;
-            
+
             return string.Format("<{0}>{1}</{0}>", nameof(Href).ConvertFirstCharacterToLowerCase(), Href.Value);
         }
 
