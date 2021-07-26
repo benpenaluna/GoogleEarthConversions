@@ -21,5 +21,10 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
         {
             return string.Format("<{0}>{1}</{0}>", nameof(Altitude).ConvertFirstCharacterToLowerCase(), ToMeters());
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

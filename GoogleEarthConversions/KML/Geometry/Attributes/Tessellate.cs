@@ -28,14 +28,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             FollowsTerrain = followsTerrain;
         }
 
-        public string SerialiseToKML()
-        {
-            if (FollowsTerrain == false)
-                return "";
-
-            return string.Format("<{0}>1</{0}>", nameof(Tessellate).ConvertFirstCharacterToLowerCase());
-        }
-
         public override bool Equals(object obj)
         {
             return obj.GetType() == typeof(Tessellate) && Equals((Tessellate)obj);
@@ -46,9 +38,32 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             return Equals(FollowsTerrain, other.FollowsTerrain);
         }
 
+        public static bool operator ==(Tessellate a, Tessellate b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Tessellate a, Tessellate b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public string SerialiseToKML()
+        {
+            if (FollowsTerrain == false)
+                return "";
+
+            return string.Format("<{0}>1</{0}>", nameof(Tessellate).ConvertFirstCharacterToLowerCase());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

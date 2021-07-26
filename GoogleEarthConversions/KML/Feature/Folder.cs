@@ -44,5 +44,10 @@ namespace GoogleEarthConversions.Core.KML.Feature
 
             return string.Format("<{0}>{1}{2}</{0}>", nameof(Folder), baseKML, GetFeaturesKML());
         }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

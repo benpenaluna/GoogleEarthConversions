@@ -52,6 +52,16 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return Equals(Angle, other.Angle);
         }
 
+        public static bool operator ==(Roll a, Roll b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Roll a, Roll b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -60,6 +70,11 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
         public string SerialiseToKML()
         {
             return string.Format("<{0}>{1}</{0}>", nameof(Roll).ConvertFirstCharacterToLowerCase(), Angle.ToDegrees());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

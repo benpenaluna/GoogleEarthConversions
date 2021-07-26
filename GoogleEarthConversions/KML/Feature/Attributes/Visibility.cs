@@ -20,6 +20,16 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return Equals(Visible, other.Visible);
         }
 
+        public static bool operator ==(Visibility a, Visibility b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Visibility a, Visibility b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -31,6 +41,11 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
                 return string.Empty;
 
             return string.Format("<{0}>1</{0}>", nameof(Visibility).ConvertFirstCharacterToLowerCase());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

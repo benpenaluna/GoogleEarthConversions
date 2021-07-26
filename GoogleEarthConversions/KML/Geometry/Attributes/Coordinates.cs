@@ -15,6 +15,39 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 
         public Coordinates(ISphericalCoordinate latitude, ISphericalCoordinate longitude, IDistance elevation) : base(latitude, longitude, elevation) { }
 
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Coordinates) && Equals((Coordinates)obj);
+        }
+
+        protected bool Equals(Coordinates other)
+        {
+            var geographicCoordinate = other as GeographicCoordinate;
+            return Equals(geographicCoordinate);
+        }
+
+        public static bool Equals(ICoordinates coordA, ICoordinates coordB)
+        {
+            return Equals(coordA.Latitude, coordB.Latitude) &&
+                   Equals(coordA.Longitude, coordB.Longitude) &&
+                   Equals(coordA.Elevation, coordB.Elevation);
+        }
+
+        public static bool operator ==(Coordinates a, Coordinates b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Coordinates a, Coordinates b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public string SerialiseToKML()
         {
             var coordinateString = FormatCoordinatesString();
@@ -35,6 +68,11 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             return coordinatesString;
         }
 
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public static string ConvertCoordinatesCollectionToKML(ICollection<ICoordinates> collection)
         {
             var coordinatesKML = "";
@@ -46,29 +84,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             var replacementString = string.Format("</{0}><{0}>", nameof(Coordinates).ConvertFirstCharacterToLowerCase());
             return coordinatesKML.Replace(replacementString, " ");
 
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj.GetType() == typeof(Coordinates) && Equals((Coordinates)obj);
-        }
-
-        protected bool Equals(Coordinates other)
-        {
-            var geographicCoordinate = other as GeographicCoordinate;
-            return Equals(geographicCoordinate);
-        }
-
-        public static bool Equals(ICoordinates coordA, ICoordinates coordB)
-        {
-            return Equals(coordA.Latitude, coordB.Latitude) &&
-                   Equals(coordA.Longitude, coordB.Longitude) &&
-                   Equals(coordA.Elevation, coordB.Elevation);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
     }
 }

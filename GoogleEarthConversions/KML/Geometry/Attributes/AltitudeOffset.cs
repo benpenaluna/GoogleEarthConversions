@@ -18,16 +18,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             AltOffset = altOffset;
         }
 
-        public string SerialiseToKML()
-        {
-            if (AltOffset.ToMeters() == 0)
-                return "";
-
-            return string.Format("<gx:{0}>{1}</gx:{0}>",
-                                 nameof(AltitudeOffset).ConvertFirstCharacterToLowerCase(),
-                                 AltOffset.ToMeters());
-        }
-
         public override bool Equals(object obj)
         {
             return obj.GetType() == typeof(AltitudeOffset) && Equals((AltitudeOffset)obj);
@@ -38,9 +28,34 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             return Equals(AltOffset, other.AltOffset);
         }
 
+        public static bool operator ==(AltitudeOffset a, AltitudeOffset b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(AltitudeOffset a, AltitudeOffset b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public string SerialiseToKML()
+        {
+            if (AltOffset.ToMeters() == 0)
+                return "";
+
+            return string.Format("<gx:{0}>{1}</gx:{0}>",
+                                 nameof(AltitudeOffset).ConvertFirstCharacterToLowerCase(),
+                                 AltOffset.ToMeters());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

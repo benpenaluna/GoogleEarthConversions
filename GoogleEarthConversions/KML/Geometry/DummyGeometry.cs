@@ -45,5 +45,10 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         {
             return string.Empty;
         }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

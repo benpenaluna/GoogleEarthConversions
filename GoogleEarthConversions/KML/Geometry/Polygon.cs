@@ -1,4 +1,5 @@
-﻿using GoogleEarthConversions.Core.KML.Geometry.Attributes;
+﻿using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System;
 using System.IO;
 
@@ -50,6 +51,16 @@ namespace GoogleEarthConversions.Core.KML.Geometry
                    Equals(InnerBoundaryIs, other.InnerBoundaryIs);
         }
 
+        public static bool operator ==(Polygon a, Polygon b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Polygon a, Polygon b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -70,6 +81,11 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             sw.Write(ClosingTag(GetType()));
 
             return sw.ToString();
+        }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

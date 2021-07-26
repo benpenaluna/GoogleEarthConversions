@@ -27,20 +27,6 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
                    Equals(SchemaData, other.SchemaData);
         }
 
-        private bool DataCollectionEqual(IList<IData> other)
-        {
-            if (other is null || Data.Count != other.Count)
-                return false;
-
-            for (var i = 0; i < Data.Count; i++)
-            {
-                if (!Equals(Data[i], other[i]))
-                    return false;
-            }
-
-            return true;
-        }
-
         public static bool operator ==(ExtendedData a, ExtendedData b)
         {
             return EqualityCheck.ObjectEquals(a, b);
@@ -54,6 +40,20 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        private bool DataCollectionEqual(IList<IData> other)
+        {
+            if (other is null || Data.Count != other.Count)
+                return false;
+
+            for (var i = 0; i < Data.Count; i++)
+            {
+                if (!Equals(Data[i], other[i]))
+                    return false;
+            }
+
+            return true;
         }
 
         public string SerialiseToKML()
@@ -79,6 +79,11 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             }
 
             return sw.ToString();
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

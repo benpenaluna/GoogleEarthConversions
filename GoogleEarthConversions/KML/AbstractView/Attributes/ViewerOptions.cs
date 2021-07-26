@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using GoogleEarthConversions.Core.Common;
+using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
@@ -35,6 +36,16 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return obj.GetType() == typeof(ViewerOptions) && Equals((ViewerOptions)obj);
         }
 
+        public static bool operator ==(ViewerOptions a, ViewerOptions b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(ViewerOptions a, ViewerOptions b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         protected bool Equals(ViewerOptions other)
         {
             return Equals(Historicalimagery, other.Historicalimagery) &&
@@ -58,6 +69,11 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             sw.Write(string.Format("</gx:{0}>", nameof(ViewerOptions)));
 
             return sw.ToString();
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

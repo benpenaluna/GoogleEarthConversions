@@ -11,16 +11,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             OrderValue = orderValue;
         }
 
-        public string SerialiseToKML()
-        {
-            if (OrderValue == 0)
-                return "";
-
-            return string.Format("<gx:{0}>{1}</gx:{0}>",
-                                 nameof(DrawOrder).ConvertFirstCharacterToLowerCase(),
-                                 OrderValue);
-        }
-
         public override bool Equals(object obj)
         {
             return obj.GetType() == typeof(DrawOrder) && Equals((DrawOrder)obj);
@@ -31,9 +21,34 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             return Equals(OrderValue, other.OrderValue);
         }
 
+        public static bool operator ==(DrawOrder a, DrawOrder b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(DrawOrder a, DrawOrder b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public string SerialiseToKML()
+        {
+            if (OrderValue == 0)
+                return "";
+
+            return string.Format("<gx:{0}>{1}</gx:{0}>",
+                                 nameof(DrawOrder).ConvertFirstCharacterToLowerCase(),
+                                 OrderValue);
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

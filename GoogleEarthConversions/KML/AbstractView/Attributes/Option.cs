@@ -23,6 +23,16 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
                    Equals(Name, other.Name);
         }
 
+        public static bool operator ==(Option a, Option b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Option a, Option b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -36,6 +46,11 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
                                                                       enabledText,
                                                                       nameof(Name).ConvertFirstCharacterToLowerCase(),
                                                                       Name.ToString().ToLower());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

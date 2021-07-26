@@ -60,5 +60,10 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
                                  nameof(Xunits).ConvertFirstCharacterToLowerCase(), Xunits.ToString().ConvertFirstCharacterToLowerCase(),
                                  nameof(Yunits).ConvertFirstCharacterToLowerCase(), Yunits.ToString().ConvertFirstCharacterToLowerCase());
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

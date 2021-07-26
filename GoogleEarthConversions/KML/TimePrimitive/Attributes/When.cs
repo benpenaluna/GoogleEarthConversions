@@ -25,6 +25,16 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive.Attributes
                    Equals(TimeZone, other.TimeZone);
         }
 
+        public static bool operator ==(When a, When b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(When a, When b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -38,6 +48,11 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive.Attributes
             var timeZoneString = offset >= System.TimeSpan.Zero ? offset.ToString(@"\+hh\:mm") : offset.ToString(@"\-hh\:mm");
 
             return string.Format("<{0}>{1}{2}</{0}>", nameof(When).ConvertFirstCharacterToLowerCase(), dateTimeString, timeZoneString);
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

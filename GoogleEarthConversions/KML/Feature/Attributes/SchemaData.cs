@@ -65,5 +65,10 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 
             return sw.ToString();
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

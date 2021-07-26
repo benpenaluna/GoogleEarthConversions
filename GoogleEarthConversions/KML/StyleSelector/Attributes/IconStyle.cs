@@ -94,5 +94,10 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 
             return Heading.SerialiseToKML();
         }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

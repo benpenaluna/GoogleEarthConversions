@@ -29,20 +29,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             AltMode = altMode;
         }
 
-        public string SerialiseToKML()
-        {
-            if (AltMode == AltMode.ClampToGround)
-                return "";
-
-            if (AltMode == AltMode.ClampToSeaFloor || AltMode == AltMode.RelativeToSeaFloor)
-                return string.Format("<gx:{0}>{1}</gx:{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
-                                                             AltMode.ToString().ConvertFirstCharacterToLowerCase());
-
-
-            return string.Format("<{0}>{1}</{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
-                                                   AltMode.ToString().ConvertFirstCharacterToLowerCase());
-        }
-
         public override bool Equals(object obj)
         {
             return obj.GetType() == typeof(AltitudeMode) && Equals((AltitudeMode)obj);
@@ -58,5 +44,23 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             return base.GetHashCode();
         }
 
+        public string SerialiseToKML()
+        {
+            if (AltMode == AltMode.ClampToGround)
+                return "";
+
+            if (AltMode == AltMode.ClampToSeaFloor || AltMode == AltMode.RelativeToSeaFloor)
+                return string.Format("<gx:{0}>{1}</gx:{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
+                                                             AltMode.ToString().ConvertFirstCharacterToLowerCase());
+
+
+            return string.Format("<{0}>{1}</{0}>", nameof(AltitudeMode).ConvertFirstCharacterToLowerCase(),
+                                                   AltMode.ToString().ConvertFirstCharacterToLowerCase());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

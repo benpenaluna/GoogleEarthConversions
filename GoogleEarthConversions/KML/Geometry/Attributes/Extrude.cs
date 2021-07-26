@@ -28,14 +28,6 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             Extruded = extruded;
         }
 
-        public string SerialiseToKML()
-        {
-            if (Extruded == false)
-                return "";
-
-            return string.Format("<{0}>1</{0}>", nameof(Extrude).ConvertFirstCharacterToLowerCase());
-        }
-
         public override bool Equals(object obj)
         {
             return obj.GetType() == typeof(Extrude) && Equals((Extrude)obj);
@@ -46,9 +38,32 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             return Equals(Extruded, other.Extruded);
         }
 
+        public static bool operator ==(Extrude a, Extrude b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Extrude a, Extrude b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public string SerialiseToKML()
+        {
+            if (Extruded == false)
+                return "";
+
+            return string.Format("<{0}>1</{0}>", nameof(Extrude).ConvertFirstCharacterToLowerCase());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

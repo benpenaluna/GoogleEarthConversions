@@ -1,4 +1,5 @@
 ﻿using GeoFunctions.Core.Coordinates;
+using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.Geographical;
 using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
 using GoogleEarthConversions.Core.KML.Geometry.Attributes;
@@ -53,19 +54,19 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
                    Equals(AltitudeMode, other.AltitudeMode);
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
         public static bool operator ==(LookAt a, LookAt b)
         {
-            return Common.EqualityCheck.ObjectEquals(a, b);
+            return EqualityCheck.ObjectEquals(a, b);
         }
 
         public static bool operator !=(LookAt a, LookAt b)
         {
-            return !Common.EqualityCheck.ObjectEquals(a, b);
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         public override string SerialiseToKML()
@@ -87,6 +88,11 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             sw.Write(ClosingTag(GetType()));
 
             return sw.ToString();
+        }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

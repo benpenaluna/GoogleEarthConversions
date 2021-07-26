@@ -66,5 +66,10 @@ namespace GoogleEarthConversions.Core.Geographical
         {
             return _convertObjectToKML(this);
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using GoogleEarthConversions.Core.KML.Geometry.Attributes;
+﻿using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.Geometry.Attributes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -65,6 +66,16 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return Coordinates.SequenceEqual(other.Coordinates);
         }
 
+        public static bool operator ==(LineString a, LineString b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(LineString a, LineString b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -86,6 +97,11 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             sw.Write(ClosingTag(GetType()));
 
             return sw.ToString();
+        }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -58,5 +58,10 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             return string.Format("<{0}>{1}</{0}>", tagName, Value.ColorHexValue());
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

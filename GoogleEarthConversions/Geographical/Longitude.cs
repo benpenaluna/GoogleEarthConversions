@@ -69,5 +69,10 @@ namespace GoogleEarthConversions.Core.Geographical
 
             return string.Format("<{0}>{1}</{0}>", nameof(Longitude).ConvertFirstCharacterToLowerCase(), Angle.ToDegrees());
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

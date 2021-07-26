@@ -51,5 +51,10 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 
             return string.Format("<atom:link {0}=\"{1}\" />", nameof(Href).ConvertFirstCharacterToLowerCase(), Href);
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

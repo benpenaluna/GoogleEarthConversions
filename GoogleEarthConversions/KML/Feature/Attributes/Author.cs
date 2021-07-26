@@ -48,5 +48,10 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
                                                                                   nameof(Name).ConvertFirstCharacterToLowerCase(),
                                                                                   Name);
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

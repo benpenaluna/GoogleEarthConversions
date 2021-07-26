@@ -78,5 +78,10 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 
             return sw.ToString();
         }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

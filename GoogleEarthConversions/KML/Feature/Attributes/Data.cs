@@ -63,5 +63,10 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
         {
             return DisplayName == string.Empty ? string.Empty : string.Format("<{0}>{1}</{0}>", nameof(DisplayName).ConvertFirstCharacterToLowerCase(), DisplayName);
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

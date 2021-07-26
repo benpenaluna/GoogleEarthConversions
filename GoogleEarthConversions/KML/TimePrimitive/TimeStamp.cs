@@ -1,4 +1,5 @@
-﻿using GoogleEarthConversions.Core.KML.TimePrimitive.Attributes;
+﻿using GoogleEarthConversions.Core.Common;
+using GoogleEarthConversions.Core.KML.TimePrimitive.Attributes;
 using System;
 using System.IO;
 
@@ -25,6 +26,16 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
             return Equals(When, other.When);
         }
 
+        public static bool operator ==(TimeStamp a, TimeStamp b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(TimeStamp a, TimeStamp b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -43,6 +54,11 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
             sw.Write(ClosingTag(GetType(), googleEarthNamespace));
 
             return sw.ToString();
+        }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -52,5 +52,10 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
                                                                             ModeUrlMap.Key.ToString().ConvertFirstCharacterToLowerCase(),
                                                                             ModeUrlMap.Value.SerialiseToKML());
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

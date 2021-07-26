@@ -11,10 +11,15 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
             Id = string.Empty;
             TargetId = string.Empty;
         }
-        
+
         public override string SerialiseToKML()
         {
             return string.Empty;
+        }
+
+        public override object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

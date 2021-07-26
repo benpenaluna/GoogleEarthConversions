@@ -9,5 +9,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
         public IExtrude Extrude { get; set; }
 
         public abstract string SerialiseToKML();
+
+        public abstract object DeserialiseFromKML();
     }
 }

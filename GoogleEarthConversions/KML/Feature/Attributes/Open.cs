@@ -21,6 +21,16 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return Equals(Appearance, other.Appearance);
         }
 
+        public static bool operator ==(Open a, Open b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Open a, Open b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -32,6 +42,11 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
                 return "";
 
             return string.Format("<{0}>1</{0}>", nameof(Open).ConvertFirstCharacterToLowerCase());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

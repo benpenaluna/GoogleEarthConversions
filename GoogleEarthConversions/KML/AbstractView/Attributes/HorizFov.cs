@@ -32,5 +32,10 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
                                  nameof(HorizFov).ConvertFirstCharacterToLowerCase(),
                                  HorizontalFieldOfView);
         }
+
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

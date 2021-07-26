@@ -62,7 +62,7 @@ namespace GoogleEarthConversions.Core.KML.Object
             return base.GetHashCode();
         }
 
-        public string SerialiseToKML() // TODO: Unit Test this
+        public string SerialiseToKML()
         {
             var body = string.Format("{0}{1}{2}{3}{4}{5}{6}", GetHrefKML(),
                                                               RefreshMode.SerialiseToKML(),
@@ -118,6 +118,11 @@ namespace GoogleEarthConversions.Core.KML.Object
                 return string.Empty;
 
             return ViewFormat.SerialiseToKML();
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

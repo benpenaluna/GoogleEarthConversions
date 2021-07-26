@@ -11,5 +11,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector
         public IColorMode ColorMode { get; set; }
 
         public abstract string SerialiseToKML();
+
+        public abstract object DeserialiseFromKML();
     }
 }

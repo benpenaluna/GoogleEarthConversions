@@ -26,6 +26,16 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return LinearRings.SequenceEqual(other.LinearRings);
         }
 
+        public static bool operator ==(InnerBoundaryIs a, InnerBoundaryIs b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(InnerBoundaryIs a, InnerBoundaryIs b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -43,6 +53,11 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             }
 
             return string.Format("<{0}>{1}</{0}>", nameof(InnerBoundaryIs).ConvertFirstCharacterToLowerCase(), linearRingsKML.ToString());
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

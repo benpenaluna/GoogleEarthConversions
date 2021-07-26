@@ -27,11 +27,6 @@ namespace GoogleEarthConversions.Core.KML.Object.Attributes
             return Equals(Value, other.Value);
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
         public static bool operator ==(LodElement a, LodElement b)
         {
             return EqualityCheck.ObjectEquals(a, b);
@@ -42,12 +37,22 @@ namespace GoogleEarthConversions.Core.KML.Object.Attributes
             return !EqualityCheck.ObjectEquals(a, b);
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public string SerialiseToKML()
         {
             if (_convertObjectToKML != null)
                 return _convertObjectToKML(this);
 
             return string.Format("<{0}>{1}</{0}>", nameof(LodElement).ConvertFirstCharacterToLowerCase(), Value);
+        }
+
+        public object DeserialiseFromKML()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -57,8 +57,6 @@ namespace GoogleEarthConversions.Core.KML.Feature
             StyleUrl = styleUrl;
         }
 
-        public abstract string SerialiseToKML();
-
         public override bool Equals(object obj)
         {
             return obj.GetType() == typeof(Feature) && Equals((Feature)obj);
@@ -128,5 +126,9 @@ namespace GoogleEarthConversions.Core.KML.Feature
 
             return sw.ToString();
         }
+
+        public abstract string SerialiseToKML();
+
+        public abstract object DeserialiseFromKML();
     }
 }
