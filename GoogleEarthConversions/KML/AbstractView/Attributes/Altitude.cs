@@ -3,16 +3,47 @@ using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.Geographical;
 using System;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
+using System.Xml;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 {
     public class Altitude : GeoFunctions.Core.Coordinates.Distance, IDistanceKML
     {
         public Altitude(double altitdue = 0.0, DistanceMeasurement measurement = DistanceMeasurement.Feet) : base(altitdue, measurement) { }
+        
         public Altitude(IDistance altitude)
         {
             Value = altitude.Value;
             DistanceMeasurement = altitude.DistanceMeasurement;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj.GetType() == typeof(Altitude) && Equals((Altitude)obj);
+        }
+
+        protected bool Equals(Altitude other)
+        {
+            return Equals(Value, other.Value) &&
+                   Equals(DistanceMeasurement, other.DistanceMeasurement);
+        }
+
+        public static bool operator ==(Altitude a, Altitude b)
+        {
+            return EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public static bool operator !=(Altitude a, Altitude b)
+        {
+            return !EqualityCheck.ObjectEquals(a, b);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         public string SerialiseToKML()
@@ -20,9 +51,19 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return string.Format("<{0}>{1}</{0}>", nameof(Altitude).ConvertFirstCharacterToLowerCase(), ToMeters());
         }
 
-        public object DeserialiseFromKML()
+        public static Altitude DeserialiseFromKML(string kml)
         {
-            throw new NotImplementedException();
+            MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(kml));
+            var doc = new XmlDocument();
+            doc.Load(memStream);
+            memStream.Close();
+
+            XmlNodeList elemList = doc.GetElementsByTagName(nameof(Altitude).ConvertFirstCharacterToLowerCase());
+
+            if (elemList.Count != 1 || !Double.TryParse(elemList[0].InnerXml, out double altitude))
+                throw new XmlException(string.Format("The received KML string is an invalid {0} KML string.", nameof(Altitude).ConvertFirstCharacterToLowerCase()));
+
+            return new Altitude(altitude, DistanceMeasurement.Meters);
         }
     }
 }
