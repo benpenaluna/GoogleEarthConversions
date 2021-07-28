@@ -2,16 +2,9 @@
 
 namespace GoogleEarthConversions.Core.Common
 {
-    public class BooleanKML : IBooleanKML
+    public class BooleanKML : GenericKML<bool>
     {
-        public string KmlTagName { get; set; }
-        public bool Value { get; set; }
-        public bool Default { get; set; }
-
-        public BooleanKML(string kmlTagName)
-        {
-            KmlTagName = kmlTagName;
-        }
+        public BooleanKML(string kmlTagName, bool value, bool def) : base(kmlTagName, value, def) { }
 
         public override bool Equals(object obj)
         {
@@ -40,7 +33,7 @@ namespace GoogleEarthConversions.Core.Common
             return base.GetHashCode();
         }
 
-        public string SerialiseToKML()
+        public override string SerialiseToKML()
         {
             if (Value == Default)
                 return string.Empty;

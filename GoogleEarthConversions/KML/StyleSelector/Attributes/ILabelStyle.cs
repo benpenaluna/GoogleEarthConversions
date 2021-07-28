@@ -8,6 +8,6 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         string TargetId { get; set; }
         IColor Color { get; set; }
         IColorMode ColorMode { get; set; }
-        IDoubleKML Scale { get; set; }
+        GenericKML<double> Scale { get; set; }
     }
 }

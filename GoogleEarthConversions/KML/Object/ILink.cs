@@ -10,10 +10,10 @@ namespace GoogleEarthConversions.Core.KML.Object
 
         IHref Href { get; set; }
         IRefreshMode RefreshMode { get; set; }
-        IDoubleKML RefreshInterval { get; set; }
+        GenericKML<double> RefreshInterval { get; set; }
         IViewRefreshMode ViewRefreshMode { get; set; }
-        IDoubleKML ViewRefreshTime { get; set; }
-        IDoubleKML ViewBoundScale { get; set; }
+        GenericKML<double> ViewRefreshTime { get; set; }
+        GenericKML<double> ViewBoundScale { get; set; }
         IViewFormat ViewFormat { get; set; }
     }
 }

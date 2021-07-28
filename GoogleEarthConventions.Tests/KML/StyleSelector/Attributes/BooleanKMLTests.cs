@@ -8,7 +8,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [Fact]
         public void BooleanKML_CanInstantiate()
         {
-            var sut = new BooleanKML(nameof(BooleanKML));
+            var sut = new BooleanKML(nameof(BooleanKML), value: false, def: false);
 
             Assert.NotNull(sut);
         }
@@ -16,7 +16,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [Fact]
         public void BooleanKML_AllPropertiesInitialised()
         {
-            var sut = new BooleanKML(nameof(BooleanKML));
+            var sut = new BooleanKML(nameof(BooleanKML), value: false, def: false);
 
             foreach (var prop in sut.GetType().GetProperties())
             {
@@ -30,7 +30,7 @@ namespace GoogleEarthConventions.Tests.KML.StyleSelector.Attributes
         [InlineData("gx:labelVisibility", true, false, "<gx:labelVisibility>1</gx:labelVisibility>")]
         public void BooleanKML_CorrectlyConvertsToKML(string kmlTagName, bool value, bool def, string expected)
         {
-            var sut = new BooleanKML(kmlTagName) { Value = value, Default = def };
+            var sut = new BooleanKML(kmlTagName, value, def);
 
             var result = sut.SerialiseToKML();
 

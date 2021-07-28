@@ -8,10 +8,10 @@ namespace GoogleEarthConversions.Core.KML.Object
     {
         public IHref Href { get; set; }
         public IRefreshMode RefreshMode { get; set; }
-        public IDoubleKML RefreshInterval { get; set; }
+        public GenericKML<double> RefreshInterval { get; set; }
         public IViewRefreshMode ViewRefreshMode { get; set; }
-        public IDoubleKML ViewRefreshTime { get; set; }
-        public IDoubleKML ViewBoundScale { get; set; }
+        public GenericKML<double> ViewRefreshTime { get; set; }
+        public GenericKML<double> ViewBoundScale { get; set; }
         public IViewFormat ViewFormat { get; set; }
 
         public Link()
@@ -20,10 +20,10 @@ namespace GoogleEarthConversions.Core.KML.Object
             TargetId = string.Empty;
             Href = new Href(string.Empty);
             RefreshMode = new RefreshMode();
-            RefreshInterval = new DoubleKML(nameof(RefreshInterval).ConvertFirstCharacterToLowerCase());
+            RefreshInterval = new GenericKML<double>(nameof(RefreshInterval).ConvertFirstCharacterToLowerCase(), value: 0.0, def: 0.0);
             ViewRefreshMode = new ViewRefreshMode();
-            ViewRefreshTime = new DoubleKML(nameof(ViewRefreshTime).ConvertFirstCharacterToLowerCase());
-            ViewBoundScale = new DoubleKML(nameof(ViewBoundScale).ConvertFirstCharacterToLowerCase()) { Value = 1.0 };
+            ViewRefreshTime = new GenericKML<double>(nameof(ViewRefreshTime).ConvertFirstCharacterToLowerCase(), value: 0.0, def: 0.0);
+            ViewBoundScale = new GenericKML<double>(nameof(ViewBoundScale).ConvertFirstCharacterToLowerCase(), value: 1.0, def: 0.0);
             ViewFormat = new ViewFormat();
         }
 

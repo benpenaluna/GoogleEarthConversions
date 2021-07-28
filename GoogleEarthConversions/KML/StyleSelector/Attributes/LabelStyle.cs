@@ -5,7 +5,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
     public class LabelStyle : ColorStyle, ILabelStyle
     {
-        public IDoubleKML Scale { get; set; }
+        public GenericKML<double> Scale { get; set; }
 
         public LabelStyle()
         {
@@ -14,7 +14,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             Color = new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(255, 255, 255, 255), DefaultColor = System.Drawing.Color.FromArgb(255, 255, 255, 255) };
             ColorMode = new ColorMode(ColorModeEnum.Normal);
 
-            Scale = new DoubleKML(nameof(Scale).ConvertFirstCharacterToLowerCase()) { Value = 1.0, Default = 1.0 };
+            Scale = new GenericKML<double>(nameof(Scale).ConvertFirstCharacterToLowerCase(), value: 1.0, def: 1.0);
         }
 
         public override bool Equals(object obj)

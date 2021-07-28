@@ -8,7 +8,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         string TargetId { get; set; }
         IColor Color { get; set; }
         IColorMode ColorMode { get; set; }
-        IBooleanKML Fill { get; set; }
-        IBooleanKML Outline { get; set; }
+        GenericKML<bool> Fill { get; set; }
+        GenericKML<bool> Outline { get; set; }
     }
 }

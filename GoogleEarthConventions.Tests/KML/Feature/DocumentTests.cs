@@ -65,7 +65,7 @@ namespace GoogleEarthConventions.Tests.KML.Feature
             IIconStyle iconStyle = new IconStyle()
             {
                 Icon = new Icon(href),
-                Scale = new DoubleKML(nameof(scale)) { Value = scale },
+                Scale = new GenericKML<double>(nameof(scale), value: scale, def: 0.0),
                 HotSpot = new HotSpot() { X = 20, Y = 2, Xunits = UnitsEnum.Pixels, Yunits = UnitsEnum.Pixels }
             };
 

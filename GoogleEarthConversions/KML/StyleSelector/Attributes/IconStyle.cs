@@ -7,7 +7,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
     public class IconStyle : ColorStyle, IIconStyle
     {
-        public IDoubleKML Scale { get; set; }
+        public GenericKML<double> Scale { get; set; }
         public IAngleKML Heading { get; set; }
         public IIcon Icon { get; set; }
         public IHotSpot HotSpot { get; set; }
@@ -19,7 +19,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             Color = new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(255, 255, 255, 255), DefaultColor = System.Drawing.Color.FromArgb(255, 255, 255, 255) };
             ColorMode = new ColorMode(ColorModeEnum.Normal);
 
-            Scale = new DoubleKML(nameof(Scale).ConvertFirstCharacterToLowerCase()) { Value = 1.0, Default = 1.0 };
+            Scale = new GenericKML<double>(nameof(Scale).ConvertFirstCharacterToLowerCase(), value: 1.0, def: 1.0);
             Heading = new Heading();
             Icon = new Icon();
             HotSpot = new HotSpot();

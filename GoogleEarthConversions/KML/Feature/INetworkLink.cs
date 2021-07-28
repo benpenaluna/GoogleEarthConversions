@@ -24,8 +24,8 @@ namespace GoogleEarthConversions.Core.KML.Feature
         IRegion Region { get; set; }
         IExtendedData ExtendedData { get; set; }
 
-        IBooleanKML RefreshVisibility { get; set; }
-        IBooleanKML FlyToView { get; set; }
+        GenericKML<bool> RefreshVisibility { get; set; }
+        GenericKML<bool> FlyToView { get; set; }
         ILink Link { get; set; }
     }
 }

@@ -6,8 +6,8 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
 {
     public class PolyStyle : ColorStyle, IPolyStyle
     {
-        public IBooleanKML Fill { get; set; }
-        public IBooleanKML Outline { get; set; }
+        public GenericKML<bool> Fill { get; set; }
+        public GenericKML<bool> Outline { get; set; }
 
         public PolyStyle()
         {
@@ -16,8 +16,8 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             Color = new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(255, 255, 255, 255), DefaultColor = System.Drawing.Color.FromArgb(255, 255, 255, 255) };
             ColorMode = new ColorMode(ColorModeEnum.Normal);
 
-            Fill = new BooleanKML(nameof(Fill).ConvertFirstCharacterToLowerCase()) { Value = false, Default = false };
-            Outline = new BooleanKML(nameof(Outline).ConvertFirstCharacterToLowerCase()) { Value = false, Default = false };
+            Fill = new BooleanKML(nameof(Fill).ConvertFirstCharacterToLowerCase(), value: false, def: false);
+            Outline = new BooleanKML(nameof(Outline).ConvertFirstCharacterToLowerCase(), value: false, def: false);
         }
 
         public override bool Equals(object obj)

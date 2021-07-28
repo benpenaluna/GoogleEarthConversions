@@ -6,8 +6,8 @@ namespace GoogleEarthConversions.Core.KML.Feature
 {
     public class NetworkLink : Feature, INetworkLink
     {
-        public IBooleanKML RefreshVisibility { get; set; }
-        public IBooleanKML FlyToView { get; set; }
+        public GenericKML<bool> RefreshVisibility { get; set; }
+        public GenericKML<bool> FlyToView { get; set; }
         public ILink Link { get; set; }
 
         public NetworkLink(ILink link)
@@ -51,8 +51,8 @@ namespace GoogleEarthConversions.Core.KML.Feature
         {
             InitiailiseFeatureProperties();
 
-            RefreshVisibility = new BooleanKML(nameof(RefreshVisibility).ConvertFirstCharacterToLowerCase()) { Value = false, Default = false };
-            FlyToView = new BooleanKML(nameof(FlyToView).ConvertFirstCharacterToLowerCase()) { Value = false, Default = false };
+            RefreshVisibility = new BooleanKML(nameof(RefreshVisibility).ConvertFirstCharacterToLowerCase(), value: false, def: false);
+            FlyToView = new BooleanKML(nameof(FlyToView).ConvertFirstCharacterToLowerCase(), value: false, def: false);
 
             Link = link ?? new Link();
         }

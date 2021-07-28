@@ -8,10 +8,10 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         string TargetId { get; set; }
         IColor Color { get; set; }
         IColorMode ColorMode { get; set; }
-        IDoubleKML Width { get; set; }
+        GenericKML<double> Width { get; set; }
         IColor OuterColor { get; set; }
-        IDoubleKML OuterWidth { get; set; }
-        IDoubleKML PhysicalWidth { get; set; }
-        IBooleanKML LabelVisibility { get; set; }
+        GenericKML<double> OuterWidth { get; set; }
+        GenericKML<double> PhysicalWidth { get; set; }
+        GenericKML<bool> LabelVisibility { get; set; }
     }
 }
