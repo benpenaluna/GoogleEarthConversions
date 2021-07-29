@@ -6,6 +6,8 @@ namespace GoogleEarthConversions.Core.Common
 {
     public class GenericKML<T>
     {
+        private Func<GenericKML<T>, string> _serialiseToKML;
+
         public string KmlTagName { get; set; }
         public T Value { get; set; }
         public T Default { get; set; }
@@ -15,6 +17,11 @@ namespace GoogleEarthConversions.Core.Common
             KmlTagName = kmlTagName;
             Value = value;
             Default = def;
+        }
+
+        public void SetSerialiseToKMLFunction(Func<GenericKML<T>, string> func)
+        {
+            _serialiseToKML = func;
         }
 
         public override bool Equals(object obj)
@@ -46,6 +53,9 @@ namespace GoogleEarthConversions.Core.Common
 
         public virtual string SerialiseToKML()
         {
+            if (_serialiseToKML != null)
+                return _serialiseToKML(this);
+            
             if (Value.ToString() == Default.ToString())
                 return string.Empty;
 
