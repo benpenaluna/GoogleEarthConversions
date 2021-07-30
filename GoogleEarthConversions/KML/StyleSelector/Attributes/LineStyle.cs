@@ -1,4 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
+using System;
 using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
@@ -88,9 +89,9 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return sw.ToString();
         }
 
-        public override object DeserialiseFromKML()
+        public static LineStyle DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

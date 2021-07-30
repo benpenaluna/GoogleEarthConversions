@@ -88,7 +88,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
             return sw.ToString();
         }
 
-        public override object DeserialiseFromKML()
+        public static LookAt DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

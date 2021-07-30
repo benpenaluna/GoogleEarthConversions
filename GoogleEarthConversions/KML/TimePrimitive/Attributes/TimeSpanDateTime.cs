@@ -24,9 +24,9 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive.Attributes
                    Equals(Enabled, other.Enabled);
         }
 
-        public override int GetHashCode()
+        public static TimeSpanDateTime DeserialiseFromKML(string kml)
         {
-            return base.GetHashCode();
+            throw new NotImplementedException();
         }
     }
 }

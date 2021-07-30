@@ -58,7 +58,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
                                                    AltMode.ToString().ConvertFirstCharacterToLowerCase());
         }
 
-        public object DeserialiseFromKML()
+        public static AltitudeMode DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

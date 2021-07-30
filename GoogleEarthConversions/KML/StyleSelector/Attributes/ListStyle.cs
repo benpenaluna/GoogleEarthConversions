@@ -78,7 +78,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return sw.ToString();
         }
 
-        public object DeserialiseFromKML()
+        public static ListStyle DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

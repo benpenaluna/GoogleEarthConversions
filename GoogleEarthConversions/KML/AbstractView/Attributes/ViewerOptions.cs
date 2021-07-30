@@ -1,4 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
+using System;
 using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
@@ -71,9 +72,9 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return sw.ToString();
         }
 
-        public object DeserialiseFromKML()
+        public static ViewerOptions DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

@@ -81,7 +81,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return sw.ToString();
         }
 
-        public object DeserialiseFromKML()
+        public static ExtendedData DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

@@ -67,7 +67,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
             return sw.ToString();
         }
 
-        public override object DeserialiseFromKML()
+        public static TimeSpan DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

@@ -47,7 +47,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
                                                                                   Name);
         }
 
-        public object DeserialiseFromKML()
+        public static Author DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

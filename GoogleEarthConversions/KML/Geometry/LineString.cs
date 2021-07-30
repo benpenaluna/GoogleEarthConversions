@@ -99,7 +99,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return sw.ToString();
         }
 
-        public override object DeserialiseFromKML()
+        public static LineString DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

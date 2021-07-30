@@ -37,5 +37,10 @@ namespace GoogleEarthConversions.Core.KML
 
             return string.Format("<{0}{1}>{2}</{0}>", KmlTagName, maxLinesKMLString, Value.ToString());
         }
+
+        public static new LinkSnippet DeserialiseFromKML(string kml)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

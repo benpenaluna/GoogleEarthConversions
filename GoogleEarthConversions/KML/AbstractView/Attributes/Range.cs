@@ -20,7 +20,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return string.Format("<{0}>{1}</{0}>", nameof(Range).ConvertFirstCharacterToLowerCase(), ToMeters());
         }
 
-        public object DeserialiseFromKML()
+        public static Range DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

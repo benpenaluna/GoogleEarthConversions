@@ -17,7 +17,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return string.Format("<{0}>{1}</{0}>", nameof(Heading).ConvertFirstCharacterToLowerCase(), heading);
         }
 
-        public object DeserialiseFromKML()
+        public static Heading DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

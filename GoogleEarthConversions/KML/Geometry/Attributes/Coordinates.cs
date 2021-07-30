@@ -1,5 +1,6 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GoogleEarthConversions.Core.Common;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -68,9 +69,9 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             return coordinatesString;
         }
 
-        public object DeserialiseFromKML()
+        public static Coordinates DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public static string ConvertCoordinatesCollectionToKML(ICollection<ICoordinates> collection)

@@ -67,7 +67,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return sw.ToString();
         }
 
-        public object DeserialiseFromKML()
+        public static ItemIcon DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

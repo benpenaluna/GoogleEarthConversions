@@ -15,10 +15,5 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         {
             return string.Empty;
         }
-
-        public object DeserialiseFromKML()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

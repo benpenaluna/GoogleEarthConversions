@@ -46,7 +46,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
                                                    Mode.ToString().ConvertFirstCharacterToLowerCase());
         }
 
-        public object DeserialiseFromKML()
+        public static ColorMode DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

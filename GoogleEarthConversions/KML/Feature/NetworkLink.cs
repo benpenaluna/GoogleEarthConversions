@@ -94,7 +94,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             return string.Format("<{0}>{1}{2}{3}{4}</{0}>", nameof(NetworkLink), baseKML, refreshVisibilityKML, flyToViewKML, linkKML);
         }
 
-        public override object DeserialiseFromKML()
+        public static NetworkLink DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

@@ -1,6 +1,7 @@
 ﻿using GoogleEarthConversions.Core.Common;
 using GoogleEarthConversions.Core.Geographical;
 using GoogleEarthConversions.Core.KML.AbstractView.Attributes;
+using System;
 using System.IO;
 
 namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
@@ -95,9 +96,9 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return Heading.SerialiseToKML();
         }
 
-        public override object DeserialiseFromKML()
+        public static IconStyle DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

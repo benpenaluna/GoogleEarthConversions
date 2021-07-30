@@ -89,5 +89,10 @@ namespace GoogleEarthConversions.Core.KML
 
             return sw.ToString();
         }
+
+        public static Kml DeserialiseFromKML(string kml)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

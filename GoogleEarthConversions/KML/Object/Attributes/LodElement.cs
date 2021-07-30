@@ -48,7 +48,7 @@ namespace GoogleEarthConversions.Core.KML.Object.Attributes
             return string.Format("<{0}>{1}</{0}>", nameof(LodElement).ConvertFirstCharacterToLowerCase(), Value);
         }
 
-        public object DeserialiseFromKML()
+        public static LodElement DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

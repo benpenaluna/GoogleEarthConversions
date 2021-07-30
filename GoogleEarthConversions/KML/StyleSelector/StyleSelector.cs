@@ -4,6 +4,5 @@
     {
 
         public abstract string SerialiseToKML();
-        public abstract object DeserialiseFromKML();
     }
 }

@@ -56,7 +56,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return string.Format("<{0}>{1}</{0}>", nameof(State).ConvertFirstCharacterToLowerCase(), stateString);
         }
 
-        public object DeserialiseFromKML()
+        public static State DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

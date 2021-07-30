@@ -1,4 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -55,9 +56,9 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return string.Format("<{0}>{1}</{0}>", nameof(InnerBoundaryIs).ConvertFirstCharacterToLowerCase(), linearRingsKML.ToString());
         }
 
-        public object DeserialiseFromKML()
+        public static InnerBoundaryIs DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

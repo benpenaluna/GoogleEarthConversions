@@ -1,4 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
+using System;
 
 namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 {
@@ -43,9 +44,9 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return string.Format("<{0}>{1}</{0}>", nameof(PhoneNumber).ConvertFirstCharacterToLowerCase(), Number);
         }
 
-        public object DeserialiseFromKML()
+        public static PhoneNumber DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

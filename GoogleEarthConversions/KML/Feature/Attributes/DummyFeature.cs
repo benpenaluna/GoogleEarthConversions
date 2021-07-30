@@ -15,10 +15,5 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
         {
             return string.Empty;
         }
-
-        public override object DeserialiseFromKML()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

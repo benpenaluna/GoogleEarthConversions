@@ -22,7 +22,5 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
         }
 
         public abstract string SerialiseToKML();
-
-        public abstract object DeserialiseFromKML();
     }
 }

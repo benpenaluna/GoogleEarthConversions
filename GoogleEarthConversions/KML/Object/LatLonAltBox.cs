@@ -242,7 +242,7 @@ namespace GoogleEarthConversions.Core.KML.Object
             return sw.ToString();
         }
 
-        public object DeserialiseFromKML()
+        public static LatLonAltBox DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

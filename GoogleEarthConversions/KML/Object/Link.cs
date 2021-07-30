@@ -118,7 +118,7 @@ namespace GoogleEarthConversions.Core.KML.Object
             return ViewFormat.SerialiseToKML();
         }
 
-        public object DeserialiseFromKML()
+        public static Link DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

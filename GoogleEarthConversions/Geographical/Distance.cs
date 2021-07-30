@@ -65,7 +65,7 @@ namespace GoogleEarthConversions.Core.Geographical
             return _convertObjectToKML(this);
         }
 
-        public object DeserialiseFromKML()
+        public static Distance DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

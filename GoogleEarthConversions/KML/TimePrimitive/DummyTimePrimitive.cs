@@ -14,10 +14,5 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive
         {
             return string.Empty;
         }
-
-        public override object DeserialiseFromKML()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

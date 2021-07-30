@@ -72,7 +72,7 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
             return string.Format("<{0}>{1}</{0}>", nameof(Roll).ConvertFirstCharacterToLowerCase(), Angle.ToDegrees());
         }
 
-        public object DeserialiseFromKML()
+        public static Roll DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

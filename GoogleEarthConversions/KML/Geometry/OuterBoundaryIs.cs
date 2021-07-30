@@ -1,4 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
+using System;
 
 namespace GoogleEarthConversions.Core.KML.Geometry
 {
@@ -44,9 +45,9 @@ namespace GoogleEarthConversions.Core.KML.Geometry
                                                    LinearRing.SerialiseToKML());
         }
 
-        public object DeserialiseFromKML()
+        public static OuterBoundaryIs DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

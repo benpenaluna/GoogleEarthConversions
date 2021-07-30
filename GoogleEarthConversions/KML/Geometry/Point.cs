@@ -76,7 +76,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return sw.ToString();
         }
 
-        public override object DeserialiseFromKML()
+        public static Point DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

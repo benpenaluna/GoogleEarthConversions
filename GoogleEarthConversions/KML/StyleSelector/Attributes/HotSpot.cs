@@ -59,7 +59,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
                                  nameof(Yunits).ConvertFirstCharacterToLowerCase(), Yunits.ToString().ConvertFirstCharacterToLowerCase());
         }
 
-        public object DeserialiseFromKML()
+        public static HotSpot DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

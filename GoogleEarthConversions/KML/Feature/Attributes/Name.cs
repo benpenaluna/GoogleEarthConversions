@@ -1,4 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
+using System;
 
 namespace GoogleEarthConversions.Core.KML.Feature.Attributes
 {
@@ -44,9 +45,9 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return string.Format("<{0}>{1}</{0}>", nameof(Name).ConvertFirstCharacterToLowerCase(), Label);
         }
 
-        public object DeserialiseFromKML()
+        public static Name DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

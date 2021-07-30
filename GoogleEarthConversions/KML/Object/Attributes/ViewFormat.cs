@@ -56,7 +56,7 @@ namespace GoogleEarthConversions.Core.KML.Object.Attributes
             return string.Format("BBOX={0},{1},{2},{3}", bboxWest, bboxSouth, bboxEast, bboxNorth);
         }
 
-        public object DeserialiseFromKML()
+        public static ViewFormat DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

@@ -83,7 +83,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry
             return sw.ToString();
         }
 
-        public override object DeserialiseFromKML()
+        public static Polygon DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

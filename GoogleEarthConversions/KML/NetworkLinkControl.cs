@@ -114,5 +114,10 @@ namespace GoogleEarthConversions.Core.KML
             return swBody.ToString() == string.Empty ? string.Empty
                                                      : string.Format("<{0}>{1}</{0}>", nameof(NetworkLinkControl), swBody.ToString());
         }
+
+        public static NetworkLinkControl DeserialiseFromKML(string kml)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

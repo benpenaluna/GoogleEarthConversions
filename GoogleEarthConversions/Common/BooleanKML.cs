@@ -41,7 +41,7 @@ namespace GoogleEarthConversions.Core.Common
             return string.Format("<{0}>{1}</{0}>", KmlTagName, Value == true ? "1" : "0");
         }
 
-        public object DeserialiseFromKML()
+        public static new BooleanKML DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

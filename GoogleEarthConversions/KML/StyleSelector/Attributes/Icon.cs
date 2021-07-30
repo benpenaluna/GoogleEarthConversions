@@ -50,7 +50,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             return string.Format("<{0}><{1}>{2}</{1}></{0}>", nameof(Icon), nameof(Href).ConvertFirstCharacterToLowerCase(), Href);
         }
 
-        public object DeserialiseFromKML()
+        public static Icon DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

@@ -1,6 +1,7 @@
 ﻿using GeoFunctions.Core.Coordinates;
 using GeoFunctions.Core.Coordinates.Measurement;
 using GoogleEarthConversions.Core.Common;
+using System;
 
 namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
@@ -53,9 +54,9 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
                                  AltOffset.ToMeters());
         }
 
-        public object DeserialiseFromKML()
+        public static AltitudeOffset DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

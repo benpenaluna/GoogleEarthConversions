@@ -47,7 +47,7 @@ namespace GoogleEarthConversions.Core.KML.Feature.Attributes
             return string.Format("<{0} maxLines=\"{1}\">{2}</{0}>", nameof(Snippet), MaxLines, ShortDescription);
         }
 
-        public object DeserialiseFromKML()
+        public static Snippet DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

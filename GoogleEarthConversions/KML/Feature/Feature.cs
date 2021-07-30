@@ -127,7 +127,5 @@ namespace GoogleEarthConversions.Core.KML.Feature
         }
 
         public abstract string SerialiseToKML();
-
-        public abstract object DeserialiseFromKML();
     }
 }

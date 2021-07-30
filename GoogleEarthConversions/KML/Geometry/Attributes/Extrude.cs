@@ -61,7 +61,7 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
             return string.Format("<{0}>1</{0}>", nameof(Extrude).ConvertFirstCharacterToLowerCase());
         }
 
-        public object DeserialiseFromKML()
+        public static Extrude DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

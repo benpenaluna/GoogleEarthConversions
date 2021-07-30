@@ -50,7 +50,7 @@ namespace GoogleEarthConversions.Core.KML.TimePrimitive.Attributes
             return string.Format("<{0}>{1}{2}</{0}>", nameof(When).ConvertFirstCharacterToLowerCase(), dateTimeString, timeZoneString);
         }
 
-        public object DeserialiseFromKML()
+        public static When DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

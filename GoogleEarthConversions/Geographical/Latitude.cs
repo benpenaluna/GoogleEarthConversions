@@ -68,7 +68,7 @@ namespace GoogleEarthConversions.Core.Geographical
             return string.Format("<{0}>{1}</{0}>", nameof(Latitude).ConvertFirstCharacterToLowerCase(), Angle.ToDegrees());
         }
 
-        public object DeserialiseFromKML()
+        public static Latitude DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

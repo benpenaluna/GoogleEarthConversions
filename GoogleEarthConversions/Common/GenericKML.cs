@@ -61,5 +61,10 @@ namespace GoogleEarthConversions.Core.Common
 
             return string.Format("<{0}>{1}</{0}>", KmlTagName, Value.ToString());
         }
+
+        public static GenericKML<T> DeserialiseFromKML(string kml)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -47,12 +47,12 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
         public string SerialiseToKML()
         {
             return string.Format("<{0}><{1}>{2}</{1}>{3}</{0}>", nameof(Pair),
-                                                                            "key",
-                                                                            ModeUrlMap.Key.ToString().ConvertFirstCharacterToLowerCase(),
-                                                                            ModeUrlMap.Value.SerialiseToKML());
+                                                                 "key",
+                                                                 ModeUrlMap.Key.ToString().ConvertFirstCharacterToLowerCase(),
+                                                                 ModeUrlMap.Value.SerialiseToKML());
         }
 
-        public object DeserialiseFromKML()
+        public static Pair DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
 ﻿using GoogleEarthConversions.Core.Common;
+using System;
 
 namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
 {
@@ -46,9 +47,9 @@ namespace GoogleEarthConversions.Core.KML.Geometry.Attributes
                                  OrderValue);
         }
 
-        public object DeserialiseFromKML()
+        public static DrawOrder DeserialiseFromKML(string kml)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

@@ -58,7 +58,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             return string.Format("<{0}>{1}{2}</{0}>", nameof(Placemark), baseKML, geometryKML);
         }
 
-        public override object DeserialiseFromKML()
+        public static Placemark DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

@@ -59,7 +59,7 @@ namespace GoogleEarthConversions.Core.KML.Feature
             return stylesKML.ToString();
         }
 
-        public override object DeserialiseFromKML()
+        public static Document DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
         }

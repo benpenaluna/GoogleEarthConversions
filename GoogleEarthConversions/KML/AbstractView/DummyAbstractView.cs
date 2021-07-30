@@ -13,10 +13,5 @@ namespace GoogleEarthConversions.Core.KML.AbstractView
         {
             return string.Empty;
         }
-
-        public override object DeserialiseFromKML()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
