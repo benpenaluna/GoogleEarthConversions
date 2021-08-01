@@ -23,7 +23,7 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             OuterColor = new Color("gx:" + nameof(OuterColor).ConvertFirstCharacterToLowerCase()) { Value = System.Drawing.Color.White, DefaultColor = System.Drawing.Color.White };
             OuterWidth = new GenericKML<double>("gx:" + nameof(OuterWidth).ConvertFirstCharacterToLowerCase(), value: 0.0, def: 0.0);
             PhysicalWidth = new GenericKML<double>("gx:" + nameof(PhysicalWidth).ConvertFirstCharacterToLowerCase(), value: 0.0, def: 0.0);
-            LabelVisibility = new BooleanKML("gx:" + nameof(LabelVisibility).ConvertFirstCharacterToLowerCase(), value: false, def: false);
+            LabelVisibility = new GenericKML<bool>("gx:" + nameof(LabelVisibility).ConvertFirstCharacterToLowerCase(), value: false, def: false);
         }
 
         public override bool Equals(object obj)

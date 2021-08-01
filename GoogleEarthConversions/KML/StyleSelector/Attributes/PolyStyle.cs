@@ -16,8 +16,8 @@ namespace GoogleEarthConversions.Core.KML.StyleSelector.Attributes
             Color = new Color(string.Empty) { Value = System.Drawing.Color.FromArgb(255, 255, 255, 255), DefaultColor = System.Drawing.Color.FromArgb(255, 255, 255, 255) };
             ColorMode = new ColorMode(ColorModeEnum.Normal);
 
-            Fill = new BooleanKML(nameof(Fill).ConvertFirstCharacterToLowerCase(), value: false, def: false);
-            Outline = new BooleanKML(nameof(Outline).ConvertFirstCharacterToLowerCase(), value: false, def: false);
+            Fill = new GenericKML<bool>(nameof(Fill).ConvertFirstCharacterToLowerCase(), value: false, def: false);
+            Outline = new GenericKML<bool>(nameof(Outline).ConvertFirstCharacterToLowerCase(), value: false, def: false);
         }
 
         public override bool Equals(object obj)

@@ -59,12 +59,34 @@ namespace GoogleEarthConversions.Core.Common
             if (Value.ToString() == Default.ToString())
                 return string.Empty;
 
-            return string.Format("<{0}>{1}</{0}>", KmlTagName, Value.ToString());
+            string value = Value.ToString();
+            if (typeof(T) == typeof(bool))
+                value = value == "True" ? "1" : "0"; 
+
+            return string.Format("<{0}>{1}</{0}>", KmlTagName, value);
         }
 
         public static GenericKML<T> DeserialiseFromKML(string kml)
         {
             throw new NotImplementedException();
+
+            //throw new NotImplementedException();
+
+
+            //MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(kml));
+            //var doc = new XmlDocument();
+            //doc.Load(memStream);
+            //memStream.Close();
+
+
+
+            ////XmlNodeList altitudeElemList = XmlOperations.RetrieveElements(kml, kmlTagName);
+
+
+            //XmlNodeList altitudeElemList = doc.GetElementsByTagName(kmlTagName);
+
+
+            //return new BooleanKML(kmlTagName, value: false, def: false);
         }
     }
 }

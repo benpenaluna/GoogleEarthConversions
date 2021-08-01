@@ -51,8 +51,8 @@ namespace GoogleEarthConversions.Core.KML.Feature
         {
             InitiailiseFeatureProperties();
 
-            RefreshVisibility = new BooleanKML(nameof(RefreshVisibility).ConvertFirstCharacterToLowerCase(), value: false, def: false);
-            FlyToView = new BooleanKML(nameof(FlyToView).ConvertFirstCharacterToLowerCase(), value: false, def: false);
+            RefreshVisibility = new GenericKML<bool>(nameof(RefreshVisibility).ConvertFirstCharacterToLowerCase(), value: false, def: false);
+            FlyToView = new GenericKML<bool>(nameof(FlyToView).ConvertFirstCharacterToLowerCase(), value: false, def: false);
 
             Link = link ?? new Link();
         }
