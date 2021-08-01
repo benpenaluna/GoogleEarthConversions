@@ -55,15 +55,22 @@ namespace GoogleEarthConversions.Core.Common
         {
             if (_serialiseToKML != null)
                 return _serialiseToKML(this);
-            
+
             if (Value.ToString() == Default.ToString())
                 return string.Empty;
 
-            string value = Value.ToString();
-            if (typeof(T) == typeof(bool))
-                value = value == "True" ? "1" : "0"; 
-
+            var value = DetermineValueString();
             return string.Format("<{0}>{1}</{0}>", KmlTagName, value);
+        }
+
+        private string DetermineValueString()
+        {
+            string value = Value.ToString();
+            
+            if (typeof(T) == typeof(bool))
+                value = value == "True" ? "1" : "0";
+            
+            return value;
         }
 
         public static GenericKML<T> DeserialiseFromKML(string kml)
