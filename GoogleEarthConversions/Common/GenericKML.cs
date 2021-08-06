@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
+using System.IO;
 using System.Text;
+using System.Xml;
 
 namespace GoogleEarthConversions.Core.Common
 {
@@ -73,27 +77,31 @@ namespace GoogleEarthConversions.Core.Common
             return value;
         }
 
-        public static GenericKML<T> DeserialiseFromKML(string kml)
+        public static GenericKML<T> DeserialiseFromKML(string kml, T def)
         {
-            throw new NotImplementedException();
+            var kmlElements = XmlOperations.RetrieveXmlElements(kml);
 
-            //throw new NotImplementedException();
+            string innerValue;
+            kmlElements.ChildElements.TryGetValue(kmlElements.ElementName, out innerValue);
 
+            T value = DetermineKmlValue(innerValue);
+            return new GenericKML<T>(kmlElements.ElementName, value: value, def: def);
+        }
 
-            //MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(kml));
-            //var doc = new XmlDocument();
-            //doc.Load(memStream);
-            //memStream.Close();
+        private static T DetermineKmlValue(string innerValue)
+        {
+            T value;
+            if (typeof(T) == typeof(bool) && (innerValue == "0" || innerValue == "1"))
+            {
+                var newInnerValue = innerValue == "0" ? "false" : "true";
+                value = Conversions.TryParse<T>(newInnerValue);
+            }
+            else
+            {
+                value = Conversions.TryParse<T>(innerValue);
+            }
 
-
-
-            ////XmlNodeList altitudeElemList = XmlOperations.RetrieveElements(kml, kmlTagName);
-
-
-            //XmlNodeList altitudeElemList = doc.GetElementsByTagName(kmlTagName);
-
-
-            //return new BooleanKML(kmlTagName, value: false, def: false);
+            return value;
         }
     }
 }

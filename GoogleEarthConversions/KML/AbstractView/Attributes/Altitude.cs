@@ -53,14 +53,9 @@ namespace GoogleEarthConversions.Core.KML.AbstractView.Attributes
 
         public static Altitude DeserialiseFromKML(string kml)
         {
-            MemoryStream memStream = new MemoryStream(Encoding.UTF8.GetBytes(kml));
-            var doc = new XmlDocument();
-            doc.Load(memStream);
-            memStream.Close();
+            XmlNodeList altitudeElemList = XmlOperations.RetrieveElements(kml, nameof(Altitude).ConvertFirstCharacterToLowerCase());
 
-            XmlNodeList elemList = doc.GetElementsByTagName(nameof(Altitude).ConvertFirstCharacterToLowerCase());
-
-            if (elemList.Count != 1 || !Double.TryParse(elemList[0].InnerXml, out double altitude))
+            if (altitudeElemList.Count != 1 || !Double.TryParse(altitudeElemList[0].InnerXml, out double altitude))
                 throw new XmlException(string.Format("The received KML string is an invalid {0} KML string.", nameof(Altitude).ConvertFirstCharacterToLowerCase()));
 
             return new Altitude(altitude, DistanceMeasurement.Meters);
