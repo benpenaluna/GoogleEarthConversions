@@ -84,24 +84,8 @@ namespace GoogleEarthConversions.Core.Common
             string innerValue;
             kmlElements.ChildElements.TryGetValue(kmlElements.ElementName, out innerValue);
 
-            T value = DetermineKmlValue(innerValue);
+            T value = Conversions.TryParse<T>(innerValue);
             return new GenericKML<T>(kmlElements.ElementName, value: value, def: def);
-        }
-
-        private static T DetermineKmlValue(string innerValue)
-        {
-            T value;
-            if (typeof(T) == typeof(bool) && (innerValue == "0" || innerValue == "1"))
-            {
-                var newInnerValue = innerValue == "0" ? "false" : "true";
-                value = Conversions.TryParse<T>(newInnerValue);
-            }
-            else
-            {
-                value = Conversions.TryParse<T>(innerValue);
-            }
-
-            return value;
         }
     }
 }
